@@ -79,7 +79,3 @@ NVIM_APPNAME=blacksheepcosmo/dotfiles/.config/nvim nvim
 + clangd
 + html
 + lua_ls
-<<<<<<< HEAD
-
-=======
->>>>>>> 344c760f5577b48c305365a853d225d0ed5a904b
