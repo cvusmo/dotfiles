@@ -1,0 +1,65 @@
+* {
+  border: none;
+  font-family: 'Hurmit Nerd Font';
+  font-size: 12px; 
+  min-height: 15px;
+  color: #6ee6f4
+}
+
+window#waybar {
+  background: transparent;
+}
+
+#custom-power, #custom-arch, #workspaces {
+  border-radius: 10px;
+  background-color: #11111b;
+  color: #cdd6f4;
+  margin-top: 5px;
+  margin-left: 5px;
+  padding-top: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#custom-power {
+  color: #f34f4f;
+  background-color: #11111b;
+}
+
+#custom-arch {
+  font-size: 15px;
+  color: #cdd6f4;
+  background-color: #11111b;
+}
+
+#workspaces button {
+  background: #11111b;
+  color: #cdd6f4;
+}
+
+#clock, #backlight, #custom-cava, #pulseaudio, #bluetooth, #network, #battery {
+  border-radius: 10px;
+  background-color: #11111b;
+  color: #cdd6f4;
+  margin-top: 5px;
+  margin-right: 5px;
+  padding-top: 3px;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+#custom-cava {
+  background-color: #11111b;
+  color: #cdd6f4
+}
+
+#battery.charging,
+#battery.plugged {
+  background-color: #11111b;
+  color: #cdd6f4;
+}
+
+#clock {
+  margin-right: 0;
+}
+

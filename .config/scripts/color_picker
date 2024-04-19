@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# script to pick color quickly
+
+hyprpicker -a
+
+# get value
+color=$(wl-paste)
+
+image=/tmp/${color}.png
+
+if [[ "$color" ]]; then
+  #preview
+  convert -size 48x48 xc:"$color" "$image"
+  notify-send -i "$image" "$color" "Copied to clipboard"
+fi

@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+
+hyprctl monitors -j | jq -r '.[] select(.focused == true) | .name'
