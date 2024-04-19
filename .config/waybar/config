@@ -23,6 +23,7 @@
       }
     },
     "custom/cava": {
+      "format": "{icon}",
       "autosens": 1,
       "bar_delimiter": 0,
       "bars": 8,
@@ -46,10 +47,8 @@
       "source": "auto",
       "stereo": true,
       "waves": false,
-      "on-click": "mode toggle cava",
-      "on-click-right": "qpwgraph",
-      "on-click-middle": "easyeffects"
-    },
+      "on-click": "alacritty -e cava",
+      },
   "clock": {
       "format": "{:%H:%M}  ",
       "format-alt": "{:%A, %B %d, %Y (%R)}  ",

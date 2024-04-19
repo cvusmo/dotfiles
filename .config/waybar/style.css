@@ -37,7 +37,7 @@ window#waybar {
   color: #cdd6f4;
 }
 
-#clock, #backlight, #custom-cava, #pulseaudio, #bluetooth, #network, #battery {
+#clock, #backlight, #pulseaudio, #bluetooth, #network, #battery {
   border-radius: 10px;
   background-color: #11111b;
   color: #cdd6f4;
@@ -50,7 +50,14 @@ window#waybar {
 
 #custom-cava {
   background-color: #11111b;
-  color: #cdd6f4
+  color: #cdd6f4;
+  border-radius: 10px;
+  margin-top: 5px;
+  margin-right: 5px;
+  margin-left: 5px;
+  padding-top: 3px;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 #battery.charging,
