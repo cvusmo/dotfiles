@@ -11,7 +11,7 @@ return {
             require("mason-lspconfig").setup({
                 ensure_installed = {
                     "lua_ls",
-                    "clangd", 
+                    "clangd",
                     "cmake",
                 }
             })
@@ -19,13 +19,37 @@ return {
     },
     {
         "neovim/nvim-lspconfig",
-        config = function() 
+        config = function()
             local lspconfig = require('lspconfig')
-            lspconfig.lua_ls.setup({})
+
+            -- Configure lua_ls
+            lspconfig.lua_ls.setup({
+                settings = {
+                    Lua = {
+                        runtime = { 
+                            version = 'LuaJIT',
+                            path = vim.split(package.path, ';'),
+                        },
+                        diagnostics = {
+                            globals = {'vim'},
+                        },
+                        workspace = {
+                            library = vim.api.nvim_get_runtime_file("", true), 
+                        },
+                        telemetry = {
+                            enable = false,
+                        },
+                    },
+                },
+            })
+
+            -- Configure clangd
             lspconfig.clangd.setup({
-                cmd = { "clangd", 
+                cmd = { "clangd",
                 "--compile-commands-dir=/home/echo/GameDev/UnrealEngine/build" }
             })
+
+            -- Configure cmake
             lspconfig.cmake.setup({})
 
             -- lspconfig keymaps
@@ -36,4 +60,5 @@ return {
         end
     },
 }
+
 
