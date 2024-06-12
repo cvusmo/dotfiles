@@ -1,5 +1,4 @@
 -- required plugins
 return {
-
 }
 

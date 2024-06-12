@@ -8,11 +8,12 @@ return
     },
     config = function()
       require("dapui").setup({
-            library =
+            libary =
           {
             plugins = { "nvim-dap-ui" },
             types = true
           },
       })
   end,
-} 
+}
+  

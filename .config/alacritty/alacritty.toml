@@ -1,16 +1,21 @@
 # alacritty toml
 live_config_reload = true
 
+[shell]
+program = "/bin/fish"
+
 [window]
-padding = { x = 10, y = 10 }
+padding = { x = 4, y = 4 }
 dynamic_padding = true
-decorations = "Transparent"
+decorations = "Full"
 opacity = 0.92
 blur = true
 startup_mode = "Windowed"
-title = "blackbeard"
-decorations_theme_variant = "Dark"
-dynamic_title = false
+title = "blackbeard os"
+dynamic_title = true
+
+[scrolling]
+history = 5000
 
 [font]
 size = 9
@@ -18,38 +23,33 @@ normal.family = "Hurmit Nerd Font"
 bold.family = "Hurmit Nerd Font"
 italic.family = "Hurmit Nerd Font"
 
-[[colors.indexed_colors]]
-color = "0xffbd5e"
-index = 16
-
-[[colors.indexed_colors]]
-color = "0xff6e5e"
-index = 17
-
-[colors.bright]
-black = "0x3c4048"
-blue = "0x5ea1ff"
-cyan = "0x5ef1ff"
-green = "0x5eff6c"
-magenta = "0xbd5eff"
-red = "0xff6e5e"
-white = "0xffffff"
-yellow = "0xf1ff5e"
-
-[colors.normal]
-black = "0x16181a"
-blue = "0x6ea1ff"
-cyan = "0x5ef1ff"
-green = "0x6eff6c"
-magenta = "0xbd5eff"
-red = "0xff6e5e"
-white = "0xffffff"
-yellow = "0xf1ff5e"
-
+# Colors (Everforest Dark)
+## Default colors
 [colors.primary]
-background = "0x16181a"
-foreground = "0xffffff"
+background = '#2d353b'
+foreground = '#d3c6aa'
 
-[colors.selection]
-background = "0x3c4048"
-foreground = "0xffffff"
+## Normal colors
+[colors.normal]
+black   = '#475258'
+red     = '#e67e80'
+green   = '#a7c080'
+yellow  = '#dbbc7f'
+blue    = '#7fbbb3'
+magenta = '#d699b6'
+cyan    = '#83c092'
+white   = '#d3c6aa'
+
+## Bright colors
+[colors.bright]
+black   = '#475258'
+red     = '#e67e80'
+green   = '#a7c080'
+yellow  = '#dbbc7f'
+blue    = '#7fbbb3'
+magenta = '#d699b6'
+cyan    = '#83c092'
+white   = '#d3c6aa'
+
+[mouse]
+hide_when_typing = true
