@@ -1,125 +1,114 @@
 {
   "layer": "top",
+    "height": 10,
     "modules-left": ["custom/arch", "hyprland/workspaces"],
-    "modules-center": ["clock", "custom/music"],
-    "modules-right": ["backlight", "custom/cava", "pulseaudio", "network", "battery", "custom/power", "custom/notifications"],
-    "custom/power": {
-      "format": " 󰐦 ",
-      "tooltip": "logs you out",
-      "layer_shell": true,
-      "on-click": "alacritty -e wlogout",
-    },
+    "modules-center": ["custom/playerctl", "clock"],
+    "modules-right": ["backlight","pulseaudio", "battery", "custom/diskusage"],
     "custom/arch": {
       "format": "  ",
-      "tooltip": false,
-      "layer_shell": true,
-      "on-click": "/home/$USER/.config/wofi/scripts/wofi-waybarbutton.sh"
+      "on-click": "sh /home/echo/.config/hypr/scripts/exec_wofi application_launcher"
+    },
+    "custom/cava_test": {
+        "format": "{}",
+        "exec": "~/.config/waybar/scripts/sound/expand cava-icon"
     },
     "hyprland/workspaces": {
       "format": "{icon}",
-      "tooltip": false,
-      "layer_shell": true,
+      "on-click": "activate",
       "all-outputs": true,
-      "format-icons": {
-        "active": "",
-        "default": ""
-      }
-    }, 
-    "custom/notifications": {
-      "tooltip": false,
-      "layer_shell": true,
-      "format": "{} {icon}",
-      "format-icons": {
-        "notification": "<span foreground='red'><sup></sup></span>",
-        "none": "",
-        "dnd-notification": "<span foreground='red'><sup></sup></span>",
-        "dnd-none": "",
-        "inhibited-notification": "<span foreground='red'><sup></sup></span>",
-        "inhibited-none": "",
-        "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
-        "dnd-inhibited-none": "",
-      },
-      "return-type": "json",
-      "exec-if": "which swaync-client",
-      "exec": "swaync-client -swb",
-      "on-click": "sleep 0.1 && swaync-client -t -sw",
-      "on-click-right": "swaync-client -d -sw",
-      "escape": true,
+      "persistent_workspaces" :{
+          "1": [],
+	 		    "2": [],
+	 		    "3": [],
+	 		    "4": [], 
+        },
+        "format-icons": {
+                "1": "1",
+             		"2": "2",
+             		"3": "3",
+             		"4": "4",	
+          }
     },
     "clock": {
-      "layer_shell": true,
-      "format": "{:%H:%M}  ",
-      "format-alt": "{:%A, %B %d, %Y (%R)}  ",
-      "tooltip-format": "<tt><small>{calendar}</small></tt>",
-      "calendar": {
-        "mode"          : "year",
-        "mode-mon-col"  : 3,
-        "weeks-pos"     : "right",
-        "on-scroll"     : 1,
-        "format": {
-          "months":     "<span color='#ffead3'><b>{}</b></span>",
-          "days":       "<span color='#ecc6d9'><b>{}</b></span>",
-          "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
-          "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
-          "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"                    
-      }
+      "format": "<span color='#b69bf1'> </span>{:%H:%M}",
+  "format-alt": "<span foreground='#b69bf1'> </span><span>{:%I:%M %p %a %d}</span>",
+      "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
     },
-    "actions":  {
-      "on-click": "mode",
-      "on-click-forward": "tz_up",
-      "on-click-backward": "tz_down",
-      "on-scroll-up": "shift_up",
-      "on-scroll-down": "shift_down"
-      }
-    },
-    "custom/music": {
-      "layer_shell": true,
-      "format": "{icon} {}",
-      "return-type": "json",
-      "max-length": 100,
-      "format-icons": {
-        "spotify": " ",
-        "default": " ",
+    "custom/cava": {
+      "format": "<span color='#f7768e'></span> {volume}%",
+      "exec": "sh ~/.config/polybar/scripts/cava.sh" ,
+      "label": "%output%"
       },
-      "escape": true,
-      "exec": "$HOME/.config/waybar/scripts/mediaplayer.py 2> /dev/null",
-      "on-click": "playerctl --player=spotify play-pause",
-      "on-scroll-up": "playerctl --player=spotify next",
-      "on-scroll-down": "playerctl --player=spotify previous",
-    },
     "backlight": {
-      "device": "intel_backlight",
-      "format": "<span color='#b4befe'>{icon}</span> {percent}%",
-      "format-icons": ["", "", "", "", "", "", "", "", ""],
-      "scroll-step": 1,
+      "device": "amdgpu_b10",
+      "format": "<span color='#d9b172'>{icon}</span> {percent}%",
+      "format-icons": ["", "", "", "", "", "", "", "", ""]
     },
-    "pulseaudio": {
-      "layer_shell": true,
-      "format": "<span color='#b4befe'>{icon}</span> {volume}%",
-      "format-muted": "  ",
-      "tooltip": false,
-      "format-icons": {
-        "headphone": "",
-        "default": ["", "", "󰕾", "󰕾", "󰕾", "", "", ""]
-      },
-      "scroll-step": 2,
-      "on-click": "pulsemixer",
+    "custom/sound": {
+      "format": "<span color='#5d7'> </span>{}",
+      "exec": "custom-alsa.sh",
     },
     "network": {
-      "layer_shell": true,
-      "interface": "wlan0",
+      "interface": "wlo1",
       "format": "{ifname}",
-      "format-wifi": "<span color='#b4befe'> </span>{essid}",
+      "format-wifi": "<span color='#90cdfa'> </span>{essid}({signalStrength}%)",
       "format-ethernet": "{ipaddr}/{cidr} ",
-      "format-disconnected": "<span color='#b4befe'>󰖪 </span>No Network",
-      "tooltip": false,
-      "on-click": "alacritty -e nmtui",
+      "format-disconnected": "<span color='#ff005f'>󰖪 </span>No Network",
+      "on-click": "kitty nmtui"
     },
     "battery": {
-      "layer_shell": true,
-      "format": "<span color='#b4befe'>{icon}</span> {capacity}%",
-      "format-icons": [" ", " ", "  ", " "],
-      "tooltip": false,
+      "format": "<span color='#a8cd76'>{icon}</span> {capacity}%",
+      //"format-alt": "{time} {icon}",
+      "format-icons": ["", "", "", "", "", "", "", "", "", "", ""],
+      "format-charging": "<span color='#a8cd76'></span> {capacity}%"
     },
+    "pulseaudio": {
+      "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+      "format": "<span color='#f7768e'></span> {volume}%",
+      "format-muted": "<span color='#f7768e'>ﱝ</span>",
+      "format-icons": {
+       "headphone": "",
+       "hands-free": "",
+       "headset": "",
+       "phone": "",
+       "portable": "",
+       "car": "",
+       "default": ["奔", "墳"]
+    },
+    "on-click-right" : "pavucontrol"
+    },
+    "memory": {
+    "format": "<span foreground='#9ece6a'></span> {}%",
+    "on-click": "alacritty btop"
+    },
+    "tray": {
+    "icon-size": 20,
+    "reverse-direction": true,
+    "spacing": 6
+    },
+    "cpu": {
+    "format": "<span foreground='#ff005f'></span>  {usage}%"
+     },
+     "temperature": {
+    "critical-threshold": 80,
+    "format": "<span foreground='#5d73ca'></span> {temperatureC}°C"
+     },
+    "custom/playerctl": {
+     "format": "{icon}  <span>{}</span>",
+     "return-type": "json",
+     "max-length": 55,
+     "exec": "playerctl -a metadata --format '{\"text\": \"  {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+     "on-click-middle": "playerctl previous",
+     "on-click": "playerctl play-pause",
+     "on-click-right": "playerctl next",
+     "format-icons": {
+       "Paused": "<span foreground='#bb9af7'></span>",
+       "Playing": "<span foreground='#bb9af7'></span>"
+     }
+  },
+  "custom/diskusage": {
+    "exec": "/$HOME/.config/waybar/scripts/diskusage.sh",
+    "interval": 600,
+    "layer_shell": true
+  },
 }
-
