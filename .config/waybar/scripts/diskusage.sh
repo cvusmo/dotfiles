@@ -3,4 +3,4 @@
 # Get disk usage
 diskusage=$(df -h / | awk 'NR==2{print $4}')
 
-echo "{\"text\": \"$diskusage\"}"
+echo "$diskusage"

@@ -45,7 +45,7 @@ window#waybar {
   color: #d3c6aa;
 }
 
-#clock, #backlight, #pulseaudio, #bluetooth, #network, #battery {
+#clock, #backlight, #pulseaudio, #bluetooth, #network, #battery, #custom-diskusage {
   border-radius: 10px;
   background-color: #2b3339;
   color: #d3c6aa;
