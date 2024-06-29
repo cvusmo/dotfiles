@@ -59,7 +59,7 @@
     "battery": {
       "format": "<span color='#a8cd76'>{icon}</span> {capacity}%",
       //"format-alt": "{time} {icon}",
-      "format-icons": ["", "", "", "", "", "", "", "", "", "", ""],
+       "format-icons": [" ", " ", "  ", " "],
       "format-charging": "<span color='#a8cd76'></span> {capacity}%"
     },
     "pulseaudio": {
