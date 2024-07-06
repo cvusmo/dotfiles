@@ -10,10 +10,8 @@ blackbeard hyprland dotfiles
 ## Install Instructions
 
  > Dependencies
+ These dependencies are everything I currently use on my 2011 Macbook Pro. Some of these you may or may not need. I will update this on the next merge to be specific to the dotfiles. Note that B43-firmware is specific for the wifi card I have. 
  ```
- Welcome to fish, the friendly interactive shell
-Type help for instructions on how to use fish
-echo@blackbeard ~> pacman -Qqe
 acpi
 alacritty
 arch-audit
