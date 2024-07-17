@@ -10,7 +10,7 @@ window#waybar {
   background: transparent;
 }
 
-#custom-arch, #workspaces {
+#custom-arch, #workspaces, #workspaces-1, #workspaces-2, #workspaces-3 {
   border-radius: 10px;
   background-color: #2b3339; /* Using variable */
   color: #2b3339; /* Using variable */
@@ -40,7 +40,7 @@ window#waybar {
   color: #d3c6aa;
 }
 
-#workspaces button {
+#workspaces button, #workspaces-1 button, #workspaces-2 button, #workspaces-3 button {
   background: #2b3339;
   color: #d3c6aa;
 }
