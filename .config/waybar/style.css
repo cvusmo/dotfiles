@@ -1,8 +1,8 @@
 * {
   border: none;
   font-family: 'Hurmit Nerd Font';
-  font-size: 12px;
-  min-height: 15px;
+  font-size: 18px;
+  min-height: 30px;
   color: #d3c6aa; /* Using variable from colors.conf */
 }
 

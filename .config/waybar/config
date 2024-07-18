@@ -6,7 +6,7 @@
   "modules-right": ["backlight", "pulseaudio", "battery", "custom/diskusage"],
   "custom/arch": {
     "format": "  ",
-    "on-click": "sh /home/echo/.config/hypr/scripts/exec_wofi application_launcher"
+    "on-click": "sh /home/echo/.config/wofi/scripts/wofi-waybarbutton.sh"
   },
   "workspaces#1": {
     "format": "{icon}",

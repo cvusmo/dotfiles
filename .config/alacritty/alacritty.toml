@@ -1,4 +1,3 @@
-# alacritty toml
 live_config_reload = true
 
 [shell]
@@ -18,38 +17,48 @@ dynamic_title = true
 history = 5000
 
 [font]
-size = 9
+size = 14
 normal.family = "Hurmit Nerd Font"
 bold.family = "Hurmit Nerd Font"
 italic.family = "Hurmit Nerd Font"
 
-# Colors (Everforest Dark)
+# Colors
 ## Default colors
 [colors.primary]
-background = '#2d353b'
-foreground = '#d3c6aa'
+background = '#2B2D42'
+foreground = '#5AF78E'  # Green
+
+## Cursor colors
+[colors.cursor]
+text = '#2B2D42'
+cursor = '#5AF78E'  # Green
+
+## Selection colors
+[colors.selection]
+text = '#2B2D42'
+background = '#DFFAF8'
 
 ## Normal colors
 [colors.normal]
-black   = '#475258'
-red     = '#e67e80'
-green   = '#a7c080'
-yellow  = '#dbbc7f'
-blue    = '#7fbbb3'
-magenta = '#d699b6'
-cyan    = '#83c092'
-white   = '#d3c6aa'
+black   = '#4B0082'
+red     = '#483D8B'
+green   = '#6A5ACD'
+yellow  = '#7B68EE'
+blue    = '#9370DB'
+magenta = '#8A2BE2'
+cyan    = '#7F00FF'
+white   = '#D8BFD8'
 
 ## Bright colors
 [colors.bright]
-black   = '#475258'
-red     = '#e67e80'
-green   = '#a7c080'
-yellow  = '#dbbc7f'
-blue    = '#7fbbb3'
-magenta = '#d699b6'
-cyan    = '#83c092'
-white   = '#d3c6aa'
+black   = '#9400D3'
+red     = '#8A2BE2'
+green   = '#7B68EE'
+yellow  = '#6A5ACD'
+blue    = '#483D8B'
+magenta = '#4B0082'
+cyan    = '#7F00FF'
+white   = '#D8BFD8'
 
 [mouse]
 hide_when_typing = true
