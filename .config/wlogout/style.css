@@ -1,65 +1,50 @@
+* {
+	background-image: none;
+	box-shadow: none;
+}
+
 window {
-    font-family: monospace;
-    font-size: 14pt;
-    color: #cdd6f4; /* text */
-    background-color: rgba(30, 30, 46, 0.5);
+	background-color: rgba(12, 12, 12, 0.9);
 }
 
 button {
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 25%;
-    border: none;
-    background-color: rgba(30, 30, 46, 0);
-    margin: 5px;
-    transition: box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    border-radius: 1x;
+    border-color: black;
+	text-decoration-color: #FFFFFF;
+    color: #FFFFFF;
+	background-color: #A1CFF0;
+	border-style: solid;
+	border-width: 1px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 25%;
 }
 
-button:hover {
-    background-color: rgba(49, 50, 68, 0.1);
+button:focus, button:active, button:hover {
+	background-color: #6DA896;
+	outline-style: none;
 }
-
-button:focus {
-    background-color: #cba6f7;
-    color: #1e1e2e;
-}
-
 
 #lock {
-    background-image: url("./lock.png");
-}
-#lock:focus {
-    background-image: url("./lock-hover.png");
+    background-image: image(url("~/.config/wlogout/icons/lock.png"), url("~/.config/wlogout/icons/lock.png"));
 }
 
 #logout {
-    background-image: " Logout" ;
+    background-image: image(url("~/.config/wlogout/icons/logout.png"), url("~/.config/wlogout/icons/logout.png"));
 }
 
 #suspend {
-    background-image: url("./sleep.png");
+    background-image: image(url("~/.config/wlogout/icons/suspend.png"), url("~/.config/wlogout/icons/suspend.png"));
 }
-/* suspend:focus {
-    background-image: url("./sleep-hover.png");
-}*/
-
-#shutdown {
-    background-image: " Shutdown";
-}
-/* shutdown:focus {
-    background-image: url("./power-hover.png");
-}*/
-
-#reboot {
-    background-image: " Reboot";
-}
-/*reboot:focus {
-    background-image: url("./restart-hover.png");
-}*/
 
 #hibernate {
-    background-image: url("./hibernate.png");
+    background-image: image(url("~/.config/wlogout/icons/hibernate.png"), url("~/.config/wlogout/icons/hibernate.png"));
 }
-/*hibernate:focus {
-    background-image: url("./hibernate-hover.png");
-}*/
+
+#shutdown {
+    background-image: image(url("~/.config/wlogout/icons/shutdown.png"), url("~/.config/wlogout/icons/shutdown.png"));
+}
+
+#reboot {
+    background-image: image(url("~/.config/wlogout/icons/reboot.png"), url("~/.config/wlogout/icons/reboot.png"));
+}
