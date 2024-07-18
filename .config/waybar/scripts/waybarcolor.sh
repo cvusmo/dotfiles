@@ -1,7 +1,8 @@
 #!/bin/bash
 
-# Source the color definitions
-source ~/.config/blackbeard/blackbeard-color.conf
+# Source the color definitions from blackbeard-color.conf
+# source ~/.config/blackbeard/blackbeard-color.conf
+source ~/.config/waybar/themes/config/color.conf
 
 # Define the output file for Waybar's style.css
 output_css="$HOME/.config/waybar/style.css"
@@ -13,17 +14,17 @@ cat > "$output_css" <<EOF
   font-family: 'Hurmit Nerd Font';
   font-size: 18px;
   min-height: 30px;
-  color: $COLOR_FONT_LIGHT; /* Using variable from colors.conf */
+  color: $color_font_light; /* Using variable from blackbeard-color.conf */
 }
 
 window#waybar {
   background: transparent;
 }
 
-#custom-power, #custom-arch, #workspaces-1, #workspaces-2, #workspaces-3 {
+#custom-arch, #workspaces, #workspaces-1, #workspaces-2, #workspaces-3 {
   border-radius: 10px;
-  background-color: $COLOR_BG; /* Using variable */
-  color: $COLOR_BG; /* Using variable */
+  background-color: $color_bg; /* Using variable */
+  color: $color_bg; /* Using variable */
   margin-top: 5px;
   margin-left: 5px;
   padding-top: 5px;
@@ -33,8 +34,9 @@ window#waybar {
 }
 
 #custom-power {
-  background-color: $COLOR_BG;
-  color: $COLOR_10; /* Highlight color for power */
+  border-radius: 10px;
+  background-color: $color_bg;
+  color: $color_10; /* Highlight color for power */
   margin-top: 5px;
   margin-right: 5px;
   padding-top: 3px;
@@ -44,20 +46,20 @@ window#waybar {
 }
 
 #custom-arch {
-  font-size: 18px;
-  background-color: $COLOR_BG;
-  color: $COLOR_FONT_LIGHT;
+  font-size: 15px;
+  background-color: $color_bg;
+  color: $color_font_light;
 }
 
 #workspaces button, #workspaces-1 button, #workspaces-2 button, #workspaces-3 button {
-  background: $COLOR_BG;
-  color: $COLOR_FONT_LIGHT;
+  background: $color_bg;
+  color: $color_font_light;
 }
 
 #clock, #custom-playerctl, #backlight, #pulseaudio, #bluetooth, #network, #battery, #custom-diskusage {
   border-radius: 10px;
-  background-color: $COLOR_BG;
-  color: $COLOR_FONT_LIGHT;
+  background-color: $color_bg;
+  color: $color_font_light;
   margin-top: 5px;
   margin-right: 5px;
   padding-top: 3px;
@@ -68,22 +70,9 @@ window#waybar {
 
 #custom-notifications {
   border-radius: 5px;
-  background-color: $COLOR_BG;
-  color: $COLOR_FONT_LIGHT;
+  background-color: $color_bg;
+  color: $color_font_light;
   padding-right: 5px;
-  opacity: 0.93;
-}
-
-#custom-cava {
-  background-color: $COLOR_BG;
-  color: $COLOR_FONT_LIGHT;
-  border-radius: 10px;
-  margin-top: 5px;
-  margin-right: 5px;
-  margin-left: 5px;
-  padding-top: 3px;
-  padding-left: 50px;
-  padding-right: 50px;
 }
 
 #clock {
@@ -91,7 +80,7 @@ window#waybar {
 }
 
 #custom-music {
-  background: $COLOR_BG;
+  background: $color_bg;
   background: linear-gradient(
     52deg,
     rgba(139, 213, 202, 1) 0%,
@@ -104,11 +93,10 @@ window#waybar {
   animation: gradient 15s ease infinite;
   text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.377);
   font-weight: bold;
-  color: $COLOR_FONT_LIGHT;
+  color: $color_font_light;
   transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
   border: none;
 }
 EOF
 
 echo "Waybar style.css generated with custom colors."
-
