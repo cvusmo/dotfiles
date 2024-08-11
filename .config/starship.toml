@@ -1,26 +1,5 @@
-# Customize the prompt
-[prompt]
-format = "[$username]($style) in [$directory]($style) $ "
 # No newline before the prompt
 add_newline = false
-# List of modules to display in the prompt
-order = [
-  "line_break",
-  "username",
-  "hostname",
-  "directory",
-  "git_branch",
-  "git_commit",
-  "git_state",
-  "git_status",
-  "cmd_duration",
-  "line_break",
-  "jobs",
-  "battery",
-  "character"
-]
-# Enable transient prompt
-transient_prompt = true
 
 # Line break module configuration
 [line_break]
@@ -28,8 +7,10 @@ disabled = false
 
 # Character module configuration
 [character]
-success_symbol = "[➜](bold green)"
-error_symbol = "[➜](bold red)"
+success_symbol = '[  ](bold green)'
+error_symbol = '[✘](bold red)'
+vimcmd_symbol = '[ 󰰒](bold green)' 
+vimcmd_visual_symbol = '[  ](bold green)'
 
 # Command duration module configuration
 [cmd_duration]
@@ -38,16 +19,38 @@ show_milliseconds = true
 
 # Directory module configuration
 [directory]
+truncation_length = 3
+truncation_symbol = '󰇘 '
 truncate_to_repo = true
+format = '[$path]($style)[$read_only]($read_only_style) '
+read_only = '🔒'
+read_only_style = 'red'
+home_symbol = '󰟐 '
 
 # Username module configuration
 [username]
-disabled = true
+style_user = 'white bold'
+style_root = 'white bold'
+format = '[$user]($style) '
+disabled = false
+show_always = true
 
 # Hostname module configuration
 [hostname]
-disabled = true
+ssh_only = true
+ssh_symbol = '󰣀'
+format = '[$ssh_symbol](bold blue) on [$hostname](bold red) '
+disabled = false
 
-# Battery module configuration
-[battery]
-disabled = true
+# Git branch module configuration
+[git_branch]
+symbol = " "  
+truncation_length = 64
+truncation_symbol = '…'
+only_attached = false
+
+[memory_usage]
+disabled = false
+threshold = -1
+symbol = '󰍛 '
+style = 'bold dimmed lightred'
