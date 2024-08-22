@@ -10,10 +10,10 @@ window#waybar {
   background: transparent;
 }
 
-#custom-arch, #wlr-workspaces {
+#custom-arch, #workspaces, #workspaces-1, #workspaces-2, #workspaces-3 {
   border-radius: 10px;
   background-color: #2B2D42; /* Using variable */
-  color: #FFFFFF; /* Using variable */
+  color: #2B2D42; /* Using variable */
   margin-top: 5px;
   margin-left: 5px;
   padding-top: 5px;
@@ -34,42 +34,18 @@ window#waybar {
   opacity: 0.93;
 }
 
-#taskbar {
-font-size: 4px;
-margin-top: 6px;
-margin-bottom: 0px;
-padding-left: 10px;
-padding-right: 10px;
-border-radius: 10px;
-background: #161320;
-transition: none;
-}
-
-#taskbar button {
-transition: none;
-padding:6;
-color: #B5E8E0;
-background: transparent;
-font-size: 16px;
-border-radius: 2px;
-}
-
-#taskbar button.active {
-    color: #B5E8E0 /*rgb(217, 135, 250);*/
-}
-
 #custom-arch {
   font-size: 15px;
   background-color: #2B2D42;
   color: #FFFFFF;
 }
 
-#wlr-workspaces button {
+#workspaces button, #workspaces-1 button, #workspaces-2 button, #workspaces-3 button {
   background: #2B2D42;
   color: #FFFFFF;
 }
 
-#clock, #custom-playerctl, #pulseaudio, #bluetooth, #network, #custom-diskusage {
+#clock, #custom-playerctl, #backlight, #pulseaudio, #bluetooth, #network, #battery, #custom-diskusage {
   border-radius: 10px;
   background-color: #2B2D42;
   color: #FFFFFF;
