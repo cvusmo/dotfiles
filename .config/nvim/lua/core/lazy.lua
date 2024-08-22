@@ -13,10 +13,5 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- Load custom colorscheme
-<<<<<<< HEAD
 require("plugins.blackbeard").setup()
-=======
-require('plugins.blackbeard').setup()
-
->>>>>>> 8478983c6c93a24b380063109ceb1e453679d03c
 require("lazy").setup("plugins")

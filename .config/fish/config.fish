@@ -1,21 +1,12 @@
 if status is-interactive
-<<<<<<< HEAD
 
     # Custom Fish prompt
     set fish_greeting "" 
-=======
-<<<<<<< Updated upstream
-    # Custom Fish prompt
-=======
-    # set user path
-    set fish_greeting ""
->>>>>>> 8478983c6c93a24b380063109ceb1e453679d03c
     echo "hoist the black flag"
     
     set -Ux fish_user_paths $fish_user_paths $HOME/.local/bin
     set -Ux EDITOR nvim
     set -Ux VISUAL nvim
-<<<<<<< HEAD
     set -g fish_autosuggestion_enabled 1
 
     # Start SSH agent
@@ -26,14 +17,11 @@ if status is-interactive
     end
 
     # ssh-add ~/.ssh/cvusmo
-=======
->>>>>>> 8478983c6c93a24b380063109ceb1e453679d03c
 
     fish_vi_key_bindings
 
     starship init fish | source
 
-<<<<<<< HEAD
     function fish_prompt
         set_color green
         # echo -n (whoami) '@' (prompt_hostname) ' '
@@ -79,16 +67,3 @@ if status is-interactive
     end
    
   end
-=======
->>>>>>> Stashed changes
-    function fish_prompt
-        set_color green
-        echo -n (whoami) '@' (hostname) ' '
-        set_color normal
-        echo -n (prompt_pwd)
-        echo -n ' > '
-        set_color normal
-    end
-    set -Ux fish_user_paths $fish_user_paths $HOME/.local/bin
-end
->>>>>>> 8478983c6c93a24b380063109ceb1e453679d03c

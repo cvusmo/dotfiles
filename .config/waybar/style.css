@@ -1,18 +1,17 @@
 * {
   border: none;
   font-family: 'Hurmit Nerd Font';
-  font-size: 18px;
-  min-height: 30px;
+  font-size: 20px;
+  min-height: 40px;
   color: #FFFFFF; /* Using variable from blackbeard-color.conf */
 }
 
-window#waybar {
+#waybar {
   background: transparent;
 }
 
-#custom-arch, #wlr-workspaces {
-  border-radius: 10px;
-  background-color: #2B2D42; /* Using variable */
+#custom-arch, #hyprland-workspaces {
+  border-radius: 10px; 
   color: #FFFFFF; /* Using variable */
   margin-top: 5px;
   margin-left: 5px;
@@ -59,13 +58,13 @@ border-radius: 2px;
 }
 
 #custom-arch {
-  font-size: 15px;
-  background-color: #2B2D42;
+  font-size: 35px;
   color: #FFFFFF;
 }
 
-#wlr-workspaces button {
-  background: #2B2D42;
+#hyprland-workspaces button.active {
+  font-size: 20px;
+  background-color: #2B2D42;
   color: #FFFFFF;
 }
 
