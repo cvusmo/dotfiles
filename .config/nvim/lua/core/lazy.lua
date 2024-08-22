@@ -12,4 +12,6 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- Load custom colorscheme
+require("plugins.blackbeard").setup()
 require("lazy").setup("plugins")
