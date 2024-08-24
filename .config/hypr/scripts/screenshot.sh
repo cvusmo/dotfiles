@@ -8,7 +8,7 @@ DTG=$(date +"%d%b%Y%H%M")
 echo "DTG: $DTG"
 
 echo "Saving png"
-FILENAME=~/pictures/screenshot_$DTG.png
+FILENAME=~/Pictures/screenshot_$DTG.png
 grim "$FILENAME"
 echo "Saved as $FILENAME"
 

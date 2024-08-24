@@ -1,0 +1,43 @@
+{
+    "label" : "lock",
+<<<<<<< HEAD
+    "action" : "swaylock",
+=======
+    "action" : "hyprlock",
+>>>>>>> 55861c8 (updating dev branch for push to master branch. current version 0.1.0-alpha-100)
+    "text" : "Lock",
+    "keybind" : "l"
+}
+{
+    "label" : "reboot",
+    "action" : "systemctl reboot",
+    "text" : "Reboot",
+    "keybind" : "r"
+}
+{
+    "label" : "shutdown",
+    "action" : "systemctl poweroff",
+    "text" : "Shutdown",
+    "keybind" : "s"
+}
+{
+    "label" : "logout",
+    "action" : "hyprctl dispatch exit 0",
+    "text" : "Logout",
+    "keybind" : "e"
+}
+{
+    "label" : "suspend",
+    "action" : "systemctl suspend",
+    "text" : "Suspend",
+    "keybind" : "u"
+}
+<<<<<<< HEAD
+=======
+{
+  "label" : "hibernate",
+  "action" : "hypridle",
+  "text" : "Hibernate",
+  "keybind" : "h"
+}
+>>>>>>> 55861c8 (updating dev branch for push to master branch. current version 0.1.0-alpha-100)
