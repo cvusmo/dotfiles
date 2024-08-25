@@ -1,11 +1,7 @@
 [
     {
         "label": "lock",
-<<<<<<< HEAD
-        "action": "~/.config/hypr/scripts/lock.sh",
-=======
         "action": "hyprlock",
->>>>>>> 55861c8 (updating dev branch for push to master branch. current version 0.1.0-alpha-100)
         "text": "Lock",
         "keybind": "l"
     },
