@@ -1,5 +1,6 @@
-![screenshot](https://github.com/user-attachments/assets/2e0656cf-2c9c-4dfb-a2d0-839c7d52be80)
-# blackbeard hyprland dotfiles
+![blackbeard-001](https://github.com/user-attachments/assets/1feed16f-6d69-4073-9076-3dfccd54a7c6)
+
+# blackbeard hyprland dotfiles!
 
 # dotfiles
 
