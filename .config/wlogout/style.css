@@ -1,0 +1,82 @@
+window {
+    font-family: Hurmit Nerd Font;
+    font-size: 14pt;
+    color: #58F87E;
+    /* background-image: image(url("./background.png")); 
+    background-size: cover;
+    background-position: center; */
+    background-color: #1A1B28;
+    box-shadow: none;
+    text-shadow: none;
+    opacity: 0.93;
+}
+
+button:hover {
+    background-color: #1A1B28;
+    opacity: 0.3; 
+    text-shadow: none;
+}
+
+button {
+    background-color: rgba(49, 50, 68, 0.1);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 25%;
+    border: none;
+    margin: 5px;
+    transition: box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    text-shadow: none;
+    opacity: 1;
+}
+
+button:focus {
+    background-color: #2B2D42;
+    color: #1e1e2e;
+    text-shadow: none;
+    opacity: 0.4;
+}
+
+#lock {
+    background-image: image(url("./lock.png"));
+    color: #FFFFFF;
+}
+#lock:focus {
+    background-image: image(url("./lock-hover.png"));
+    color: #58F87E;
+}
+
+#logout {
+    background-image: image(url("./logout.png"));
+    color: #FFFFFF;
+}
+#logout:focus {
+    background-image: image(url("./logout-hover.png"));
+  color: #58F87E;
+}
+
+#suspend {
+    background-image: image(url("./sleep.png"));
+  color: #FFFFFF;
+}
+#suspend:focus {
+    background-image: image(url("./sleep-hover.png"));
+  color: #58F87E;
+}
+
+#shutdown {
+    background-image: image(url("./power.png"));
+  color: #FFFFFF;
+}
+#shutdown:focus {
+    background-image: image(url("./power-hover.png"));
+  color: #58F87E;
+}
+
+#reboot {
+    background-image: image(url("./restart.png"));
+  color: #FFFFFF;
+}
+#reboot:focus {
+    background-image: image(url("./restart-hover.png"));
+  color: #58F87E;
+}

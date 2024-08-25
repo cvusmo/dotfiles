@@ -1,6 +1,6 @@
 return {
     "rmagatti/auto-session",
-    lazy = false,
+    lazy = true,
     keys = {
         {
             "<leader>fS",

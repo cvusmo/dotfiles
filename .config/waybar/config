@@ -1,111 +1,79 @@
 {
   "layer": "top",
-    "modules-left": ["custom/power", "custom/arch", "hyprland/workspaces"],
-    "modules-center": ["clock"],
-    "modules-right": ["backlight", "custom/cava", "pulseaudio", "network", "battery"],
-    "custom/power": {
-      "format": " 󰐦 ",
-      "tooltip": "logs you out",
-      "on-click": "alacritty -e wlogout",
-    },
-    "custom/arch": {
-      "format": "  ",
-      "tooltip": false,
-      "on-click": "/home/echo/.config/wofi/wofi-command-script"
-    },
-    "hyprland/workspaces": {
-      "format": "{icon}",
-      "tooltip": false,
-      "all-outputs": true,
-      "format-icons": {
-        "active": "",
-        "default": ""
+  "height": 15,
+  "modules-left": ["custom/arch", "hyprland/workspaces"],
+  "modules-center": ["custom/playerctl", "clock", "wlr/taskbar"],
+  "modules-right": ["pulseaudio", "network", "custom/diskusage"],
+  "custom/arch": {
+    "format": "  ",
+    "on-click": "sh /home/echo/.config/wofi/scripts/toggle-waybar.sh"
+  },
+  "hyprland/workspaces": {
+    "format": "{icon} {name}",
+    "on-click": "activate",
+    "all-outputs": false,
+    "persistent_workspaces": {
+      "1": ["DP-5"], 
+      "2": ["DP-5"],
+      "3": ["DP-5"],
+      "4": ["DP-5"],
+      "5": ["DP-3"],
+      "6": ["DP-3"],
+      "7": ["DP-3"],
+      "8": ["DP-3"],
+      "9": ["DP-4"],
+      "10": ["DP-4"],
       }
-    },
-    "custom/cava": {
-      "autosens": 1,
-      "bar_delimiter": 0,
-      "bars": 8,
-      "format-icons": [
-        "<span foreground='#cba6f7'>▁</span>",
-        "<span foreground='#cba6f7'>▂</span>",
-        "<span foreground='#cba6f7'>▃</span>",
-        "<span foreground='#cba6f7'>▄</span>",
-        "<span foreground='#89b4fa'>▅</span>",
-        "<span foreground='#89b4fa'>▆</span>",
-        "<span foreground='#89b4fa'>▇</span>",
-        "<span foreground='#89b4fa'>█</span>"
-      ],
-      "framerate": 60,
-      "higher_cutoff_freq": 10000,
-      "input_delay": 5,
-      "lower_cutoff_freq": 50,
-      "method": "pipewire",
-      "monstercat": false,
-      "reverse": false,
-      "source": "auto",
-      "stereo": true,
-      "waves": false,
-      "on-click": "mode toggle cava",
-      "on-click-right": "qpwgraph",
-      "on-click-middle": "easyeffects"
-    },
+  },
   "clock": {
-      "format": "{:%H:%M}  ",
-      "format-alt": "{:%A, %B %d, %Y (%R)}  ",
-      "tooltip-format": "<tt><small>{calendar}</small></tt>",
-      "calendar": {
-        "mode"          : "year",
-        "mode-mon-col"  : 3,
-        "weeks-pos"     : "right",
-        "on-scroll"     : 1,
-        "format": {
-          "months":     "<span color='#ffead3'><b>{}</b></span>",
-          "days":       "<span color='#ecc6d9'><b>{}</b></span>",
-          "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
-          "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
-          "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"                    
-      }
+    "format": "<span color='#b69bf1'> </span>{:%H:%M}",
+    "format-alt": "<span foreground='#b69bf1'> </span><span>{:%I:%M %p %a %d}</span>",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+  },
+  "custom/playerctl": {
+    "format": "{icon} <span>{}</span>",
+    "return-type": "json",
+    "max-length": 55,
+    "exec": "playerctl -a metadata --format '{\"text\": \" {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+    "on-click-middle": "playerctl previous",
+    "on-click": "playerctl play-pause",
+    "on-click-right": "playerctl next",
+    "format-icons": {
+      "Paused": "<span foreground='#bb9af7'></span>",
+      "Playing": "<span foreground='#bb9af7'></span>"
+    }
+  },
+  "wlr/taskbar": {
+        "icon-size": 18,
+        "on-click": "activate",
+        "on-click-right": "minimize",
+        "format": "{icon}"
     },
-    "actions":  {
-      "on-click": "mode",
-      "on-click-forward": "tz_up",
-      "on-click-backward": "tz_down",
-      "on-scroll-up": "shift_up",
-      "on-scroll-down": "shift_down"
-      }
-    },    
-    "backlight": {
-      "device": "intel_backlight",
-      "format": "<span color='#b4befe'>{icon}</span> {percent}%",
-      "format-icons": ["", "", "", "", "", "", "", "", ""],
-      "scroll-step": 10,
+  "pulseaudio": {
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "format": "<span color='#f7768e'></span> {volume}%",
+    "format-muted": "<span color='#f7768e'>ﱝ</span>",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["奔", "墳"]
     },
-    "pulseaudio": {
-      "format": "<span color='#b4befe'>{icon}</span> {volume}%",
-      "format-muted": "  ",
-      "tooltip": false,
-      "format-icons": {
-        "headphone": "",
-        "default": ["", "", "󰕾", "󰕾", "󰕾", "", "", ""]
-      },
-      "scroll-step": 2,
-      "on-click": "pulsemixer",
-    },
+    "on-click-right": "pavucontrol"
+  },
     "network": {
-      "interface": "wlan0",
-      "format": "{ifname}",
-      "format-wifi": "<span color='#b4befe'> </span>{essid}",
-      "format-ethernet": "{ipaddr}/{cidr} ",
-      "format-disconnected": "<span color='#b4befe'>󰖪 </span>No Network",
-      "tooltip": false,
-      "on-click": "alacritty -e nmtui",
+      "interval": 2,
+      "format-wifi": "<span foreground='#928374'></span> {essid}",
+      "format-ethernet": "<span foreground='#928374'></span> {ifname}",
+      "format-linked": "<span foreground='#928374'></span> {ifname}",
+      "format-disconnected": " <span foreground='#928374'></span> ",
+      "tooltip-format": "{ifname}: {ipaddr}/{cidr}\n {bandwidthDownBits}\n {bandwidthUpBits}"
     },
-    "battery": {
-      "format": "<span color='#b4befe'>{icon}</span> {capacity}%",
-      "format-icons": [" ", " ", "  ", ""],
-      "format-charging": "<span color='#b4befe'></span> {capacity}%",
-      "tooltip": false,
-    },
+  "custom/diskusage": {
+    "exec": "/home/echo/.config/waybar/scripts/diskusage.sh",
+    "interval": 600
+  },
 }
-

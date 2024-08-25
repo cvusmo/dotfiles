@@ -1,0 +1,108 @@
+{
+  "layer": "top",
+  "height": 15,
+  "modules-left": ["custom/arch", "hyprland/workspaces"],
+  "modules-center": ["custom/playerctl", "clock", "wlr/taskbar"],
+  "modules-right": ["battery", "pulseaudio", "network", "custom/diskusage"],
+  "custom/arch": {
+    "format": "  ",
+    "on-click": "sh /home/echo/.config/wofi/scripts/toggle-waybar.sh"
+  },
+  "hyprland/workspaces": {
+    "format": "{icon} {name}",
+    "on-click": "activate",
+    "all-outputs": false,
+    "persistent_workspaces": {
+      "1": ["LVDS-1"], 
+      "2": ["LVDS-1"],
+      "3": ["LVDS-1"],
+      "4": ["LVDS-1"]
+      }
+  },
+  "clock": {
+    "format": "<span color='#b69bf1'> </span>{:%H:%M}",
+    "format-alt": "<span foreground='#b69bf1'> </span><span>{:%I:%M %p %a %d}</span>",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+  },
+  "custom/playerctl": {
+    "format": "{icon} <span>{}</span>",
+    "return-type": "json",
+    "max-length": 55,
+    "exec": "playerctl -a metadata --format '{\"text\": \" {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+    "on-click-middle": "playerctl previous",
+    "on-click": "playerctl play-pause",
+    "on-click-right": "playerctl next",
+    "format-icons": {
+      "Paused": "<span foreground='#bb9af7'></span>",
+      "Playing": "<span foreground='#bb9af7'></span>"
+    }
+  },
+  "wlr/taskbar": {
+        "icon-size": 18,
+        "on-click": "activate",
+        "on-click-right": "minimize",
+        "format": "{icon}"
+    },
+  "pulseaudio": {
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "format": "<span color='#f7768e'></span> {volume}%",
+    "format-muted": "<span color='#f7768e'>ﱝ</span>",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["奔", "墳"]
+    },
+    "on-click-right": "pavucontrol"
+  },
+    "network": {
+      "interval": 2,
+      "format-wifi": "<span foreground='#928374'></span> {essid}",
+      "format-ethernet": "<span foreground='#928374'></span> {ifname}",
+      "format-linked": "<span foreground='#928374'></span> {ifname}",
+      "format-disconnected": " <span foreground='#928374'></span> ",
+      "tooltip-format": "{ifname}: {ipaddr}/{cidr}\n {bandwidthDownBits}\n {bandwidthUpBits}"
+    },
+     "battery": {
+        "format": "{capacity}% {icon}",
+        "format-icons": {
+            "charging": [
+                "󰢜",
+                "󰂆",
+                "󰂇",
+                "󰂈",
+                "󰢝",
+                "󰂉",
+                "󰢞",
+                "󰂊",
+                "󰂋",
+                "󰂅"
+            ],
+            "default": [
+                "󰁺",
+                "󰁻",
+                "󰁼",
+                "󰁽",
+                "󰁾",
+                "󰁿",
+                "󰂀",
+                "󰂁",
+                "󰂂",
+                "󰁹"
+            ]
+        },
+        "format-full": "Charged ",
+        "interval": 5,
+        "states": {
+            "warning": 20,
+            "critical": 10
+        },
+      },
+  "custom/diskusage": {
+    "exec": "/home/echo/.config/waybar/scripts/diskusage.sh",
+    "interval": 600
+  },
+}

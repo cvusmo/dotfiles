@@ -1,3 +1,6 @@
-require("core.autocmds")
-require("core.keymaps")
-require("core.lazy")
+return { 
+  require("core.autocmds");
+  require("core.keymaps");
+  require("core.lazy");
+}
+

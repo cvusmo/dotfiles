@@ -1,0 +1,18 @@
+#!/usr/bin/bash
+
+# Launch wlogout
+wlogout &
+
+# Wait for wlogout to launch
+sleep 0.5
+
+# Move wlogout window (example positions: X=100, Y=100)
+X=100
+Y=200
+
+# For X11 using wmctrl
+# wmctrl -r "wlogout" -e 0,100,100,-1,-1
+
+# For Wayland using swaymsg (if using sway or Hyprland)
+swaymsg "[title='wlogout'] move position 100 100"
+

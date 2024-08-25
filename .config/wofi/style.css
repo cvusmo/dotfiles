@@ -1,20 +1,36 @@
 /* Wofi container background */
 window {
-    background-color: #333333; /* Change this to your waybar background color */
-    color: #ffffff;            /* Change this to your waybar text color */
-    border: 1px solid #23b555; /* Optional: if you have borders in waybar */
-    opacity: 0.9; /* Opacity
+    background-color: #11111b; /* Change this to match your waybar background color */
+    color: #cdd6f4;            /* Change this to match your waybar text color */
+    border-radius: 10px;       /* Rounded corners */
+    width: 400px;
+    height: 200px;
+    padding: 20px;
+    border: none;
 }
 
-/* Wofi entries: */
+/* Wofi entries */
 entry {
-    background-color: #222222; /* Slightly darker background for each entry */
-    color: #a2a3a2;            /* Text color inside entries */
+    background-color: #11111b; /* Background color for each entry */
+    color: #cdd6f4;            /* Text color inside entries */
 }
 
 /* Hover and active states for entries */
-entry:selected, entry:active {
-    background-color: #555555; /* Highlight color when an entry is selected */
-    color: #000000;            /* Text color for selected entries */
+entry:selected,
+entry:active {
+    background-color: #222222; /* Highlight color when an entry is selected */
+    color: #ffffff;            /* Text color for selected entries */
 }
 
+/* Clock specific styling */
+mainbox {
+    padding: 0;
+    spacing: 0;
+    align: center;
+}
+
+textbox {
+    text-align: center;
+    font-size: 48px;
+    font-family: monospace;
+}
