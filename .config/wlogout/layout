@@ -30,7 +30,5 @@
 }
 {
   "label" : "hibernate",
-  "action" : "hypridle",
-  "text" : "Hibernate",
-  "keybind" : "h"
+  "text" : "Hibernate"
 }

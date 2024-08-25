@@ -2,15 +2,18 @@ window {
     font-family: Hurmit Nerd Font;
     font-size: 14pt;
     color: #58F87E;
-    background-image: image(url("./background.png"));
+    /* background-image: image(url("./background.png")); 
+    background-size: cover;
+    background-position: center; */
+    background-color: #1A1B28;
     box-shadow: none;
     text-shadow: none;
     opacity: 0.93;
 }
 
 button:hover {
-    background-color: #1e1e2e;
-    opacity: 0.5; 
+    background-color: #1A1B28;
+    opacity: 0.3; 
     text-shadow: none;
 }
 
@@ -30,12 +33,12 @@ button:focus {
     background-color: #2B2D42;
     color: #1e1e2e;
     text-shadow: none;
-    opacity: 1;
+    opacity: 0.4;
 }
 
 #lock {
     background-image: image(url("./lock.png"));
-  color: #FFFFFF;
+    color: #FFFFFF;
 }
 #lock:focus {
     background-image: image(url("./lock-hover.png"));
@@ -75,14 +78,5 @@ button:focus {
 }
 #reboot:focus {
     background-image: image(url("./restart-hover.png"));
-  color: #58F87E;
-}
-
-#hibernate {
-  background-image: image(url("./sleep.png"));
-  color: #FFFFFF;
-}
-#hibernate:focus {
-  background-image: image(url(".sleep-hover.png"));
   color: #58F87E;
 }
