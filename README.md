@@ -9,6 +9,7 @@ blackbeard hyprland dotfiles
 
 ## Install Instructions
 
+=======
 >Dependencies 
 
 >>From pacman:
@@ -35,18 +36,21 @@ materia-theme-git (This Hyprland config uses Materia-dark)
 hyprpicker    
 hyprland-git
 ```
-
  > Install requires Neovim 0.9+. Always review the code before installing a configuration.
 
 Clone the repository and install the plugins:
 
 ```sh
+git clone git@github.com:blacksheepcosmo/dotfiles ~/.config/blacksheepcosmo/dotfiles
+=======
 git clone git@github.com:cvusmo/dotfiles
 ```
 
 Open Neovim with this config:
 
 ```sh
+NVIM_APPNAME=blacksheepcosmo/dotfiles/.config/nvim nvim
+=======
 NVIM_APPNAME=cvusmo/dotfiles/.config/nvim nvim
 ```
 
