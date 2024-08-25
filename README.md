@@ -1,5 +1,8 @@
 # dotfiles
 blackbeard hyprland dotfiles 
+![screenshot](https://github.com/user-attachments/assets/5f487845-6ca7-4258-9696-e14018e93e3a)
+
+
 # dotfiles/.config/nvim
 
 <a href="https://dotfyle.com/blacksheepcosmo/dotfiles-config-nvim"><img src="https://dotfyle.com/blacksheepcosmo/dotfiles-config-nvim/badges/plugins?style=flat" /></a>
