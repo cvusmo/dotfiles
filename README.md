@@ -1,5 +1,5 @@
 # dotfiles
-blackbeard hyprland dotfiles 
+>blackbeard hyprland dotfiles 
 ![screenshot](https://github.com/user-attachments/assets/5f487845-6ca7-4258-9696-e14018e93e3a)
 
 
