@@ -1,9 +1,13 @@
+/* config built for multi-monitor desktop setup 
+ * if using laptop save this as configdesktop
+ * then rename configlaptop to config */
+
 * {
   border: none;
   font-family: 'Hurmit Nerd Font';
-  font-size: 10px;
+  font-size: 14px;
   min-height: 40px;
-  color: #FFFFFF; /* Using variable from blackbeard-color.conf */
+  color: #FFFFFF;
 }
 
 #waybar {
@@ -64,7 +68,7 @@ border-radius: 2px;
   color: #FFFFFF;
 }
 
-#clock, #custom-playerctl, #pulseaudio, #bluetooth, #network, #battery, #custom-diskusage {
+#clock, #custom-playerctl, #pulseaudio, #bluetooth, #network, #custom-diskusage {
   border-radius: 10px;
   color: #FFFFFF;
   margin-top: 5px;
@@ -73,16 +77,6 @@ border-radius: 2px;
   padding-left: 3px;
   padding-right: 3px;
   opacity: 0.93;
-}
-
-#battery.warning:not(.charging) {
-  background: #f38ba8;
-  color: white;
-  animation-name: blink;
-  animation-duration: 0.5s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
 }
 
 #custom-notifications {

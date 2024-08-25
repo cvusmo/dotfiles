@@ -1,19 +1,18 @@
 * {
   border: none;
   font-family: 'Hurmit Nerd Font';
-  font-size: 18px;
-  min-height: 30px;
+  font-size: 10px;
+  min-height: 40px;
   color: #FFFFFF; /* Using variable from blackbeard-color.conf */
 }
 
-window#waybar {
-  background: transparent;
+#waybar {
+  background-color: transparent;
 }
 
-#custom-arch, #workspaces, #workspaces-1, #workspaces-2, #workspaces-3 {
-  border-radius: 10px;
-  background-color: #2B2D42; /* Using variable */
-  color: #2B2D42; /* Using variable */
+#custom-arch, #hyprland-workspaces {
+  border-radius: 10px; 
+  color: #FFFFFF; /* Using variable */
   margin-top: 5px;
   margin-left: 5px;
   padding-top: 5px;
@@ -24,7 +23,6 @@ window#waybar {
 
 #custom-power {
   border-radius: 10px;
-  background-color: #2B2D42;
   color: #8AEBE2; /* Highlight color for power */
   margin-top: 5px;
   margin-right: 5px;
@@ -34,20 +32,40 @@ window#waybar {
   opacity: 0.93;
 }
 
+#taskbar {
+font-size: 4px;
+margin-top: 6px;
+margin-bottom: 0px;
+padding-left: 10px;
+padding-right: 10px;
+border-radius: 10px;
+transition: none;
+}
+
+#taskbar button {
+transition: none;
+padding:6;
+color: #B5E8E0;
+font-size: 16px;
+border-radius: 2px;
+}
+
+#taskbar button.active {
+    color: #B5E8E0 /*rgb(217, 135, 250);*/
+}
+
 #custom-arch {
   font-size: 15px;
-  background-color: #2B2D42;
   color: #FFFFFF;
 }
 
-#workspaces button, #workspaces-1 button, #workspaces-2 button, #workspaces-3 button {
-  background: #2B2D42;
+#hyprland-workspaces button.active {
+  font-size: 10px;
   color: #FFFFFF;
 }
 
-#clock, #custom-playerctl, #backlight, #pulseaudio, #bluetooth, #network, #battery, #custom-diskusage {
+#clock, #custom-playerctl, #pulseaudio, #bluetooth, #network, #battery, #custom-diskusage {
   border-radius: 10px;
-  background-color: #2B2D42;
   color: #FFFFFF;
   margin-top: 5px;
   margin-right: 5px;
@@ -57,9 +75,18 @@ window#waybar {
   opacity: 0.93;
 }
 
+#battery.warning:not(.charging) {
+  background: #f38ba8;
+  color: white;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
 #custom-notifications {
   border-radius: 5px;
-  background-color: #2B2D42;
   color: #FFFFFF;
   padding-right: 5px;
 }
@@ -68,8 +95,7 @@ window#waybar {
   margin-right: 0;
 }
 
-#custom-music {
-  background: #2B2D42;
+#custom-music { 
   background: linear-gradient(
     52deg,
     rgba(139, 213, 202, 1) 0%,
