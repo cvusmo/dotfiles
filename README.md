@@ -1,4 +1,4 @@
-![background](https://github.com/user-attachments/assets/f714a6b4-0e79-44ea-8bdd-ad00f0b9f50c)
+![screenshot](https://github.com/user-attachments/assets/2e0656cf-2c9c-4dfb-a2d0-839c7d52be80)
 # blackbeard hyprland dotfiles
 
 # dotfiles
