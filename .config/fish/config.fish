@@ -16,54 +16,10 @@ if status is-interactive
       ssh -T git@github.com
     end
 
-    # ssh-add ~/.ssh/cvusmo
-
     fish_vi_key_bindings
 
     starship init fish | source
 
-    function fish_prompt
-        set_color green
-        # echo -n (whoami) '@' (prompt_hostname) ' '
-        echo -n (whoami)
-        set_color normal
-        echo -n ' '
+    fish_prompt
 
-        # Get the current working directory
-        set -l full_pwd (prompt_pwd)
-        set -l pwd (string replace '~' '🏠' $full_pwd)
-
-        # shorten dir path
-        set -l path_parts (string split / $pwd)
-        set -l max_depth 7
-
-        if test (count $path_parts) -gt $max_depth
-          echo -n ' 🏠/'
-          echo -n (string join / (string sub -l $max_depth $path_parts))
-          echo -n '.../ '
-        else
-          echo -n $pwd
-        end 
-        
-        # Check if in git repo and display branch
-        if test -d .git
-            set -l branch (git branch --show-current 2>/dev/null)
-            echo -n ' ' '(' $branch ')'
-        
-          end
-        # Mode-specific
-        switch $fish_bind_mode
-          case insert
-            echo -n '   '
-          case default
-            echo -n ' 󰣙 '
-          case normal
-            echo -n ' 󰯉 '
-          case visual
-            echo -n '  '
-        end
-
-        set_color normal
-    end
-   
-  end
+end

@@ -45,9 +45,9 @@ return {
       vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
       vim.keymap.set({ 'n', 'v' }, '<space>nl', vim.lsp.buf.code_action, opts)
 
-      vim.cmd [[
-        autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync()
-      ]]
+      --vim.cmd [[
+       -- autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync()
+      --]]
     end
   },
 }

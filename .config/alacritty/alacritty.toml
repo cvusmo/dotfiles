@@ -11,7 +11,7 @@ opacity = 0.92
 blur = true
 startup_mode = "Windowed"
 title = "blackbeard os"
-dynamic_title = true
+dynamic_title = false
 
 [scrolling]
 history = 5000
