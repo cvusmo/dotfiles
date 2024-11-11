@@ -1,6 +1,6 @@
 function fish_prompt
     set_color green
-    echo -n (whoami) '@' (prompt_hostname) ' '
+    echo -n (whoami)
     set_color normal
     echo -n ' '
 
@@ -25,18 +25,23 @@ function fish_prompt
         set -l branch (git branch --show-current 2>/dev/null)
         echo -n ' (' $branch ')'
     end
-        # Mode-specific
-        switch $fish_bind_mode
-          case insert
-            echo -n '   '
-          case default
-            echo -n ' 󰣙 '
-          case normal
-            echo -n ' 󰯉 '
-          case visual
-            echo -n '  '
-        end
 
-        set_color normal
+    # Get disk usage for root (or specify your drive path)
+    set -l disk_usage (df -h / | awk 'NR==2 {print $3 "/" $2}')
+    
+    echo -n " $disk_usage"  # Display drive usage
+
+    # Mode-specific
+    switch $fish_bind_mode
+        case insert
+            echo -n '   '
+        case default
+            echo -n ' 󰣙 '
+        case normal
+            echo -n ' 󰯉 '
+        case visual
+            echo -n '  '
     end
+
+    set_color normal
 end

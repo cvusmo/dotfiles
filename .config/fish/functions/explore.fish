@@ -1,0 +1,3 @@
+function explore
+  dolphin
+end
