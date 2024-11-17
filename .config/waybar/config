@@ -1,6 +1,8 @@
 {
   "layer": "top",
-  "height": 15,
+  "position": "top",
+  "height": 40,
+  "output": "DP-5", 
   "modules-left": ["custom/arch", "hyprland/workspaces"],
   "modules-center": ["custom/playerctl", "clock", "wlr/taskbar"],
   "modules-right": ["pulseaudio", "network", "custom/diskusage"],
@@ -8,22 +10,13 @@
     "format": "  ",
     "on-click": "sh /home/echo/.config/wofi/scripts/toggle-waybar.sh"
   },
-  "hyprland/workspaces": {
-    "format": "{icon} {name}",
+    "hyprland/workspaces": {
+    "format": "{name}",  // Only show workspace names
     "on-click": "activate",
-    "all-outputs": false,
-    "persistent_workspaces": {
-      "1": ["DP-5"], 
-      "2": ["DP-5"],
-      "3": ["DP-5"],
-      "4": ["DP-5"],
-      "5": ["DP-3"],
-      "6": ["DP-3"],
-      "7": ["DP-3"],
-      "8": ["DP-3"],
-      "9": ["DP-4"],
-      "10": ["DP-4"],
-      }
+    "all-outputs": false,  // Ensure workspaces are restricted to DP-5
+    "disable-scroll": true,  // Prevent scrolling through workspaces
+    "show-back-and-forth": false  // Avoid listing inactive workspaces
+    }
   },
   "clock": {
     "format": "<span color='#b69bf1'> </span>{:%H:%M}",
@@ -31,10 +24,10 @@
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
   },
   "custom/playerctl": {
-    "format": "{icon} <span>{}</span>",
+    "format": "{0} <span>{1}</span>",
     "return-type": "json",
     "max-length": 55,
-    "exec": "playerctl -a metadata --format '{\"text\": \" {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+    "exec": "playerctl -a metadata --format '{\"text\": \"{{title}}\", \"tooltip\": \"{{playerName}} : {{title}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
     "on-click-middle": "playerctl previous",
     "on-click": "playerctl play-pause",
     "on-click-right": "playerctl next",
@@ -44,11 +37,11 @@
     }
   },
   "wlr/taskbar": {
-        "icon-size": 18,
-        "on-click": "activate",
-        "on-click-right": "minimize",
-        "format": "{icon}"
-    },
+    "icon-size": 18,
+    "on-click": "activate",
+    "on-click-right": "minimize",
+    "format": "{icon}"
+  },
   "pulseaudio": {
     "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
     "format": "<span color='#f7768e'></span> {volume}%",
@@ -64,16 +57,17 @@
     },
     "on-click-right": "pavucontrol"
   },
-    "network": {
-      "interval": 2,
-      "format-wifi": "<span foreground='#928374'></span> {essid}",
-      "format-ethernet": "<span foreground='#928374'></span> {ifname}",
-      "format-linked": "<span foreground='#928374'></span> {ifname}",
-      "format-disconnected": " <span foreground='#928374'></span> ",
-      "tooltip-format": "{ifname}: {ipaddr}/{cidr}\n {bandwidthDownBits}\n {bandwidthUpBits}"
-    },
+  "network": {
+    "interval": 2,
+    "format-wifi": "<span foreground='#928374'></span> {essid}",
+    "format-ethernet": "<span foreground='#928374'></span> {ifname}",
+    "format-linked": "<span foreground='#928374'></span> {ifname}",
+    "format-disconnected": " <span foreground='#928374'></span> ",
+    "tooltip-format": "{ifname}: {ipaddr}/{cidr}\n {bandwidthDownBits}\n {bandwidthUpBits}"
+  },
   "custom/diskusage": {
     "exec": "/home/echo/.config/waybar/scripts/diskusage.sh",
     "interval": 600
-  },
+  }
 }
+

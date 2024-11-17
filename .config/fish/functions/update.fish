@@ -7,39 +7,62 @@ function update
             sudo pacman -S pacman-mirrorlist
             sudo sed -i 's/^#Server/Server/' /etc/pacman.d/mirrorlist
             sudo pacman -Syy
-            echo "Mirrors updated successfully."
+            if test $status -eq 0
+                echo "Mirrors updated successfully."
+            else
+                echo "Failed to update mirrors. Please check the output for errors."
+            end
         
-        # Update system, mirrors, NVIDIA and Vulkan packages, then reboot if successful
+        # Update system, mirrors, NVIDIA and Vulkan packages, headers, then reboot if successful
         case --all
             echo "Updating system and mirrors..."
             sudo pacman -S pacman-mirrorlist
             sudo sed -i 's/^#Server/Server/' /etc/pacman.d/mirrorlist
             sudo pacman -Syy
-            sudo pacman -Syu nvidia-dkms nvidia-utils vulkan-icd-loader
+            echo "Updating yay packages..."
+            yay -Syu
+            echo "Updating system packages..."
+            sudo pacman -Syu nvidia-dkms nvidia-utils vulkan-icd-loader linux-zen linux-headers
             sudo mkinitcpio -P
             
-            # Check if update was successful
             if test $status -eq 0
-                echo "System and mirrors updated successfully. Rebooting in 3 seconds..."
-                sleep 3
-                sudo reboot
+                echo "System and mirrors updated successfully. Updating Hyprland headers..."
+                sleep 2
+                hyprpm update
+                if test $status -eq 0
+                    echo "Hyprland headers updated successfully. Rebooting in 3 seconds..."
+                    yay -Syu
+                    sleep 3
+                    sudo reboot
+                else
+                    echo "Hyprland header update failed. Please check the output for errors."
+                end
             else
                 echo "System update failed. Please check the output for errors."
             end
         
-        # Default system update with NVIDIA and Vulkan packages, then reboot if successful
+        # Default system update with NVIDIA, Vulkan packages, and headers
         case '*'
             echo "Updating system..."
-            sudo pacman -Syu nvidia-dkms nvidia-utils vulkan-icd-loader
+            sudo pacman -Syu nvidia-dkms nvidia-utils vulkan-icd-loader linux-zen linux-headers
             sudo mkinitcpio -P
             
-            # Check if update was successful
             if test $status -eq 0
-                echo "System updated successfully. Rebooting in 3 seconds..."
-                sleep 3
-                sudo reboot
+                echo "System updated successfully. Updating yay aur..."
+                sleep 2
+                yay -Syu
+                hyprpm update
+                sleep 2
+                if test $status -eq 0
+                    echo "Hyprland headers updated successfully. Rebooting in 3 seconds..."
+                    sleep 3
+                    sudo reboot
+                else
+                    echo "Hyprland header update failed. Please check the output for errors."
+                end
             else
                 echo "System update failed. Please check the output for errors."
             end
     end
 end
+
