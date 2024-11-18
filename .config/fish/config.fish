@@ -3,7 +3,10 @@ if status is-interactive
     # Custom Fish prompt
     set fish_greeting ""
     echo "hoist the black flag"
-    
+
+    # System information
+    systeminfo
+
     # Set universal variables and editor
     set -Ux fish_user_paths $fish_user_paths $HOME/.local/bin
     set -Ux EDITOR nvim
