@@ -29,6 +29,7 @@ great resource and will make setting your monitors up easy.
 
 # dotfiles
 
+
 # dotfiles/.config/nvim
 
 <a href="https://dotfyle.com/blacksheepcosmo/dotfiles-config-nvim"><img src="https://dotfyle.com/blacksheepcosmo/dotfiles-config-nvim/badges/plugins?style=flat" /></a>
