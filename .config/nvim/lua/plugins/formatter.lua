@@ -8,23 +8,24 @@ return {
         lua = {
           function()
             return require("formatter.filetypes.lua").stylua
-          end,
+              end,
+            },
+            c = {
+              function()
+              return require("formatter.filetypes.c").clangformat
+              end,
+            },
+            cpp = {
+              function()
+              return require("formatter.filetypes.cpp").clangformat
+              end,
+            },
+            rust = {
+              function()
+              return require("formatter.filetypes.rust").rustfmt
+              end,
+            },
         },
-        clangd = {
-          function()
-            return require("formatter.filetypes.clang-format").clangd
-          end,
-          function()
-            return require("formatter.filetypes.clangd").clangd
-          end,
-        },
-        rust = {
-          function()
-            return require("formatter.filetypes.rust-analyzer").rust
-          end,
-        },
-        --require("formatter.filetypes.any").remove_trailing_whitespace
-      },
     })
   end
 }

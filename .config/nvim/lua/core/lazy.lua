@@ -14,4 +14,6 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Load custom colorscheme
 require("plugins.blackbeard").setup()
+
+vim.opt.foldmethod = "syntax"
 require("lazy").setup("plugins")

@@ -8,22 +8,25 @@ return {
   {
     'williamboman/mason-lspconfig.nvim',
     config = function()
-    require("mason-lspconfig").setup({
-      ensure_installed = {
+      require("mason-lspconfig").setup({
+        ensure_installed = {
           "lua_ls",
-          "clangd" }
+          "clangd",
+          "rust_analyzer",
+        }
       })
     end
   },
   {
     "neovim/nvim-lspconfig",
-    --setup language servers
-    config = function () 
+    config = function()
       local lspconfig = require('lspconfig')
-      lspconfig.lua_ls.setup ({})
-      lspconfig.clangd.setup ({})
 
-      -- rust
+      -- Lua and Clangd setup
+      lspconfig.lua_ls.setup({})
+      lspconfig.clangd.setup({})
+
+      -- Rust setup
       lspconfig.rust_analyzer.setup({
         settings = {
           ["rust-analyzer"] = {
@@ -38,16 +41,44 @@ return {
             },
           },
         },
+        handlers = {
+          ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+            border = "rounded",
+            max_width = math.floor(vim.o.columns * 0.8),
+          }),
+        },
       })
 
-      -- lspconfig keymaps
+      -- Diagnostic config to limit messages to warnings and errors
+      vim.diagnostic.config({
+        virtual_text = { spacing = 4, prefix = "●" },
+        update_in_insert = false,
+        severity_sort = true,
+        float = {
+          source = "always",  -- Show source in diagnostic float window
+        },
+        severity = {
+          min = vim.diagnostic.severity.WARN,  -- Only show warnings and above
+        },
+      })
+
+      -- Keymaps for LSP functions
+      local opts = { noremap = true, silent = true }
       vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
       vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
       vim.keymap.set({ 'n', 'v' }, '<space>nl', vim.lsp.buf.code_action, opts)
 
-      vim.cmd [[
-        autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync()
-      ]]
+      -- Keymaps for diagnostics
+      vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, opts)
+      vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+      vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+      vim.keymap.set('n', '<leader>m', vim.diagnostic.setloclist, opts)
+
+      -- Auto-format on save for Rust files
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        pattern = "*.rs",
+        callback = function() vim.lsp.buf.format({ async = false }) end,
+      })
     end
   },
 }

@@ -2,16 +2,12 @@ return {
     {
         "folke/noice.nvim",
         event = "VeryLazy",
-        opts = {
-          -- add options
-        },
         dependencies = {
             "rcarriga/nvim-notify",
             "MunifTanjim/nui.nvim",
             "nvim-treesitter/nvim-treesitter",
         },
         config = function()
-            --require("telescope").load_extension("noice")
             require("noice").setup({
                 lsp = {
                   override = {
@@ -29,6 +25,16 @@ return {
                     enabled = true,
                   },
                   routes = {
+                    -- Filter out less important messages
+                    {
+                      filter = {
+                        event = "lsp",
+                        kind = "progress",
+                        find = "rust-analyzer",
+                      },
+                      opts = { skip = true },
+                    },
+                    -- Move cmdline messages to cmdline view
                     {
                       filter = {
                         event = "msg_show",
@@ -78,14 +84,14 @@ return {
         config = function()
             require("notify").setup({
                 background_colour = "#000000",
-                fps = "30",
+                fps = 30,
                 render = "default",
                 stage = "fade_in_slide_out",
                 minimum_width = 10,
                 max_width = 40,
                 max_height = 20,
                 top_down = false,
-                timeout = 1000,
+                timeout = 2000,  -- Set timeout longer to avoid quick message flash
             })
         end,
     },

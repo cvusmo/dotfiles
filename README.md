@@ -1,6 +1,33 @@
+![blackbeard-001](https://github.com/cvusmo/dotfiles/blob/dev/assets/showcase/showcase_001.png?raw=true)
+
+# blackbeard hyprland dotfiles!
+These are my current dotfiles that I use daily. I've fixed a few issues with it and it works great. 
+IF you use these dotfiles, you will need to configure your monitors. Please read the hyprland wiki
+on monitors. [!hyprland-wiki](https://wiki.hyprland.org/Configuring/Monitors/)
+
+TLDR: 
+
+Run hyprctl monitors all to list your monitors
+```fish
+hyprctl monitors all
+```
+You'll get something that looks like this:
+
+```fish
+Monitor DP-3 (ID 0):
+    1920x1080@143.98100 at 0x-1080...
+Monitor DP-4 (ID 1):
+    3840x2160@59.99700 at -2160x-1920...
+Monitor DP-5 (ID 5):
+    3840x2160@144.0000 at 0x0...
+```
+
+You will need to modify the monitor.conf located in the ~/dotfiles/.config/hypr/*
+Setting monitors to properly display is simple. Please read the wiki as it is a
+great resource and will make setting your monitors up easy. 
+[!hyprland-wiki](https://wiki.hyprland.org/Configuring/Monitors/)
+
 # dotfiles
->blackbeard hyprland dotfiles 
-![screenshot](https://github.com/user-attachments/assets/5f487845-6ca7-4258-9696-e14018e93e3a)
 
 
 # dotfiles/.config/nvim
@@ -19,8 +46,6 @@
  ```
 wlroots
 aquamarine
-hyprpaper
-hyprcursor
 hyprlock
 hypridle
 dunst
@@ -38,78 +63,11 @@ Nordzy-cursors-hyprcursor
 materia-theme-git (This Hyprland config uses Materia-dark)
 hyprpicker    
 hyprland-git
-```
- > Install requires Neovim 0.9+. Always review the code before installing a configuration.
-
-Clone the repository and install the plugins:
-
-```sh
-git clone git@github.com:blacksheepcosmo/dotfiles ~/.config/blacksheepcosmo/dotfiles
-=======
-git clone git@github.com:cvusmo/dotfiles
+hyprpaper-git
+hypridle-git
+hyprcursor-git
+aquamarine-git
+hyprcursor-git
 ```
 
-Open Neovim with this config:
 
-```sh
-NVIM_APPNAME=blacksheepcosmo/dotfiles/.config/nvim nvim
-=======
-NVIM_APPNAME=cvusmo/dotfiles/.config/nvim nvim
-```
-
-## Plugins
-
-### color
-
-+ [NvChad/nvim-colorizer.lua](https://dotfyle.com/plugins/NvChad/nvim-colorizer.lua)
-### colorscheme
-
-+ [scottmckendry/cyberdream.nvim](https://dotfyle.com/plugins/scottmckendry/cyberdream.nvim)
-### debugging
-
-+ [mfussenegger/nvim-dap](https://dotfyle.com/plugins/mfussenegger/nvim-dap)
-+ [rcarriga/nvim-dap-ui](https://dotfyle.com/plugins/rcarriga/nvim-dap-ui)
-### file-explorer
-
-+ [nvim-neo-tree/neo-tree.nvim](https://dotfyle.com/plugins/nvim-neo-tree/neo-tree.nvim)
-### fuzzy-finder
-
-+ [nvim-telescope/telescope.nvim](https://dotfyle.com/plugins/nvim-telescope/telescope.nvim)
-### git
-
-+ [lewis6991/gitsigns.nvim](https://dotfyle.com/plugins/lewis6991/gitsigns.nvim)
-### lsp
-
-+ [neovim/nvim-lspconfig](https://dotfyle.com/plugins/neovim/nvim-lspconfig)
-### lsp-installer
-
-+ [williamboman/mason.nvim](https://dotfyle.com/plugins/williamboman/mason.nvim)
-### nvim-dev
-
-+ [MunifTanjim/nui.nvim](https://dotfyle.com/plugins/MunifTanjim/nui.nvim)
-+ [nvim-lua/plenary.nvim](https://dotfyle.com/plugins/nvim-lua/plenary.nvim)
-### plugin-manager
-
-+ [folke/lazy.nvim](https://dotfyle.com/plugins/folke/lazy.nvim)
-### session
-
-+ [rmagatti/auto-session](https://dotfyle.com/plugins/rmagatti/auto-session)
-### startup
-
-+ [nvimdev/dashboard-nvim](https://dotfyle.com/plugins/nvimdev/dashboard-nvim)
-### syntax
-
-+ [nvim-treesitter/nvim-treesitter](https://dotfyle.com/plugins/nvim-treesitter/nvim-treesitter)
-### tabline
-
-+ [akinsho/bufferline.nvim](https://dotfyle.com/plugins/akinsho/bufferline.nvim)
-### utility
-
-+ [folke/noice.nvim](https://dotfyle.com/plugins/folke/noice.nvim)
-+ [rcarriga/nvim-notify](https://dotfyle.com/plugins/rcarriga/nvim-notify)
-+ [stevearc/dressing.nvim](https://dotfyle.com/plugins/stevearc/dressing.nvim)
-## Language Servers
-
-+ clangd
-+ html
-+ lua_ls

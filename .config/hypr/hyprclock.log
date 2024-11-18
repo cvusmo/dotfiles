@@ -1,0 +1,11 @@
+[INFO] Logger successfully created: /home/echo/.config/hypr/hyprclock.log, logger:98
+[INFO] Logger initialized in normal mode., logger:98
+[WARN] This is a warning message., logger:108
+[ERROR] This is an error message., logger:113
+[INFO] Loading config..., logger:98
+[INFO] Background color: #000000, logger:98
+[INFO] Font color: #59F87E, logger:98
+[INFO] Font size: 200, logger:98
+[INFO] Configuration file path: /home/echo/.config/hypr/hyprclock.conf, logger:98
+[INFO] Building window..., logger:98
+[INFO] Window built successfully., logger:98
