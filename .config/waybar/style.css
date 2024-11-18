@@ -1,13 +1,13 @@
-/* config built for multi-monitor desktop setup 
- * if using laptop save this as configdesktop
- * then rename configlaptop to config */
+/* style.css for multi-monitor desktop
+ * setup
+ * */
 
 * {
   border: none;
   font-family: 'Hurmit Nerd Font';
-  font-size: 14px;
+  font-size: 24px;
   min-height: 40px;
-  color: #FFFFFF;
+  color: #87CDFE;
 }
 
 #waybar {
@@ -16,7 +16,7 @@
 
 #custom-arch, #hyprland-workspaces {
   border-radius: 10px; 
-  color: #FFFFFF; /* Using variable */
+  color: #57A87E; /* Using variable */
   margin-top: 5px;
   margin-left: 5px;
   padding-top: 5px;
@@ -27,7 +27,7 @@
 
 #custom-power {
   border-radius: 10px;
-  color: #8AEBE2; /* Highlight color for power */
+  color: #57A87E; /* Highlight color for power */
   margin-top: 5px;
   margin-right: 5px;
   padding-top: 3px;
@@ -37,30 +37,30 @@
 }
 
 #taskbar {
-font-size: 4px;
-margin-top: 6px;
-margin-bottom: 0px;
-padding-left: 10px;
-padding-right: 10px;
-border-radius: 10px;
-transition: none;
+  font-size: 4px;
+  margin-top: 6px;
+  margin-bottom: 0px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  transition: none;
 }
 
 #taskbar button {
-transition: none;
-padding:6;
-color: #B5E8E0;
-font-size: 16px;
-border-radius: 2px;
+  transition: none;
+  padding: 6px;
+  color: #B5E8E0;
+  font-size: 20px;
+  border-radius: 2px;
 }
 
 #taskbar button.active {
-    color: #B5E8E0 /*rgb(217, 135, 250);*/
+  color: #B5E8E0 /*rgb(217, 135, 250);*/
 }
 
 #custom-arch {
-  font-size: 15px;
-  color: #FFFFFF;
+  font-size: 30px;
+  color: #57A87E;
 }
 
 #hyprland-workspaces button.active {
@@ -106,3 +106,4 @@ border-radius: 2px;
   transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
   border: none;
 }
+

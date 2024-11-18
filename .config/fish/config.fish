@@ -11,11 +11,11 @@ if status is-interactive
     set -g fish_autosuggestion_enabled 1
 
     # Start SSH agent only if not running
-    if test -z "$SSH_AUTH_SOCK"
-        eval (ssh-agent -c)
-        ssh-add ~/.ssh/cvusmo
-        ssh -T git@github.com
-    end
+    # if test -z "$SSH_AUTH_SOCK"
+    #    eval (ssh-agent -c)
+    #    ssh-add ~/your-ssh-path
+    #    ssh -T git@github.com
+    # end
 
     # Enable vi key bindings
     fish_vi_key_bindings

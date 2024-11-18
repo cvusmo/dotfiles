@@ -1,6 +1,5 @@
-live_config_reload = true
 
-[shell]
+[terminal.shell]
 program = "/bin/fish"
 
 [window]
@@ -17,7 +16,7 @@ dynamic_title = false
 history = 5000
 
 [font]
-size = 14
+size = 20
 normal.family = "Hurmit Nerd Font"
 bold.family = "Hurmit Nerd Font"
 italic.family = "Hurmit Nerd Font"
@@ -25,40 +24,45 @@ italic.family = "Hurmit Nerd Font"
 # Colors
 ## Default colors
 [colors.primary]
-background = '#2B2D42'
-foreground = '#5AF78E'  # Green
+background = '#262626'
+foreground = '#F0EAD6'  # Text color
 
 ## Cursor colors
 [colors.cursor]
-text = '#2B2D42'
+text = '#262626'
 cursor = '#5AF78E'  # Green
 
 ## Selection colors
 [colors.selection]
-text = '#2B2D42'
-background = '#DFFAF8'
+text = '#0FEFB0'
+background = '#4974A5' ## highlight color
 
 ## Normal colors
 [colors.normal]
-black   = '#4B0082'
-red     = '#483D8B'
-green   = '#6A5ACD'
-yellow  = '#7B68EE'
-blue    = '#9370DB'
-magenta = '#8A2BE2'
-cyan    = '#7F00FF'
-white   = '#D8BFD8'
+black = '#000000'
+red = '#FF2800'
+green = '#33FF33'  
+yellow = '#E5FF33'
+blue = '#6D90CB'
+magenta = '#CC00CC'
+cyan = '#007F7F'
+white = '#F0EAD6'
 
 ## Bright colors
 [colors.bright]
-black   = '#9400D3'
-red     = '#8A2BE2'
-green   = '#7B68EE'
-yellow  = '#6A5ACD'
-blue    = '#483D8B'
-magenta = '#4B0082'
-cyan    = '#7F00FF'
-white   = '#D8BFD8'
+black = '#000000'
+red = '#FF2800'
+green = '#00FF00'
+yellow = '#DFFF00'
+blue = '#6281B6'
+magenta = '#C55FCC'
+cyan = '#00FFFF'
+white = '#FFFFFF'
 
 [mouse]
 hide_when_typing = true
+
+[general]
+live_config_reload = true
+
+[terminal]

@@ -6,14 +6,14 @@
 
 --return
 --{
-  --  "scottmckendry/cyberdream.nvim",
+    --"scottmckendry/cyberdream.nvim",
     --lazy = false,
     --priority = 998,
     --config = function()
-     -- require("cyberdream").setup({
-       --     transparent = is_transparent,
-        --    italic_comments = true,
-          --  hide_fillchars = true,
+      --require("cyberdream").setup({
+            --transparent = is_transparent,
+            --italic_comments = true,
+            --hide_fillchars = true,
             --borderless_telescope = false,
             --terminal_colors = true,
       --})
