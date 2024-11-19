@@ -1,6 +1,6 @@
 # blackbeard showcase
 
-![showcase-001](https://github.com/cvusmo/dotfiles/blob/master/assets/showcase/showcase_001.png?raw=true)
+![showcase-001](https://github.com/cvusmo/dotfiles/blob/dev/assets/showcase/showcase_001.png?raw=true)
 ![showcase-002](https://github.com/cvusmo/dotfiles/blob/master/assets/showcase/showcase_002.png?raw=true)
 ![showcase-003](https://github.com/cvusmo/dotfiles/blob/master/assets/showcase/showcase_003.png?raw=true)
 
