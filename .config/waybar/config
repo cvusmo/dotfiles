@@ -1,11 +1,11 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 40,
-  "output": "DP-5", 
+  "height": 15,
+  "output": "LVDS-1", 
   "modules-left": ["custom/arch", "hyprland/workspaces"],
   "modules-center": ["custom/playerctl", "clock", "wlr/taskbar"],
-  "modules-right": ["pulseaudio", "network", "custom/diskusage"],
+  "modules-right": ["battery", "pulseaudio", "network", "custom/diskusage"],
   "custom/arch": {
     "format": "  ",
     "on-click": "sh /home/echo/.config/wofi/scripts/toggle-waybar.sh"
@@ -19,8 +19,8 @@
     }
   },
   "clock": {
-    "format": "<span color='#b69bf1'> </span>{:%H:%M}",
-    "format-alt": "<span foreground='#b69bf1'> </span><span>{:%I:%M %p %a %d}</span>",
+    "format": "<span color='#B794F4'> </span>{:%H:%M}",
+    "format-alt": "<span foreground='#A066C9'> </span><span>{:%I:%M %p %a %d}</span>",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
   },
   "custom/playerctl": {
@@ -32,20 +32,20 @@
     "on-click": "playerctl play-pause",
     "on-click-right": "playerctl next",
     "format-icons": {
-      "Paused": "<span foreground='#bb9af7'></span>",
-      "Playing": "<span foreground='#bb9af7'></span>"
+      "Paused": "<span foreground='#FF5F56'></span>",
+      "Playing": "<span foreground='#88C070'></span>"
     }
   },
   "wlr/taskbar": {
-    "icon-size": 18,
+    "icon-size": 20,
     "on-click": "activate",
     "on-click-right": "minimize",
     "format": "{icon}"
   },
   "pulseaudio": {
     "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-    "format": "<span color='#f7768e'></span> {volume}%",
-    "format-muted": "<span color='#f7768e'>ﱝ</span>",
+    "format": "<span color='#F4E3C1'></span> {volume}%",
+    "format-muted": "<span color='#fFF5F56'>ﱝ</span>",
     "format-icons": {
       "headphone": "",
       "hands-free": "",
@@ -59,15 +59,49 @@
   },
   "network": {
     "interval": 2,
-    "format-wifi": "<span foreground='#928374'></span> {essid}",
-    "format-ethernet": "<span foreground='#928374'></span> {ifname}",
-    "format-linked": "<span foreground='#928374'></span> {ifname}",
-    "format-disconnected": " <span foreground='#928374'></span> ",
+    "format-wifi": "<span foreground='#F4E3C1'></span> {essid}",
+    "format-ethernet": "<span foreground='#F1C232'></span> {ifname}",
+    "format-linked": "<span foreground='#46B9A0'></span> {ifname}",
+    "format-disconnected": " <span foreground='#D13438'></span> ",
     "tooltip-format": "{ifname}: {ipaddr}/{cidr}\n {bandwidthDownBits}\n {bandwidthUpBits}"
   },
+     "battery": {
+        "format": "{capacity}% {icon}",
+        "format-icons": {
+            "charging": [
+                "󰢜",
+                "󰂆",
+                "󰂇",
+                "󰂈",
+                "󰢝",
+                "󰂉",
+                "󰢞",
+                "󰂊",
+                "󰂋",
+                "󰂅"
+            ],
+            "default": [
+                "󰁺",
+                "󰁻",
+                "󰁼",
+                "󰁽",
+                "󰁾",
+                "󰁿",
+                "󰂀",
+                "󰂁",
+                "󰂂",
+                "󰁹"
+            ]
+        },
+        "format-full": "Charged ",
+        "interval": 5,
+        "states": {
+            "warning": 20,
+            "critical": 10
+        },
+      },
   "custom/diskusage": {
     "exec": "/home/echo/.config/waybar/scripts/diskusage.sh",
     "interval": 600
-  }
+  },
 }
-

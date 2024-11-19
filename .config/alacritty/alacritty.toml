@@ -1,4 +1,3 @@
-
 [terminal.shell]
 program = "/bin/fish"
 
@@ -6,7 +5,7 @@ program = "/bin/fish"
 padding = { x = 4, y = 4 }
 dynamic_padding = true
 decorations = "Full"
-opacity = 0.92
+opacity = 0.96
 blur = true
 startup_mode = "Windowed"
 title = "blackbeard os"
@@ -16,7 +15,7 @@ dynamic_title = false
 history = 5000
 
 [font]
-size = 20
+size = 12
 normal.family = "Hurmit Nerd Font"
 bold.family = "Hurmit Nerd Font"
 italic.family = "Hurmit Nerd Font"
@@ -24,40 +23,40 @@ italic.family = "Hurmit Nerd Font"
 # Colors
 ## Default colors
 [colors.primary]
-background = '#262626'
-foreground = '#F0EAD6'  # Text color
+background = '#1C1B1A'  # Deep retro brown
+foreground = '#F4E3C1'  # Warm retro cream
 
 ## Cursor colors
 [colors.cursor]
-text = '#262626'
-cursor = '#5AF78E'  # Green
+text = '#1C1B1A'        # Matches background
+cursor = '#F27835'      # Retro orange
 
 ## Selection colors
 [colors.selection]
-text = '#0FEFB0'
-background = '#4974A5' ## highlight color
+text = '#1C1B1A'        # Matches background
+background = '#F4A259'  # Muted orange highlight
 
 ## Normal colors
 [colors.normal]
-black = '#000000'
-red = '#FF2800'
-green = '#33FF33'  
-yellow = '#E5FF33'
-blue = '#6D90CB'
-magenta = '#CC00CC'
-cyan = '#007F7F'
-white = '#F0EAD6'
+black = '#1C1B1A'       # Deep retro brown
+red = '#D13438'         # Vibrant retro red
+green = '#73A857'       # Muted avocado green
+blue = '#5A8CA5'        # Soft retro teal
+yellow = '#F1C232'      # Golden mustard
+magenta = '#A066C9'     # Soft lavender purple
+cyan = '#46B9A0'        # Mint green
+white = '#F4E3C1'       # Warm retro cream
 
 ## Bright colors
 [colors.bright]
-black = '#000000'
-red = '#FF2800'
-green = '#00FF00'
-yellow = '#DFFF00'
-blue = '#6281B6'
-magenta = '#C55FCC'
-cyan = '#00FFFF'
-white = '#FFFFFF'
+black = '#484441'       # Softer deep brown
+red = '#FF5F56'         # Vibrant coral red
+green = '#88C070'       # Bright retro lime
+blue = '#73B3D8'        # Light retro teal
+yellow = '#FADF60'      # Bright golden yellow
+magenta = '#B794F4'     # Pastel lilac
+cyan = '#6FE2CA'        # Bright aqua green
+white = '#FFFFFF'       # Pure white
 
 [mouse]
 hide_when_typing = true
@@ -66,3 +65,4 @@ hide_when_typing = true
 live_config_reload = true
 
 [terminal]
+

@@ -1,39 +1,41 @@
-/* style.css for multi-monitor desktop
- * setup
- * */
+/* Waybar section styling with borders */
 
 * {
   border: none;
   font-family: 'Hurmit Nerd Font';
-  font-size: 24px;
-  min-height: 40px;
-  color: #87CDFE;
+  font-size: 10px;
+  min-height: 15px;
+  color: #FFFFFF; /* Using variable from blackbeard-color.conf */
 }
 
 #waybar {
   background-color: transparent;
+  border-radius: 5px;
+  padding: 5px;
 }
 
 #custom-arch, #hyprland-workspaces {
-  border-radius: 10px; 
-  color: #57A87E; /* Using variable */
+  border-radius: 10px;
+  color: #FFFFFF; /* Using variable */
   margin-top: 5px;
   margin-left: 5px;
   padding-top: 5px;
   padding-left: 5px;
   padding-right: 5px;
   opacity: 0.93;
+  border: 2px solid #73A857; /* Muted avocado green */
 }
 
 #custom-power {
   border-radius: 10px;
-  color: #57A87E; /* Highlight color for power */
+  color: #8AEBE2; /* Highlight color for power */
   margin-top: 5px;
   margin-right: 5px;
   padding-top: 3px;
   padding-left: 3px;
   padding-right: 3px;
   opacity: 0.93;
+  border: 2px solid #A066C9; /* Soft lavender purple */
 }
 
 #taskbar {
@@ -44,31 +46,10 @@
   padding-right: 10px;
   border-radius: 10px;
   transition: none;
+  border: 2px solid #F1C232; /* Golden mustard */
 }
 
-#taskbar button {
-  transition: none;
-  padding: 6px;
-  color: #B5E8E0;
-  font-size: 20px;
-  border-radius: 2px;
-}
-
-#taskbar button.active {
-  color: #B5E8E0 /*rgb(217, 135, 250);*/
-}
-
-#custom-arch {
-  font-size: 30px;
-  color: #57A87E;
-}
-
-#hyprland-workspaces button.active {
-  font-size: 10px;
-  color: #FFFFFF;
-}
-
-#clock, #custom-playerctl, #pulseaudio, #bluetooth, #network, #custom-diskusage {
+#clock, #custom-playerctl, #pulseaudio, #bluetooth, #network, #battery, #custom-diskusage {
   border-radius: 10px;
   color: #FFFFFF;
   margin-top: 5px;
@@ -77,19 +58,27 @@
   padding-left: 3px;
   padding-right: 3px;
   opacity: 0.93;
+  border: 2px solid #5A8CA5; /* Soft retro teal */
+}
+
+#battery.warning:not(.charging) {
+  background: #f38ba8;
+  color: white;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 #custom-notifications {
   border-radius: 5px;
   color: #FFFFFF;
   padding-right: 5px;
+  border: 2px solid #46B9A0; /* Mint green */
 }
 
-#clock {
-  margin-right: 0;
-}
-
-#custom-music { 
+#custom-music {
   background: linear-gradient(
     52deg,
     rgba(139, 213, 202, 1) 0%,
@@ -104,6 +93,5 @@
   font-weight: bold;
   color: #FFFFFF;
   transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
-  border: none;
+  border: 2px solid #F27835; /* Retro orange */
 }
-
