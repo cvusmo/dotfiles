@@ -1,6 +1,7 @@
 # blackbeard showcase
 
 ![showcase-001](https://github.com/cvusmo/dotfiles/blob/dev/assets/showcase/showcase_001.png?raw=true)
+![showcase-004](https://github.com/cvusmo/dotfiles/blob/dev/assets/showcase/showcase_004.png?raw=true)
 ![showcase-002](https://github.com/cvusmo/dotfiles/blob/dev/assets/showcase/showcase_002.png?raw=true)
 ![showcase-003](https://github.com/cvusmo/dotfiles/blob/dev/assets/showcase/showcase_003.png?raw=true)
 
@@ -8,8 +9,6 @@
 These are my current dotfiles that I use daily. I've fixed a few issues with it and it works great. 
 IF you use these dotfiles, you will need to configure your monitors. Please read the hyprland wiki
 on monitors. [!hyprland-wiki](https://wiki.hyprland.org/Configuring/Monitors/)
-
-TLDR: 
 
 Run hyprctl monitors all to list your monitors
 ```fish

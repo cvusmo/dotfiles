@@ -2,46 +2,66 @@
   "layer": "top",
   "position": "top",
   "height": 40,
-  "output": "DP-5", 
+  "output": "DP-5",
   "modules-left": ["custom/arch", "hyprland/workspaces"],
-  "modules-center": ["custom/playerctl", "clock", "wlr/taskbar"],
-  "modules-right": ["pulseaudio", "network", "custom/diskusage"],
+  "modules-center": ["custom/playerctl", "custom/spotify", "clock", "wlr/taskbar"],
+  "modules-right": ["pulseaudio", "network", "custom/diskusage", "custom/volume_control"],
+  
   "custom/arch": {
     "format": "  ",
-    "on-click": "sh /home/echo/.config/wofi/scripts/toggle-waybar.sh"
+    "on-click": "python3 /home/echo/.config/waybar/scripts/toggle_waybar.py"
   },
-    "hyprland/workspaces": {
-    "format": "{name}",  // Only show workspace names
+
+  "hyprland/workspaces": {
+    "format": "{name}", 
     "on-click": "activate",
-    "all-outputs": false,  // Ensure workspaces are restricted to DP-5
-    "disable-scroll": true,  // Prevent scrolling through workspaces
-    "show-back-and-forth": false  // Avoid listing inactive workspaces
-    }
+    "disable-scroll": true,
+    "show-back-and-forth": true
   },
-  "clock": {
-    "format": "<span color='#b69bf1'> </span>{:%H:%M}",
-    "format-alt": "<span foreground='#b69bf1'> </span><span>{:%I:%M %p %a %d}</span>",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
-  },
+
   "custom/playerctl": {
-    "format": "{0} <span>{1}</span>",
+    "format": "{text}",
     "return-type": "json",
-    "max-length": 55,
-    "exec": "playerctl -a metadata --format '{\"text\": \"{{title}}\", \"tooltip\": \"{{playerName}} : {{title}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
-    "on-click-middle": "playerctl previous",
+    "exec": "python3 /home/echo/.config/waybar/scripts/mediaplayer.py",
     "on-click": "playerctl play-pause",
     "on-click-right": "playerctl next",
+    "on-click-middle": "playerctl previous",
     "format-icons": {
       "Paused": "<span foreground='#bb9af7'></span>",
       "Playing": "<span foreground='#bb9af7'></span>"
     }
   },
+
+  "custom/spotify": {
+    "format": "{text}",
+    "exec": "python3 /home/echo/.config/waybar/scripts/spotify.py",
+    "on-click": "playerctl play-pause",
+    "on-click-right": "playerctl next",
+    "on-click-middle": "playerctl previous",
+    "interval": 1
+  },
+
+  "clock": {
+    "format": "<span color='#b69bf1'> </span>{:%H:%M}",
+    "format-alt": "<span foreground='#b69bf1'> </span><span>{:%I:%M %p %a %d}</span>",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+  },
+
+  "custom/volume_control": {
+    "format": "<span color='#f7768e'></span> {0}%",
+    "exec": "python3 /home/echo/.config/hypr/scripts/volume_control.py status",
+    "on-click": "python3 /home/echo/.config/hypr/scripts/volume_control.py mute",
+    "on-scroll-up": "python3 /home/echo/.config/hypr/scripts/volume_control.py increase 2",
+    "on-scroll-down": "python3 /home/echo/.config/hypr/scripts/volume_control.py decrease 2"
+  },
+
   "wlr/taskbar": {
     "icon-size": 18,
     "on-click": "activate",
     "on-click-right": "minimize",
     "format": "{icon}"
   },
+
   "pulseaudio": {
     "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
     "format": "<span color='#f7768e'></span> {volume}%",
@@ -57,6 +77,7 @@
     },
     "on-click-right": "pavucontrol"
   },
+
   "network": {
     "interval": 2,
     "format-wifi": "<span foreground='#928374'></span> {essid}",
@@ -65,9 +86,9 @@
     "format-disconnected": " <span foreground='#928374'></span> ",
     "tooltip-format": "{ifname}: {ipaddr}/{cidr}\n {bandwidthDownBits}\n {bandwidthUpBits}"
   },
+
   "custom/diskusage": {
-    "exec": "/home/echo/.config/waybar/scripts/diskusage.sh",
+    "exec": "python3 /home/echo/.config/waybar/scripts/diskusage.py",
     "interval": 600
   }
 }
-

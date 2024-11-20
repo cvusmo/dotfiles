@@ -4,10 +4,7 @@
   "logo": {
     "source": "~/.config/fastfetch/blackbeard",
     "color": {
-      "1": "blue",
-      "2": "green",
-      "3": "magenta",
-      "4": "white"
+      "1": "bright_cyan"
     },
     "type": "file",
     "padding": {
@@ -15,33 +12,36 @@
     }
   },
   "display": {
-    "separator": "    "
+    "separator": "  ✘  ", 
+    "color": {
+      "separator": "white"
+    }
   },
   "modules": [
     {
       "type": "custom",
-      "format": "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓"
+      "format": "{#90}┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓"
     },
     "break",
     {
       "type": "os",
       "key": "  ",
-      "keyColor": "blue"
+      "keyColor": "bright_blue"
     },
     {
       "type": "kernel",
       "key": "  ",
-      "keyColor": "white"
+      "keyColor": "bright_red"
     },
     {
       "type": "packages",
       "key": "  󰮯",
-      "keyColor": "yellow"
+      "keyColor": "bright_yellow"
     },
     {
       "type": "wm",
       "key": "  󰨇",
-      "keyColor": "blue"
+      "keyColor": "green"
     },
     {
       "type": "terminal",
@@ -51,43 +51,43 @@
     {
       "type": "shell",
       "key": "  ",
-      "keyColor": "yellow"
-    },
-    "break",
-    {
-      "type": "custom",
-      "format": "┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫"
-    },
-    "break",
-    {
-      "type": "host",
-      "key": "  ",
-      "keyColor": "bright_blue"
-    },
-    {
-      "type": "cpu",
-      "key": "  ",
-      "keyColor": "bright_green"
-    },
-    {
-      "type": "gpu",
-      "key": "  󱤓",
-      "keyColor": "red"
-    },
-    {
-      "type": "memory",
-      "key": "  󰍛",
-      "keyColor": "bright_yellow"
-    },
-    {
-      "type": "disk",
-      "key": "  ",
       "keyColor": "bright_cyan"
     },
     "break",
     {
       "type": "custom",
-      "format": "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛"
+      "format": "{#90}┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫"
+    },
+    "break",
+    {
+      "type": "host",
+      "key": "  ",
+      "keyColor": "white"
+    },
+    {
+      "type": "cpu",
+      "key": "  ",
+      "keyColor": "red"
+    },
+    {
+      "type": "gpu",
+      "key": "  󱤓",
+      "keyColor": "green"
+    },
+    {
+      "type": "memory",
+      "key": "  󰍛",
+      "keyColor": "yellow"
+    },
+    {
+      "type": "disk",
+      "key": "  ",
+      "keyColor": "bright_magenta"
+    },
+    "break",
+    {
+      "type": "custom",
+      "format": "{#90}┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛"
     }
   ]
 }
