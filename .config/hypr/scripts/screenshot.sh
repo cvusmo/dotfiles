@@ -3,7 +3,7 @@
 # Takes screenshot of all monitors and notifies you
 
 echo "Getting DTG"
-DTG=$(date +"%d%b%Y%H%M")
+DTG=$(date +"%d%b%Y%H%M%S")
 
 echo "DTG: $DTG"
 
