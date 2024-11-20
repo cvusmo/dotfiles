@@ -1,7 +1,7 @@
 {
   "ChatGPT.nvim": { "branch": "main", "commit": "f081338f07216a46d3915ce46c1fcb083bcb5016" },
   "auto-session": { "branch": "main", "commit": "8d2eddb14ef66ed1019c92251e2d31bb7a2a2f87" },
-  "blackbeard-nvim": { "branch": "dev", "commit": "d2a9d9de59a92a46026ffd17c1a90d84dd944fa6" },
+  "blackbeard-nvim": { "branch": "dev", "commit": "d8c667305d3fb337b459d12aa8d3d881511d666a" },
   "bufferline.nvim": { "branch": "main", "commit": "5cc447cb2b463cb499c82eaeabbed4f5fa6a0a44" },
   "dashboard-nvim": { "branch": "master", "commit": "ae309606940d26d8c9df8b048a6e136b6bbec478" },
   "dressing.nvim": { "branch": "master", "commit": "fc78a3ca96f4db9f8893bb7e2fd9823e0780451b" },
@@ -14,7 +14,7 @@
   "neo-tree.nvim": { "branch": "main", "commit": "a77af2e764c5ed4038d27d1c463fa49cd4794e07" },
   "noice.nvim": { "branch": "main", "commit": "203f74adaae11d47440a667555b4af9156be807b" },
   "nui.nvim": { "branch": "main", "commit": "b58e2bfda5cea347c9d58b7f11cf3012c7b3953f" },
-  "nvim-colorizer.lua": { "branch": "master", "commit": "547a45bbf5bf57c088f6f77924d503f95de1561a" },
+  "nvim-colorizer.lua": { "branch": "master", "commit": "2f546ad923563f4c44d47b9cb1c3c336a4325e82" },
   "nvim-dap": { "branch": "master", "commit": "cc92b054720a96170eca6bd9bdedd43d2b0a7a8a" },
   "nvim-dap-ui": { "branch": "master", "commit": "ffa89839f97bad360e78428d5c740fdad9a0ff02" },
   "nvim-lspconfig": { "branch": "master", "commit": "291a8f1a319dc712db85bcc174b0cf406f0a5b69" },
