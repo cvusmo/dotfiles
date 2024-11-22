@@ -2,6 +2,7 @@
 
 import subprocess
 import time
+import os
 from datetime import datetime
 
 # Define audio devices and streams
@@ -23,6 +24,16 @@ def run_command(command):
     except subprocess.CalledProcessError as e:
         log_event(f"Command failed: {command}")
         return ""
+
+def set_volume_sink_for_streaming():
+    """Set environment variable to specify volume sink for streaming."""
+    os.environ["CURRENT_SINK"] = OBS_MONITOR_SINK
+    log_event(f"Set volume sink for streaming: {OBS_MONITOR_SINK}")
+
+def set_volume_sink_for_default():
+    """Set environment variable to specify volume sink for default setup."""
+    os.environ["CURRENT_SINK"] = DEFAULT_SINK
+    log_event(f"Set volume sink for default: {DEFAULT_SINK}")
 
 def route_spotify_to_obs():
     """Route Spotify stream to OBS input."""
@@ -71,13 +82,15 @@ def main():
             obs_status = not obs_status
             if obs_status:
                 log_event("OBS has started. Applying custom routing...")
-                route_spotify_to_obs()
-                route_obs_monitor_to_headphones()
-                route_mic_to_obs()
+                set_volume_sink_for_streaming()  # Set sink for streaming
+                route_spotify_to_obs()  # Route Spotify to OBS
+                route_obs_monitor_to_headphones()  # Route OBS monitor to headphones
+                route_mic_to_obs()  # Route microphone to OBS
             else:
                 log_event("OBS has stopped. Resetting routing to default.")
-                route_spotify_to_headphones()
-                route_mic_to_output()
+                set_volume_sink_for_default()  # Set sink for default setup
+                route_spotify_to_headphones()  # Route Spotify back to headphones
+                route_mic_to_output()  # Route mic back to default sink
         time.sleep(5)  # Check every 5 seconds
 
 if __name__ == "__main__":
