@@ -2,10 +2,10 @@
 
 return {
     "cvusmo/blackbeard-nvim",
-    branch = 'dev',  -- Specify dev branch
+    branch = "dev",
     config = function()
         require("blackbeard").setup({
-            theme = "dark",  -- Set theme to dark or light
+            theme = "dark", -- Change to "dark" or "light"
         })
     end,
 }

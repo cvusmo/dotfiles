@@ -1,12 +1,12 @@
--- treesitter
+-- ~/.config/nvim/lua/plugins/treesitter
 return {
   "nvim-treesitter/nvim-treesitter",
   build = ":TSUpdate",
   config = function()
   local config = require("nvim-treesitter.configs")
     config.setup({
-    ensure_installed = { 
-      "c", 
+    ensure_installed = {
+      "c",
       "lua",
       "vim",
       "vimdoc",
@@ -14,10 +14,13 @@ return {
       "elixir",
       "heex",
       "javascript",
-      "html"},
+      "html",
+      "regex",
+      "bash",
+    },
     --sync_install = false,
     highlight = { enable = true },
-    indent = { enable = true }, 
+    indent = { enable = true },
   })
   end
 }
