@@ -1,9 +1,9 @@
---nvim-dap-ui from https://github.com/rcarriga/nvim-dap-ui
+-- ~/.config/nvim/lua/plugins/dap.lua
 return
 { 
-    "rcarriga/nvim-dap-ui", 
+    "rcarriga/nvim-dap-ui",
     dependencies = {
-      "mfussenegger/nvim-dap", 
+      "mfussenegger/nvim-dap",
       "nvim-neotest/nvim-nio"
     },
     config = function()
