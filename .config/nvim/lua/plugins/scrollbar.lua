@@ -12,7 +12,7 @@ return {
             hide_if_all_visible = false,
             throttle_ms = 100,
             handle = {
-                text = "██",
+                text = "█",
                 color = nil,
                 cterm = nil,
                 highlight = "ScrollbarHandle",

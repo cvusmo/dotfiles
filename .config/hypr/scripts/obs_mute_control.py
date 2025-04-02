@@ -5,7 +5,7 @@ import sys
 # Update these variables based on your OBS configuration
 OBS_HOST = "localhost"
 OBS_PORT = 4455
-OBS_PASSWORD = "" # Enter your OBS-WEBSOCKET PASSWORD
+OBS_PASSWORD = "FlonnieSue"
 
 def toggle_mute(source_name):
     """Toggle mute for a given source in OBS."""
