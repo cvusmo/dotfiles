@@ -79,11 +79,12 @@ return {
     })
 
     -- Auto-format on save for specific filetypes
-    vim.api.nvim_create_autocmd("BufWritePost", {
-      pattern = { "*.lua", "*.rs", "*.json", "*.c", "*.cpp", "*.py", "*.js" },
-      callback = function()
-        require("formatter").format()
-      end,
-    })
+
+vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = { "*.lua", "*.rs", "*.json", "*.c", "*.cpp", "*.py", "*.js" },
+  callback = function()
+    vim.cmd("Format")
+  end,
+})
   end,
 }
