@@ -15,15 +15,20 @@ update_status() {
     ram=$(free -h | awk '/^Mem:/ {print $3 "/" $2}')
 
     # NVMe storage (%)
-    # Adjust /dev/nvme0n1p2 to your actual partition (check with 'df -h')
     nvme=$(df -h /dev/nvme0n1p2 | awk 'NR==2 {print $5}' || echo "N/A")
 
     # Volume (% or muted)
     vol=$(pulsemixer --get-volume | awk '{print $1}' || echo "N/A")
     mute=$(pulsemixer --get-mute | grep -q 1 && echo "M" || echo "")
 
+    # Flameshot clickable button (using statuscmd syntax)
+    flameshot="📸"
+
+    # Power button clickable (triggers dwm-logout.sh)
+    power="⏻"
+
     # Combine into status text
-    status="Time: $time | CPU: $cpu% | RAM: $ram | NVMe: $nvme | Vol: $vol%$mute"
+    status="$power | $flameshot | Time: $time | CPU: $cpu% | RAM: $ram | NVMe: $nvme | Vol: $vol%$mute"
 
     # Set the status bar
     xsetroot -name "$status"

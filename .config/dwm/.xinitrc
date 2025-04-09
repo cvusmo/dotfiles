@@ -9,7 +9,7 @@ export QT_QPA_PLATFORMTHEME=qt6ct
 export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 export QT_AUTO_SCREEN_SCALE_FACTOR=1
 export GTK_THEME=blackbeard-dark
-export GDK_SCALE=2
+export GDK_SCALE=1
 export XCURSOR_THEME=Nordzy-cursors
 export XCURSOR_SIZE=24
 
@@ -19,25 +19,26 @@ Xcursor.theme: Nordzy-cursors
 Xcursor.size: 24
 EOF
 
-# Set DPI for scaling
+# Set DPI for scaling (keep 192 for other monitors, DP-2 scaling handled in xorg.conf)
 xrdb -merge <<< "Xft.dpi: 192"
 
 # Keyboard layout
 setxkbmap us &
 
-# Monitor setup
-xrandr --output DP-4 --mode 3840x2160 --rate 144 --pos 2160x1680 --primary \
-       --output DP-0 --mode 1920x1080 --rate 144 --pos 4103x600 \
-       --output DP-2 --mode 3840x2160 --rate 60 --pos 0x0 --rotate left \
-       --output HDMI-0 --mode 3840x2160 --rate 60 --same-as DP-4 &
+# Monitor setup is now handled by /etc/X11/xorg.conf.d/10-monitor.conf
+# No need for nvidia-settings command here
 
 # Startup applications
 feh --bg-scale ~/.config/dwm/background/background.png &
 ~/.config/dwm/scripts/statusbar.sh &
 dunst &
 python3 ~/.config/hypr/scripts/volume_control.py &
+deskflowc 10.0.0.6 &  # Replace with your Deskflow server's IP
 
-# Compositor for animations (optional)
+# Focus the main monitor (DP-4) by moving the mouse cursor to its center
+xdotool mousemove 4080 2760 &
+
+# Compositor for animations (optional, disabled for now to test Flameshot)
 picom &
 
 # Launch dwm

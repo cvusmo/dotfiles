@@ -15,6 +15,6 @@ static const char col_borderbar[] = "#1C1B1A"; // Inner border
 /* Define the colors array for dwm */
 static const char *colors[][3] = {
     /*               fg         bg         border   */
-    [SchemeNorm] = { white,      black,     gray2  }, // Normal: white text, black bg, gray2 border
-    [SchemeSel]  = { white,      orange,    blue   }, // Selected: white text, orange bg, blue border
+    [SchemeNorm] = { white,      black,     gray2 },  // Normal: white text, black bg, gray2 border
+    [SchemeSel]  = { white,      orange,    blue  },  // Selected: white text, orange bg, blue border
 };

@@ -15,12 +15,11 @@ const unsigned int gappov    = 5;        /* Vertical outer gap */
 static const int smartgaps    = 0;       /* No outer gap when only one window */
 const int showbar            = 1;        /* 0 means no bar */
 const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]   = { "Hurmit Nerd Font:size=22" };
-static const char dmenufont[] = "Hurmit Nerd Font:size=18";
+static const char *fonts[]   = { "Hurmit Nerd Font:size=30" };
+static const char dmenufont[] = "Hurmit Nerd Font:size=20";
 
 /* Themes - Colors defined here */
-/*#include "themes/blackbearddark.h" */
-#include "themes/blackbeardlight.h"  /* Uncomment and rebuild for light theme */
+#include "themes/blackbearddark.h"
 
 /* Tagging - 20 workspaces to match Hyprland’s 1-20 */
 #define TAGCOUNT 20
@@ -60,28 +59,28 @@ const char *tags[] = { "home", "", "", "", "", "", "", "", "", "",
 /* Rules */
 const Rule rules[] = {
     /* class               instance    title           tags mask     isfloating   monitor */
-    { "org.blackbeard.installer", NULL, NULL,           0,            1,           -1 }, /* Float */
-    { "center-float-large", NULL,   NULL,           0,            1,           -1 }, /* Float */
-    { "center-float",       NULL,   NULL,           0,            1,           -1 }, /* Float */
-    { "center-float-mini",  NULL,   NULL,           0,            1,           -1 }, /* Float */
-    { "file-roller",        NULL,   NULL,           0,            1,           -1 }, /* Float */
-    { "galculator",         NULL,   NULL,           0,            1,           -1 }, /* Float */
-    { "ytdlp-gui",          NULL,   NULL,           0,            1,           -1 }, /* Float */
-    { "Alacritty",          NULL,   NULL,           0,            0,           -1 }, /* Tag 0 */
-    { "Spotify",            NULL,   NULL,           1 << 3,       0,           -1 }, /* Tag 3 */
-    { "obsproject",         NULL,   NULL,           1 << 3,       0,           -1 }, /* Tag 3 */
-    { "discord",            NULL,   NULL,           1 << 4,       0,           -1 }, /* Tag 4 */
-    { "vesktop",            NULL,   NULL,           1 << 4,       0,           -1 }, /* Tag 4 */
-    { "WebCord",            NULL,   NULL,           1 << 4,       0,           -1 }, /* Tag 4 */
-    { "firefox",            NULL,   NULL,           1 << 2,       0,           -1 }, /* Tag 2 */
-    { "gimp",               NULL,   NULL,           1 << 8,       0,           -1 }, /* Tag 8 */
-    { "hyprclock",          NULL,   NULL,           1 << 9,       1,           -1 }, /* Tag 9 */
-    { "blender",            NULL,   NULL,           1 << 5,       0,           -1 }, /* Tag 5 */
-    { "steam",              NULL,   NULL,           1 << 7,       0,           -1 }, /* Tag 7 */
-    { "steam_app_",         NULL,   NULL,           1 << 7,       0,           -1 }, /* Tag 7 */
-    { "gamescope",          NULL,   NULL,           1 << 7,       0,           -1 }, /* Tag 7 */
-    { "atlauncher",         NULL,   NULL,           1 << 7,       0,           -1 }, /* Tag 7 */
-    { "flameshot",          NULL,   NULL,           1 << 10,      0,           -1 }, /* Tag 10 */
+    { "org.blackbeard.installer", NULL, NULL,           0,            1,           0 },  /* Float on DP-4 */
+    { "center-float-large", NULL,   NULL,           0,            1,           0 },  /* Float on DP-4 */
+    { "center-float",       NULL,   NULL,           0,            1,           0 },  /* Float on DP-4 */
+    { "center-float-mini",  NULL,   NULL,           0,            1,           0 },  /* Float on DP-4 */
+    { "file-roller",        NULL,   NULL,           0,            1,           0 },  /* Float on DP-4 */
+    { "galculator",         NULL,   NULL,           0,            1,           0 },  /* Float on DP-4 */
+    { "ytdlp-gui",          NULL,   NULL,           0,            1,           0 },  /* Float on DP-4 */
+    { "Alacritty",          NULL,   NULL,           0,            0,           0 },  /* Tag 0 on DP-4 */
+    { "Spotify",            NULL,   NULL,           1 << 3,       0,           0 },  /* Tag 3 on DP-4 */
+    { "obsproject",         NULL,   NULL,           1 << 3,       0,           0 },  /* Tag 3 on DP-4 */
+    { "discord",            NULL,   NULL,           1 << 4,       0,           1 },  /* Tag 4 on DP-0 */
+    { "vesktop",            NULL,   NULL,           1 << 4,       0,           1 },  /* Tag 4 on DP-0 */
+    { "WebCord",            NULL,   NULL,           1 << 4,       0,           1 },  /* Tag 4 on DP-0 */
+    { "firefox",            NULL,   NULL,           1 << 2,       0,           0 },  /* Tag 2 on DP-4 */
+    { "gimp",               NULL,   NULL,           1 << 8,       0,           0 },  /* Tag 8 on DP-4 */
+    { "hyprclock",          NULL,   NULL,           1 << 9,       1,           0 },  /* Tag 9 on DP-4 */
+    { "blender",            NULL,   NULL,           1 << 5,       0,           0 },  /* Tag 5 on DP-4 */
+    { "steam",              NULL,   NULL,           1 << 7,       0,           1 },  /* Tag 7 on DP-0 */
+    { "steam_app_",         NULL,   NULL,           1 << 7,       0,           1 },  /* Tag 7 on DP-0 */
+    { "gamescope",          NULL,   NULL,           1 << 7,       0,           1 },  /* Tag 7 on DP-0 */
+    { "atlauncher",         NULL,   NULL,           1 << 7,       0,           1 },  /* Tag 7 on DP-0 */
+    { "flameshot",          NULL,   NULL,           1 << 10,      0,           0 },  /* Tag 10 on DP-4 */
 };
 
 /* Layouts */
@@ -121,11 +120,11 @@ static const char *spotifycmd[] = { "spotify-launcher", NULL };
 static const char *blendercmd[] = { "blender", NULL };
 static const char *kritacmd[] = { "krita", NULL };
 static const char *clockcmd[] = { "/home/echo/projects/remote/hyprclock/target/debug/hyprclock", NULL };
-static const char *logoutcmd[] = { "/home/echo/.config/hypr/scripts/launch_wlogout.py", NULL };
+static const char *logoutcmd[] = { "/usr/local/bin/dwm-logout.sh", NULL };
 static const char *volupcmd[] = { "pulsemixer", "--change-volume", "+1", NULL };
 static const char *voldowncmd[] = { "pulsemixer", "--change-volume", "-1", NULL };
 static const char *volmutecmd[] = { "pulsemixer", "--toggle-mute", NULL };
-static const char *screenshotcmd[] = { "flameshot", "gui", NULL }; /* Updated for Flameshot */
+static const char *screenshotcmd[] = { "flameshot", "gui", NULL }; /* Use script to select monitor for screenshot */
 static const char *muteaudiocmd[] = { "python3", "/home/echo/.config/hypr/scripts/volume_control.py", "mute", NULL };
 static const char *webcmd[] = { "/home/echo/.config/dwm/scripts/search.sh", NULL }; /* Web search */
 static const char *scrollupcmd[] = { "xdotool", "click", "4", NULL };    /* Scroll up */
@@ -140,37 +139,36 @@ Key keys[] = {
     { MODKEY,                       XK_e,      spawn,          {.v = logoutcmd} },
     { MODKEY,                       XK_q,      killclient,     {0} },
     { MODKEY,                       XK_t,      spawn,          {.v = termcmd} },      /* Launch Alacritty */
-    { MODKEY,                       XK_t,      view,           {.ui = 0} },          /* Switch to tag 0 (home) */
-    { MODKEY,                       XK_t,      focusmon,       {.i = 0} },          /* Focus DP-4 */
+    { MODKEY|ControlMask,           XK_t,      view,           {.ui = 0} },          /* Switch to tag 0 (home) */
+    { MODKEY|ShiftMask,             XK_t,      focusmon,       {.i = 0} },          /* Focus DP-4 */
     { MODKEY,                       XK_x,      spawn,          {.v = filecmd} },      /* Launch Thunar */
     { MODKEY,                       XK_r,      spawn,          {.v = menucmd} },
     { MODKEY|ShiftMask,             XK_r,      spawn,          {.v = menucmd} },      /* Finder */
     { MODKEY,                       XK_w,      spawn,          {.v = browsercmd} },   /* Launch Firefox */
-    { MODKEY,                       XK_w,      view,           {.ui = 1 << 2} },     /* Switch to tag 2 */
-    { MODKEY,                       XK_w,      focusmon,       {.i = 0} },          /* Focus DP-4 */
+    { MODKEY|ControlMask,           XK_w,      view,           {.ui = 1 << 2} },     /* Switch to tag 2 */
+    { MODKEY|ShiftMask,             XK_w,      focusmon,       {.i = 0} },          /* Focus DP-4 */
     { MODKEY,                       XK_g,      spawn,          {.v = gimpcmd} },      /* Launch GIMP */
-    { MODKEY,                       XK_g,      view,           {.ui = 1 << 8} },     /* Switch to tag 8 */
-    { MODKEY,                       XK_g,      focusmon,       {.i = 0} },          /* Focus DP-4 */
+    { MODKEY|ControlMask,           XK_g,      view,           {.ui = 1 << 8} },     /* Switch to tag 8 */
+    { MODKEY|ShiftMask,             XK_g,      focusmon,       {.i = 0} },          /* Focus DP-4 */
     { MODKEY,                       XK_v,      spawn,          {.v = vesktopcmd} },   /* Launch Vesktop */
-    { MODKEY,                       XK_v,      view,           {.ui = 1 << 4} },     /* Switch to tag 4 */
-    { MODKEY,                       XK_v,      focusmon,       {.i = 1} },          /* Focus DP-0 */
+    { MODKEY|ControlMask,           XK_v,      view,           {.ui = 1 << 4} },     /* Switch to tag 4 */
+    { MODKEY|ShiftMask,             XK_v,      focusmon,       {.i = 1} },          /* Focus DP-0 */
     { MODKEY,                       XK_s,      spawn,          {.v = spotifycmd} },   /* Launch Spotify */
-    { MODKEY,                       XK_s,      view,           {.ui = 1 << 3} },     /* Switch to tag 3 */
-    { MODKEY,                       XK_s,      focusmon,       {.i = 0} },          /* Focus DP-4 */
+    { MODKEY|ControlMask,           XK_s,      view,           {.ui = 1 << 3} },     /* Switch to tag 3 */
+    { MODKEY|ShiftMask,             XK_s,      spawn,          {.v = screenshotcmd} }, /* Launch Flameshot */
+    { MODKEY|ControlMask|ShiftMask, XK_s,      view,           {.ui = 1 << 10} },    /* Switch to tag 10 */
+    { MODKEY|ControlMask|Mod1Mask,  XK_s,      focusmon,       {.i = 0} },          /* Focus DP-4 */
     { MODKEY,                       XK_b,      spawn,          {.v = blendercmd} },   /* Launch Blender */
-    { MODKEY,                       XK_b,      view,           {.ui = 1 << 5} },     /* Switch to tag 5 */
-    { MODKEY,                       XK_b,      focusmon,       {.i = 0} },          /* Focus DP-4 */
+    { MODKEY|ControlMask,           XK_b,      view,           {.ui = 1 << 5} },     /* Switch to tag 5 */
+    { MODKEY|ShiftMask,             XK_b,      focusmon,       {.i = 0} },          /* Focus DP-4 */
     { MODKEY,                       XK_z,      spawn,          {.v = kritacmd} },     /* Launch Krita */
     { MODKEY,                       XK_c,      spawn,          {.v = clockcmd} },     /* Launch Hyprclock */
-    { MODKEY,                       XK_c,      view,           {.ui = 1 << 9} },     /* Switch to tag 9 */
-    { MODKEY,                       XK_c,      focusmon,       {.i = 0} },          /* Focus DP-4 */
+    { MODKEY|ControlMask,           XK_c,      view,           {.ui = 1 << 9} },     /* Switch to tag 9 */
+    { MODKEY|ShiftMask,             XK_c,      focusmon,       {.i = 0} },          /* Focus DP-4 */
     { MODKEY,                       XK_m,      spawn,          {.v = steamcmd} },     /* Launch Steam */
-    { MODKEY,                       XK_m,      view,           {.ui = 1 << 7} },     /* Switch to tag 7 */
-    { MODKEY,                       XK_m,      focusmon,       {.i = 1} },          /* Focus DP-0 */
-    { MODKEY|ShiftMask,             XK_m,      spawn,          {.v = muteaudiocmd} },
-    { MODKEY|ShiftMask,             XK_s,      spawn,          {.v = screenshotcmd} }, /* Launch Flameshot */
-    { MODKEY|ShiftMask,             XK_s,      view,           {.ui = 1 << 10} },    /* Switch to tag 10 */
-    { MODKEY|ShiftMask,             XK_s,      focusmon,       {.i = 0} },          /* Focus DP-4 */
+    { MODKEY|ControlMask,           XK_m,      view,           {.ui = 1 << 7} },     /* Switch to tag 7 */
+    { MODKEY|ShiftMask,             XK_m,      focusmon,       {.i = 1} },          /* Focus DP-0 */
+    { MODKEY|Mod1Mask,              XK_m,      spawn,          {.v = muteaudiocmd} }, /* SUPER + Alt + M for mute */
     { MODKEY,                       XK_Tab,    focusstack,     {.i = +1} },
     { MODKEY,                       XK_p,      setlayout,      {.v = &layouts[1]} },
     { MODKEY,                       XK_u,      setlayout,      {0} },
