@@ -1,3 +1,4 @@
+# Alacritty Colors and Font Configuration
 [terminal.shell]
 program = "/bin/fish"
 
@@ -5,7 +6,7 @@ program = "/bin/fish"
 padding = { x = 4, y = 4 }
 dynamic_padding = true
 decorations = "Full"
-opacity = 0.98
+opacity = 0.93
 blur = true
 dynamic_title = false
 
@@ -13,61 +14,40 @@ dynamic_title = false
 history = 5000
 
 [font]
-size = 16
+size = 12  # Default font size
 normal.family = "Hurmit Nerd Font"
 bold.family = "Hurmit Nerd Font"
 italic.family = "Hurmit Nerd Font"
 
-# Colors
+[colors]
 [colors.primary]
-background = '#1C1B1A'
-foreground = '#F4E3C1'
+background = "#1C1B1A"
+foreground = "#F4E3C1"
 
-## Cursor colors
 [colors.cursor]
-text = '#1C1B1A'
-cursor = '#F27835'
+text = "#F27835"
+cursor = "#F27835"
 
-## Selection colors
 [colors.selection]
-text = '#1C1B1A'
-background = '#F4A259'
+text = "#1C1B1A"
+background = "#F4A259"
 
-## Normal colors
 [colors.normal]
-black = '#454240'       # ANSI 030
-red = '#D13438'         # ANSI 031
-green = '#73A857'       # ANSI 032
-yellow = '#F1C232'      # ANSI 033
-blue = '#5A8CA5'        # ANSI 034
-magenta = '#A066C9'     # ANSI 035
-cyan = '#46B9A0'        # ANSI 036
-white = '#AA9E87'       # ANSI 037
+black = "#454240"
+red = "#D13438"
+green = "#73A857"
+yellow = "#F1C232"
+blue = "#5A8CA5"
+magenta = "#A066C9"
+cyan = "#46B9A0"
+white = "#AA9E87"
 
-## Bright colors
 [colors.bright]
-black = '#614A4D'       # ANSI 090
-red = '#FF5F56'         # ANSI 091
-green = '#88C070'       # ANSI 092
-yellow = '#FADF60'      # ANSI 093
-blue = '#73B3D8'        # ANSI 094
-magenta = '#B794F4'     # ANSI 095
-cyan = '#6FE2CA'        # ANSI 096
-white = '#F6E8CD'       # ANSI 097
-
-
-# Unmapped ANSI codes:
-# ANSI 047 colors.primary foreground (used as light gray in some contexts)
-# ANSI 100 colors.bright black (Dark gray when brightened)
-# ANSI 101 colors.bright red (Light red)
-# ANSI 102 colors.bright green (Light green)
-# ANSI 103 colors.bright yellow (Light yellow)
-# ANSI 104 colors.bright blue (Light blue)
-# ANSI 105 colors.bright magenta (Light magenta)
-# ANSI 106 colors.bright cyan (Light cyan)
-
-[mouse]
-hide_when_typing = true
-
-[general]
-live_config_reload = true
+black = "#614A4D"
+red = "#FF5F56"
+green = "#88C070"
+yellow = "#FADF60"
+blue = "#73B3D8"
+magenta = "#B794F4"
+cyan = "#6FE2CA"
+white = "#F6E8CD"
