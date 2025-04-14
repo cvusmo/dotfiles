@@ -2,8 +2,8 @@
   "layer": "top",
   "position": "top",
   "height": 54,
-  "modules-center": ["custom/playerctl", "custom/spotify", "clock", "wlr/taskbar"],
-  "modules-right": ["pulseaudio", "network", "custom/diskusage", "custom/volume_control"],
+  "modules-center": ["custom/playerctl", "custom/spotify", "custom/weather", "clock", "wlr/taskbar"],
+  "modules-right": ["pulseaudio", "network", "custom/cpu-usage", "custom/gpu-usage", "custom/disk-usage", "custom/volume_control"],
   "modules-left": ["custom/arch", "hyprland/workspaces"],
   
   "custom/arch": {
@@ -19,8 +19,8 @@
     "persistent-workspaces": {
       "main": true
     },
-    "ignore-workspaces": [16, 17, 18, 19, 20], // Hide workspaces 16-20
-    "show-special": false, // Don’t show special workspaces
+    "ignore-workspaces": [16, 17, 18, 19, 20],
+    "show-special": false,
     "format-icons": {
       "main": "",
       "0": "󰟢",
@@ -32,15 +32,14 @@
       "6": "",
       "7": "󰂫",
       "8": "",
-      "9": "󰔟",
+      "9": "󰔟"
     }
   },
 
   "custom/playerctl": {
-    "format": "  {text}  ",
-    "return-type": "json",
-    "exec": "python3 ~/.config/waybar/scripts/mediaplayer.py",
-    "on-click": "python3 ~/.config/waybar/scripts/mediaplayer.py toggle",
+    "format": "  {0}  ",
+    "exec": "~/.local/python/venv/bin/python3 ~/.config/waybar/scripts/mediaplayer.py",
+    "on-click": "~/.local/python/venv/bin/python3 ~/.config/waybar/scripts/mediaplayer.py toggle",
     "on-click-right": "playerctl next",
     "on-click-middle": "playerctl previous",
     "interval": 1,
@@ -51,17 +50,24 @@
   },
 
   "custom/spotify": {
-    "format": "  {text}  ",
-    "exec": "python3 ~/.config/waybar/scripts/spotify.py",
+    "format": "  {0}  ",
+    "exec": "~/.local/python/venv/bin/python3 ~/.config/waybar/scripts/spotify.py",
     "on-click": "playerctl play-pause",
     "on-click-right": "playerctl next",
     "on-click-middle": "playerctl previous",
     "interval": 1
   },
 
+  "custom/weather": {
+    "format": "{text}",
+    "exec": "~/.local/python/venv/bin/python3 ~/.config/waybar/scripts/weather.py",
+    "interval": 300,
+    "return-type": "json"
+  },
+
   "clock": {
-    "format": "   {:%H:%M}  ",
-    "format-alt": "   {:%I:%M %p %a %d}  ",
+    "format": "  {:%H:%M}  ",
+    "format-alt": "  {:%I:%M %p %a %d}  ",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
   },
 
@@ -98,15 +104,32 @@
 
   "network": {
     "interval": 2,
-    "format-wifi": "   {essid}  ",
-    "format-ethernet": "   {ifname}  ",
-    "format-linked": "   {ifname}  ",
-    "format-disconnected": "    ",
+    "format-wifi": "",
+    "format-ethernet": "",
+    "format-linked": "{ifname} {essid}",
+    "format-disconnected": "",
     "tooltip-format": "{ifname}: {ipaddr}/{cidr}\n {bandwidthDownBits}\n {bandwidthUpBits}",
-    "on-click-right": "python3 ~/.config/waybar/scripts/show_public_ip.py"
+    "on-click-right": "python3 ~/.config/waybar/scripts/show_public_ip.py",
+    "class": {
+      "wifi": "network-connected",
+      "ethernet": "network-connected",
+      "disconnected": "network-disconnected"
+    }
   },
 
-  "custom/diskusage": {
+  "custom/cpu-usage": {
+    "format": "{text}",
+    "exec": "python3 ~/.config/waybar/scripts/cpu_usage.py",
+    "interval": 2
+  },
+
+  "custom/gpu-usage": {
+    "format": "{text}",
+    "exec": "python3 ~/.config/waybar/scripts/gpu_usage.py",
+    "interval": 2
+  },
+
+  "custom/disk-usage": {
     "exec": "python3 ~/.config/waybar/scripts/diskusage.py",
     "interval": 600,
     "format": "  {text}  "

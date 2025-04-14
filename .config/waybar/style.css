@@ -27,8 +27,8 @@
 
 /* Apply hover effect to single-element modules and buttons */
 #custom-arch:hover, #workspaces:hover, #workspaces button:hover {
-  background-color: rgba(166, 127, 32, 0.2);
-  border: 1px solid #A67F20; /* Yellow border */
+  background-color: rgba(52, 75, 42, 0.2);
+  border: 1px solid #85C06C; /* green border */
 }
 
 /* Style for individual workspace buttons */
@@ -47,7 +47,7 @@
 }
 
 /* Center Section */
-#custom-playerctl, #custom-spotify, #clock, #taskbar {
+#custom-playerctl, #custom-spotify, #custom-weather, #clock, #taskbar {
   border-radius: 10px;
   margin: 5px;
   padding: 5px 10px;
@@ -63,8 +63,8 @@
 
 /* Apply hover effect to single-element modules and buttons */
 #custom-playerctl:hover, #custom-spotify:hover, #clock:hover, #taskbar:hover, #taskbar button:hover {
-  background-color: rgba(166, 127, 32, 0.2); /* Subtle yellow hover */
-  border: 1px solid #A67F20; /* Yellow border */
+  background-color: rgba(52, 75, 42, 0.2); /* hover */
+  border: 1px solid #85C06C; /* green border */
 }
 
 /* Taskbar (wlr/taskbar) has individual buttons */
@@ -77,7 +77,7 @@
 }
 
 /* Right Section */
-#pulseaudio, #network, #custom-diskusage, #custom-volume_control {
+#pulseaudio, #network, #custom-cpu-usage, #custom-gpu-usage, #custom-disk-usage, #custom-volume_control {
   border-radius: 10px;
   margin-top: 5px;
   margin-right: 5px;
@@ -87,10 +87,18 @@
   background: transparent;
 }
 
+#network.network-connected {
+  color: #F1E1BF;
+}
+
+#network.network-disconnected {
+  color: #FB5C56
+}
+
 /* Apply hover effect to single-element modules */
-#pulseaudio:hover, #network:hover, #custom-diskusage:hover, #custom-volume_control:hover {
-  background-color: rgba(166, 127, 32, 0.2); /* Subtle yellow hover */
-  border: 1px solid #A67F20; /* Yellow border */
+#pulseaudio:hover, #network:hover, #custom-disk-usage:hover, #custom-cpu-usage:hover, #custom-gpu-usage:hover, #custom-volume_control:hover {
+  background-color: rgba(52, 75, 42, 0.2); /* hover */
+  border: 1px solid #85C06C; /* green border */
 }
 
 /* Notifications */
@@ -103,8 +111,8 @@
 
 /* Apply hover effect */
 #custom-notifications:hover {
-  background-color: rgba(166, 127, 32, 0.2); /* Subtle yellow hover */
-  border: 1px solid #A67F20; /* Yellow border */
+  background-color: rgba(52, 75, 42, 0.2); /* hover*/
+  border: 1px solid #85C06C; /* green border */
 }
 
 /* Custom Music */
@@ -118,7 +126,7 @@
 /* Apply hover effect */
 #custom-music:hover {
   background: transparent;
-  border: 1px solid #A67F20; /* Yellow border */
+  border: 1px solid #85C06C; /* green border */
 }
 
 /* Expandable Soundbar Styling */
@@ -132,6 +140,6 @@
 
 /* Apply hover effect */
 #soundbar:hover {
-  background-color: rgba(166, 127, 32, 0.2); /* Subtle yellow hover */
-  border: 1px solid #A67F20; /* Yellow border */
+  background-color: rgba(52, 75, 42, 0.2); /* hover */
+  border: 1px solid #85C06C; /* green border */
 }

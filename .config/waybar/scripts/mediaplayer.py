@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-import subprocess
+import subprocess  # must install playerctl (on arch: sudo pacman -S playerctl)
 import time
 import sys
+
 
 # Toggle play/pause functionality
 def toggle_play_pause():
@@ -10,12 +11,19 @@ def toggle_play_pause():
     except Exception as e:
         print(f"Error toggling playback: {e}")
 
+
 # Fetch metadata
 def get_metadata():
     try:
-        status = subprocess.run(["playerctl", "status"], capture_output=True, text=True).stdout.strip()
-        artist = subprocess.run(["playerctl", "metadata", "artist"], capture_output=True, text=True).stdout.strip()
-        title = subprocess.run(["playerctl", "metadata", "title"], capture_output=True, text=True).stdout.strip()
+        status = subprocess.run(
+            ["playerctl", "status"], capture_output=True, text=True
+        ).stdout.strip()
+        artist = subprocess.run(
+            ["playerctl", "metadata", "artist"], capture_output=True, text=True
+        ).stdout.strip()
+        title = subprocess.run(
+            ["playerctl", "metadata", "title"], capture_output=True, text=True
+        ).stdout.strip()
 
         if status == "Playing":
             return f"<span color='#1db954'></span> {artist} - {title}"
@@ -26,6 +34,7 @@ def get_metadata():
     except Exception:
         return "No media playing"
 
+
 # Main function
 def main():
     if len(sys.argv) > 1 and sys.argv[1] == "toggle":
@@ -35,6 +44,7 @@ def main():
             metadata = get_metadata()
             print(metadata)
             time.sleep(1)
+
 
 if __name__ == "__main__":
     main()
