@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import requests
-from pyquery import PyQuery  # must install pyquery
+from pyquery import PyQuery
 import json
 
 weather_icons = {
@@ -17,10 +17,8 @@ weather_icons = {
     "default": "",
 }
 
-# go to weather.com and enter city/state/country for location, paste the information
-# London Bridge, England, UK:
-# https://weather.com/weather/today/l/7a6c6c8963acb7b8ab202b0a916832b2a9043bb3137d2756012d67bc25662aae
-location_id = "https://weather.com/weather/today/l/7a6c6c8963acb7b8ab202b0a916832b2a9043bb3137d2756012d67bc25662aae"
+# go to weather.com and search for your city. Example: Munich, Germany = https://weather.com/weather/today/l/ae8d09111a0fa1bd7301d7b3d888f4487b67c6e8187c06163654800262b37757
+location_id = "ae8d09111a0fa1bd7301d7b3d888f4487b67c6e8187c06163654800262b37757"
 
 url = "https://weather.com/en-IN/weather/today/l/" + location_id
 headers = {

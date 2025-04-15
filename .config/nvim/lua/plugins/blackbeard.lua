@@ -6,8 +6,8 @@ return {
   lazy = false,
   config = function()
     require("blackbeard").setup({
-      --theme = "dark",
-      --font_size = 26,
+      theme = "dark",
+      font_size = 26,
     })
   end,
 }

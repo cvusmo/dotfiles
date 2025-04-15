@@ -1,16 +1,15 @@
-/* ~/.config/waybar/style.css */
-
 /* General Waybar Styling */
 * {
   border: none;
   font-family: 'Hurmit Nerd Font';
-  font-size: 26px;
+  font-size: 18px;
   min-height: 30px;
+  color: #F4E3C1;
 }
 
 #waybar {
-  background-color: transparent;
-  border-radius: 0;
+  background-color: #1C1B1A;
+  border-radius: 10px;
   padding: 5px;
 }
 
@@ -21,28 +20,34 @@
   margin-left: 5px;
   padding: 5px 10px;
   opacity: 0.93;
-  border: none;
-  background: transparent;
+  border: 2px solid #73A857; /* Static border for left modules (green in dark, brighter green in light) */
+  background: #1C1B1A;
 }
 
-/* Apply hover effect to single-element modules and buttons */
-#custom-arch:hover, #workspaces:hover, #workspaces button:hover {
-  background-color: rgba(52, 75, 42, 0.2);
-  border: 1px solid #85C06C; /* green border */
+/* Section-level hover effect for left modules */
+#custom-arch:hover, #workspaces:hover {
+  background: #73A857; /* Green background on hover for the left section */
 }
 
 /* Style for individual workspace buttons */
 #workspaces button {
   padding: 0 10px;
   margin: 0 5px;
-  background: transparent;
+  color: #F4E3C1;
+  background: transparent; /* Transparent background to inherit from parent */
   border: none;
   border-radius: 5px;
   min-width: 30px;
 }
 
+/* No hover border for individual workspace buttons, inherit parent background */
+#workspaces button:hover {
+  background: transparent; /* Ensure transparency on hover */
+}
+
 #workspaces button.active {
-  background: transparent;
+  background: #1C1B1A;
+  color: #F4E3C1;
   border: none;
 }
 
@@ -51,29 +56,57 @@
   border-radius: 10px;
   margin: 5px;
   padding: 5px 10px;
+  color: #F4E3C1;
   opacity: 0.93;
-  border: none;
-  background: transparent;
+  border: 2px solid #D13438; /* Static border for center modules (red in dark, brighter red in light) */
+  background: #1C1B1A;
 }
 
-#clock {
-  font-weight: bold;
-  font-size: 18px;
+/* Section-level hover effect for center modules */
+#custom-playerctl:hover, #custom-spotify:hover, #custom-weather:hover, #clock:hover, #taskbar:hover {
+  background: #D13438; /* Red background on hover for the center section */
 }
 
-/* Apply hover effect to single-element modules and buttons */
-#custom-playerctl:hover, #custom-spotify:hover, #clock:hover, #taskbar:hover, #taskbar button:hover {
-  background-color: rgba(52, 75, 42, 0.2); /* hover */
-  border: 1px solid #85C06C; /* green border */
+/* Weather Popup Styling */
+#custom-weather tooltip {
+  background-color: #1C1B1A;
+  color: #F4E3C1;
+  border: 2px solid #D13438; /* Red border matching center section */
+  border-radius: 8px;
+  padding: 10px;
+  font-family: 'Hurmit Nerd Font';
+  font-size: 14px;
+}
+
+/* Calendar Popup Styling */
+#clock tooltip {
+  background-color: #1C1B1A;
+  color: #F4E3C1;
+  border: 2px solid #D13438; /* Red border matching center section */
+  border-radius: 8px;
+  padding: 10px;
+  font-family: 'Hurmit Nerd Font';
+  font-size: 14px;
+}
+
+/* Ensure calendar text is readable */
+#clock tooltip big, #clock tooltip small, #clock tooltip tt {
+  color: #F4E3C1;
 }
 
 /* Taskbar (wlr/taskbar) has individual buttons */
 #taskbar button {
   padding: 0 5px;
   margin: 0 5px;
-  background: transparent;
+  color: #F4E3C1;
+  background: transparent; /* Transparent background to inherit from parent */
   border: none;
   border-radius: 5px;
+}
+
+/* No hover border for individual taskbar buttons, inherit parent background */
+#taskbar button:hover {
+  background: transparent; /* Ensure transparency on hover */
 }
 
 /* Right Section */
@@ -83,63 +116,11 @@
   margin-right: 5px;
   padding: 5px 10px;
   opacity: 0.93;
-  border: none;
-  background: transparent;
+  border: 2px solid #AA9E87; /* Static border for right modules (white in dark, brighter white in light) */
+  background: #1C1B1A;
 }
 
-#network.network-connected {
-  color: #F1E1BF;
-}
-
-#network.network-disconnected {
-  color: #FB5C56
-}
-
-/* Apply hover effect to single-element modules */
-#pulseaudio:hover, #network:hover, #custom-disk-usage:hover, #custom-cpu-usage:hover, #custom-gpu-usage:hover, #custom-volume_control:hover {
-  background-color: rgba(52, 75, 42, 0.2); /* hover */
-  border: 1px solid #85C06C; /* green border */
-}
-
-/* Notifications */
-#custom-notifications {
-  border-radius: 5px;
-  padding-right: 5px;
-  border: none;
-  background: transparent;
-}
-
-/* Apply hover effect */
-#custom-notifications:hover {
-  background-color: rgba(52, 75, 42, 0.2); /* hover*/
-  border: 1px solid #85C06C; /* green border */
-}
-
-/* Custom Music */
-#custom-music {
-  background: transparent;
-  font-weight: bold;
-  transition: all 0.3s ease;
-  border: none;
-}
-
-/* Apply hover effect */
-#custom-music:hover {
-  background: transparent;
-  border: 1px solid #85C06C; /* green border */
-}
-
-/* Expandable Soundbar Styling */
-#soundbar {
-  border-radius: 10px;
-  margin: 5px;
-  padding: 5px;
-  border: none;
-  background: transparent;
-}
-
-/* Apply hover effect */
-#soundbar:hover {
-  background-color: rgba(52, 75, 42, 0.2); /* hover */
-  border: 1px solid #85C06C; /* green border */
+/* Section-level hover effect for right modules */
+#pulseaudio:hover, #network:hover, #custom-cpu-usage:hover, #custom-gpu-usage:hover, #custom-disk-usage:hover, #custom-volume_control:hover {
+  background: #AA9E87; /* White background on hover for the right section */
 }
