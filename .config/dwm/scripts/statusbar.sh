@@ -1,44 +1,44 @@
 #!/bin/bash
 
-# Exit on errors
-set -e
+# Log directory
+LOG_DIR="$HOME/.config/dwm/logs"
+mkdir -p "$LOG_DIR"
 
 # Function to update status
 update_status() {
     # Time
-    time=$(date "+%Y-%m-%d %H:%M:%S")
+    time=$(date +%H:%M:%S)
 
     # CPU usage (%)
-    cpu=$(top -bn1 | grep "Cpu(s)" | awk '{print $2}' | cut -d. -f1)
+    cpu=$(top -bn1 | grep "Cpu(s)" | awk '{print $2}' | cut -d. -f1 2>/dev/null || echo "N/A")
 
     # RAM usage
-    ram=$(free -h | awk '/^Mem:/ {print $3 "/" $2}')
+    ram=$(free -h | awk '/^Mem:/ {print $3 "/" $2}' 2>/dev/null || echo "N/A")
 
     # NVMe storage (%)
-    nvme=$(df -h /dev/nvme0n1p2 | awk 'NR==2 {print $5}' || echo "N/A")
+    nvme=$(df -h /dev/nvme0n1p2 | awk 'NR==2 {print $5}' 2>/dev/null || echo "N/A")
 
     # Volume (% or muted)
-    vol=$(pulsemixer --get-volume | awk '{print $1}' || echo "N/A")
-    mute=$(pulsemixer --get-mute | grep -q 1 && echo "M" || echo "")
+    vol=$(pulsemixer --get-volume | awk '{print $1}' 2>/dev/null || echo "N/A")
+    mute=$(pulsemixer --get-mute 2>/dev/null | grep -q 1 && echo "M" || echo "")
 
-    # Flameshot clickable button (using statuscmd syntax)
+    # Flameshot clickable button
     flameshot="📸"
 
-    # Power button clickable (triggers dwm-logout.sh)
+    # Power button clickable
     power="⏻"
 
     # Combine into status text
-    status="$power | $flameshot | Time: $time | CPU: $cpu% | RAM: $ram | NVMe: $nvme | Vol: $vol%$mute"
+    status="$power | $flameshot | $time | $cpu% | $ram | $nvme | $vol%$mute"
 
     # Set the status bar
-    xsetroot -name "$status"
+    xsetroot -name "$status" 2>/dev/null || true
 }
 
-# Initial update
-update_status
-
-# Loop every 1 second
-while true; do
-    update_status
-    sleep 1
-done
+# Run the status bar update loop in the background and log its output
+(
+    while true; do
+        update_status
+        sleep 1
+    done
+) >> "$LOG_DIR/statusbar.log" 2>&1 &

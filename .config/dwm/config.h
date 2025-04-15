@@ -1,12 +1,11 @@
 /* config.h for dwm - Translated from Hyprland config */
 /* See LICENSE file for copyright and license details. */
-
 #include <X11/XF86keysym.h> /* For multimedia keys like XF86XK_AudioRaiseVolume */
 #include <X11/Xlib.h>       /* For Mod4Mask and other X11 constants */
 #include <stddef.h>         /* For NULL definition */
 
 /* Appearance */
-const unsigned int borderpx  = 2;        /* Border pixel of windows (Hyprland-style) */
+const unsigned int borderpx  = 8;        /* Border pixel of windows (Hyprland-style) */
 const unsigned int snap      = 32;       /* Snap pixel */
 const unsigned int gappih    = 5;        /* Horizontal inner gap */
 const unsigned int gappiv    = 5;        /* Vertical inner gap */
@@ -15,11 +14,31 @@ const unsigned int gappov    = 5;        /* Vertical outer gap */
 static const int smartgaps    = 0;       /* No outer gap when only one window */
 const int showbar            = 1;        /* 0 means no bar */
 const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]   = { "Hurmit Nerd Font:size=30" };
-static const char dmenufont[] = "Hurmit Nerd Font:size=20";
+static const char *fonts[]   = { "Hurmit Nerd Font:size=16" };
+static const char dmenufont[] = "Hurmit Nerd Font:size=13";
+
+#include "themes/blackbearddark.h"
 
 /* Themes - Colors defined here */
-#include "themes/blackbearddark.h"
+//static const char black[]       = "#1C1B1A";  // Background
+//static const char white[]       = "#F4E3C1";  // Foreground
+//static const char gray2[]       = "#454240";  // Unfocused window border
+//static const char gray3[]       = "#614A4D";  // Bright black
+//static const char gray4[]       = "#AA9E87";  // Normal white
+//static const char blue[]        = "#5A8CA5";  // Focused window border
+//static const char green[]       = "#73A857";
+//static const char red[]         = "#D13438";
+//static const char orange[]      = "#F4A259";  // Selection background
+//static const char yellow[]      = "#F1C232";
+//static const char pink[]        = "#A066C9";
+
+/* Define the colors array for DWM */
+//static const char *colors[][3] = {
+    /* SchemeNorm: foreground, background, border */
+    //{ white, black, gray2 },  /* Normal (unfocused) windows */
+    /* SchemeSel: foreground, background, border */
+    //{ white, gray3, blue },   /* Selected (focused) windows */
+//};
 
 /* Tagging - 20 workspaces to match Hyprland’s 1-20 */
 #define TAGCOUNT 20
@@ -59,7 +78,6 @@ const char *tags[] = { "home", "", "", "", "", "", "", "", "", "",
 /* Rules */
 const Rule rules[] = {
     /* class               instance    title           tags mask     isfloating   monitor */
-    { "org.blackbeard.installer", NULL, NULL,           0,            1,           0 },  /* Float on DP-4 */
     { "center-float-large", NULL,   NULL,           0,            1,           0 },  /* Float on DP-4 */
     { "center-float",       NULL,   NULL,           0,            1,           0 },  /* Float on DP-4 */
     { "center-float-mini",  NULL,   NULL,           0,            1,           0 },  /* Float on DP-4 */
@@ -87,8 +105,9 @@ const Rule rules[] = {
 const float mfact     = 0.55; /* Factor of master area size [0.05..0.95] */
 const int nmaster     = 1;    /* Number of clients in master area */
 const int resizehints = 0;    /* 0 means ignore size hints for neat tiling */
-const int lockfullscreen = 1; /* Define to fix focusstack error in dwm.c */
+const int lockfullscreen = 1; 
 
+/* Define to fix focusstack error in dwm.c */
 const Layout layouts[] = {
     /* Symbol     Arrange function */
     { "[]=",      tile },    /* Tiling layout */
@@ -97,7 +116,9 @@ const Layout layouts[] = {
 };
 
 /* Key definitions */
-#define MODKEY Mod4Mask  /* Super key, matches Hyprland’s SUPER */
+#define MODKEY Mod4Mask  
+
+/* Super key, matches Hyprland’s SUPER */
 #define TAGKEYS(KEY,TAG) \
     { MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
     { MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -108,14 +129,18 @@ const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* Commands */
-const char *dmenucmd[] = { "dmenu_run", "-m", "0", "-fn", "monospace:size=10", NULL }; /* Colors handled by theme */
-char dmenumon[2] = "0"; /* For dmenu monitor selection */
+const char *dmenucmd[] = { "dmenu_run", "-m", "0", "-fn", "monospace:size=10", NULL }; 
+
+/* Colors handled by theme */
+char dmenumon[2] = "0";
+
+/* For dmenu monitor selection */
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *filecmd[]  = { "thunar", NULL };
 static const char *menucmd[]  = { "rofi", "-show", "drun", NULL };
 static const char *browsercmd[] = { "firefox", NULL };
 static const char *gimpcmd[]  = { "gimp", NULL };
-static const char *vesktopcmd[] = { "vesktop", "--force-device-scale-factor=1", NULL };
+static const char *vesktopcmd[] = { "vesktop", "--force-device-scale-factor=0.8", NULL };
 static const char *spotifycmd[] = { "spotify-launcher", NULL };
 static const char *blendercmd[] = { "blender", NULL };
 static const char *kritacmd[] = { "krita", NULL };
@@ -124,14 +149,16 @@ static const char *logoutcmd[] = { "/usr/local/bin/dwm-logout.sh", NULL };
 static const char *volupcmd[] = { "pulsemixer", "--change-volume", "+1", NULL };
 static const char *voldowncmd[] = { "pulsemixer", "--change-volume", "-1", NULL };
 static const char *volmutecmd[] = { "pulsemixer", "--toggle-mute", NULL };
-static const char *screenshotcmd[] = { "flameshot", "gui", NULL }; /* Use script to select monitor for screenshot */
+static const char *screenshotcmd[] = { "/home/echo/.config/dwm/scripts/screenshot.sh", NULL }; /*{ "flameshot", "gui", NULL };*/
 static const char *muteaudiocmd[] = { "python3", "/home/echo/.config/hypr/scripts/volume_control.py", "mute", NULL };
 static const char *webcmd[] = { "/home/echo/.config/dwm/scripts/search.sh", NULL }; /* Web search */
 static const char *scrollupcmd[] = { "xdotool", "click", "4", NULL };    /* Scroll up */
 static const char *scrolldowncmd[] = { "xdotool", "click", "5", NULL };  /* Scroll down */
 static const char *scrollleftcmd[] = { "xdotool", "click", "6", NULL };  /* Scroll left */
 static const char *scrollrightcmd[] = { "xdotool", "click", "7", NULL }; /* Scroll right */
-static const char *steamcmd[] = { "steam", NULL }; /* Added for Steam */
+static const char *steamcmd[] = { "steam", NULL }; 
+
+/* Added for Steam */
 
 /* Keybindings */
 Key keys[] = {
@@ -185,7 +212,7 @@ Key keys[] = {
     { MODKEY,                       XK_o,      setmfact,       {.f = +0.05} }, /* Increase master area */
     { MODKEY|ShiftMask,             XK_k,      incnmaster,     {.i = -1} }, /* Decrease number of master windows */
     { MODKEY|ShiftMask,             XK_i,      incnmaster,     {.i = +1} }, /* Increase number of master windows */
-    { MODKEY,                       XK_slash,  spawn,          {.v = webcmd} }, /* Web search */
+    { MODKEY|ShiftMask,             XK_slash,  spawn,          {.v = webcmd} }, /* Web search */
     { MODKEY,                       XK_Up,     focusstack,     {.i = -1} }, /* Focus previous window */
     { MODKEY,                       XK_Down,   focusstack,     {.i = +1} }, /* Focus next window */
     { MODKEY,                       XK_Left,   setmfact,       {.f = -0.05} }, /* Shrink master area */
