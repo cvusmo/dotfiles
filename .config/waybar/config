@@ -7,12 +7,12 @@
   "modules-left": ["custom/arch", "hyprland/workspaces"],
   
   "custom/arch": {
-    "format": "    ",
+    "format": "",
     "on-click": "python3 ~/.config/waybar/scripts/launch_wofi.py"
   },
 
   "hyprland/workspaces": {
-    "format": "  {icon}  ",
+    "format": "{icon}",
     "on-click": "activate",
     "disable-scroll": true,
     "show-back-and-forth": true,
@@ -67,12 +67,13 @@
 
   "clock": {
     "format": "  {:%H:%M}  ",
-    "format-alt": "  {:%I:%M %p %a %d}  ",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    "format-alt": "  {:%H:%M %a %d}  ", // Changed from 12-hour to 24-hour time (e.g., 14:54 Tue 15)
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "tooltip": true // Explicitly enable tooltip to ensure calendar pops up on hover
   },
 
   "custom/volume_control": {
-    "format": "   {0}%  ",
+    "format": "   {0}%%  ",
     "exec": "python3 ~/.config/hypr/scripts/volume_control.py status",
     "on-click": "python3 ~/.config/hypr/scripts/volume_control.py mute",
     "on-scroll-up": "python3 ~/.config/hypr/scripts/volume_control.py increase 2",
@@ -88,7 +89,7 @@
 
   "pulseaudio": {
     "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-    "format": "   {volume}%  ",
+    "format": "   {volume}%%  ",
     "format-muted": "    ",
     "format-icons": {
       "headphone": "",
