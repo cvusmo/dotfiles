@@ -2,7 +2,7 @@
   "layer": "top",
   "position": "top",
   "height": 54,
-  "modules-center": ["custom/playerctl", "custom/spotify", "custom/weather", "clock", "wlr/taskbar"],
+  "modules-center": ["custom/playerctl", "custom/spotify", "custom/weather", "custom/hyprclock", "wlr/taskbar"],
   "modules-right": ["pulseaudio", "network", "custom/cpu-usage", "custom/gpu-usage", "custom/disk-usage", "custom/volume_control"],
   "modules-left": ["custom/arch", "hyprland/workspaces"],
   
@@ -17,13 +17,16 @@
     "disable-scroll": true,
     "show-back-and-forth": true,
     "persistent-workspaces": {
-      "main": true
+      "0": true,
+      "1": true,
+      "2": true,
+      "3": true,
+      "4": true,
+      "5": true
     },
-    "ignore-workspaces": [16, 17, 18, 19, 20],
     "show-special": false,
     "format-icons": {
-      "main": "",
-      "0": "󰟢",
+      "0": "",
       "1": "",
       "2": "󰈹",
       "3": "i",
@@ -32,14 +35,25 @@
       "6": "",
       "7": "󰂫",
       "8": "",
-      "9": "󰔟"
+      "9": "󰔟",
+      "10": "󰟢",
+      "11": "11",
+      "12": "12",
+      "13": "13",
+      "14": "14",
+      "15": "15",
+      "16": "16",
+      "17": "17",
+      "18": "18",
+      "19": "19",
+      "20": "20"
     }
   },
 
   "custom/playerctl": {
     "format": "  {0}  ",
-    "exec": "~/.local/python/venv/bin/python3 ~/.config/waybar/scripts/mediaplayer.py",
-    "on-click": "~/.local/python/venv/bin/python3 ~/.config/waybar/scripts/mediaplayer.py toggle",
+    "exec": "python3 ~/.config/waybar/scripts/mediaplayer.py",
+    "on-click": "python3 ~/.config/waybar/scripts/mediaplayer.py toggle",
     "on-click-right": "playerctl next",
     "on-click-middle": "playerctl previous",
     "interval": 1,
@@ -51,7 +65,7 @@
 
   "custom/spotify": {
     "format": "  {0}  ",
-    "exec": "~/.local/python/venv/bin/python3 ~/.config/waybar/scripts/spotify.py",
+    "exec": "python3 ~/.config/waybar/scripts/spotify.py",
     "on-click": "playerctl play-pause",
     "on-click-right": "playerctl next",
     "on-click-middle": "playerctl previous",
@@ -60,16 +74,18 @@
 
   "custom/weather": {
     "format": "{text}",
-    "exec": "~/.local/python/venv/bin/python3 ~/.config/waybar/scripts/weather.py",
+    "exec": "python3 ~/.config/waybar/scripts/weather.py",
     "interval": 300,
     "return-type": "json"
   },
 
-  "clock": {
-    "format": "  {:%H:%M}  ",
-    "format-alt": "  {:%H:%M %a %d}  ", // Changed from 12-hour to 24-hour time (e.g., 14:54 Tue 15)
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "tooltip": true // Explicitly enable tooltip to ensure calendar pops up on hover
+  "custom/hyprclock": {
+    "format": "{text}",
+    "tooltip": true,
+    "exec": "python3 ~/.config/waybar/scripts/hyprclock.py",
+    "return-type": "json",
+    "interval": 1,
+    "on-click": "/home/echo/projects/remote/hyprclock/target/release/hyprclock",
   },
 
   "custom/volume_control": {

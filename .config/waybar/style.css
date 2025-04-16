@@ -20,29 +20,27 @@
   margin-left: 5px;
   padding: 5px 10px;
   opacity: 0.93;
-  border: 2px solid #73A857; /* Static border for left modules (green in dark, brighter green in light) */
+  border: 2px solid #73A857;
   background: #1C1B1A;
 }
 
-/* Section-level hover effect for left modules */
 #custom-arch:hover, #workspaces:hover {
-  background: #73A857; /* Green background on hover for the left section */
+  background: #73A857;
 }
 
-/* Style for individual workspace buttons */
+/* Workspace Buttons */
 #workspaces button {
   padding: 0 10px;
   margin: 0 5px;
   color: #F4E3C1;
-  background: transparent; /* Transparent background to inherit from parent */
+  background: transparent;
   border: none;
   border-radius: 5px;
   min-width: 30px;
 }
 
-/* No hover border for individual workspace buttons, inherit parent background */
 #workspaces button:hover {
-  background: transparent; /* Ensure transparency on hover */
+  background: transparent;
 }
 
 #workspaces button.active {
@@ -52,61 +50,43 @@
 }
 
 /* Center Section */
-#custom-playerctl, #custom-spotify, #custom-weather, #clock, #taskbar {
+#custom-playerctl, #custom-spotify, #custom-weather, #custom-hyprclock, #taskbar {
   border-radius: 10px;
   margin: 5px;
   padding: 5px 10px;
   color: #F4E3C1;
   opacity: 0.93;
-  border: 2px solid #D13438; /* Static border for center modules (red in dark, brighter red in light) */
+  border: 2px solid #D13438;
   background: #1C1B1A;
 }
 
-/* Section-level hover effect for center modules */
-#custom-playerctl:hover, #custom-spotify:hover, #custom-weather:hover, #clock:hover, #taskbar:hover {
-  background: #D13438; /* Red background on hover for the center section */
+#custom-playerctl:hover, #custom-spotify:hover, #custom-weather:hover, #custom-hyprclock:hover, #taskbar:hover {
+  background: #D13438;
 }
 
 /* Weather Popup Styling */
-#custom-weather tooltip {
+#custom-weather > tooltip {
   background-color: #1C1B1A;
   color: #F4E3C1;
-  border: 2px solid #D13438; /* Red border matching center section */
+  border: 1px solid #D13438;
   border-radius: 8px;
   padding: 10px;
   font-family: 'Hurmit Nerd Font';
   font-size: 14px;
 }
 
-/* Calendar Popup Styling */
-#clock tooltip {
-  background-color: #1C1B1A;
-  color: #F4E3C1;
-  border: 2px solid #D13438; /* Red border matching center section */
-  border-radius: 8px;
-  padding: 10px;
-  font-family: 'Hurmit Nerd Font';
-  font-size: 14px;
-}
-
-/* Ensure calendar text is readable */
-#clock tooltip big, #clock tooltip small, #clock tooltip tt {
-  color: #F4E3C1;
-}
-
-/* Taskbar (wlr/taskbar) has individual buttons */
+/* Taskbar Buttons */
 #taskbar button {
   padding: 0 5px;
   margin: 0 5px;
   color: #F4E3C1;
-  background: transparent; /* Transparent background to inherit from parent */
+  background: transparent;
   border: none;
   border-radius: 5px;
 }
 
-/* No hover border for individual taskbar buttons, inherit parent background */
 #taskbar button:hover {
-  background: transparent; /* Ensure transparency on hover */
+  background: transparent;
 }
 
 /* Right Section */
@@ -116,11 +96,10 @@
   margin-right: 5px;
   padding: 5px 10px;
   opacity: 0.93;
-  border: 2px solid #AA9E87; /* Static border for right modules (white in dark, brighter white in light) */
+  border: 2px solid #AA9E87;
   background: #1C1B1A;
 }
 
-/* Section-level hover effect for right modules */
 #pulseaudio:hover, #network:hover, #custom-cpu-usage:hover, #custom-gpu-usage:hover, #custom-disk-usage:hover, #custom-volume_control:hover {
-  background: #AA9E87; /* White background on hover for the right section */
+  background: #AA9E87;
 }
