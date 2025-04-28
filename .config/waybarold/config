@@ -1,0 +1,130 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 54,
+  "output": "LVDS-1",
+  "modules-left": ["custom/arch", "hyprland/workspaces"],
+  "modules-center": ["custom/playerctl", "custom/spotify", "clock", "wlr/taskbar"],
+  "modules-right": ["soundbar", "battery", "pulseaudio", "network", "custom/diskusage", "custom/volume_control"],
+  
+  "custom/arch": {
+    "format": "  ",
+    "on-click": "python3 ~/.config/waybar/scripts/launch_wofi.py"
+  },
+
+  "hyprland/workspaces": {
+    "format": "{name}", 
+    "on-click": "activate",
+    "disable-scroll": true,
+    "show-back-and-forth": true
+  },
+
+  "custom/playerctl": {
+    "format": "{text}",
+    "return-type": "json",
+    "exec": "python3 ~/.config/waybar/scripts/mediaplayer.py",
+    "on-click": "python3 ~/.config/waybar/scripts/mediaplayer.py toggle",
+    "on-click-right": "playerctl next",
+    "on-click-middle": "playerctl previous",
+    "interval": 1,
+    "format-icons": {
+      "Paused": "<span foreground='#bb9af7'></span>",
+      "Playing": "<span foreground='#bb9af7'></span>"
+    }
+  },
+
+  "custom/spotify": {
+    "format": "{text}",
+    "exec": "python3 ~/.config/waybar/scripts/spotify.py",
+    "on-click": "playerctl play-pause",
+    "on-click-right": "playerctl next",
+    "on-click-middle": "playerctl previous",
+    "interval": 1
+  },
+
+  "clock": {
+    "format": "<span color='#b69bf1'> </span>{:%H:%M}",
+    "format-alt": "<span foreground='#b69bf1'> </span><span>{:%I:%M %p %a %d}</span>",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+  },
+
+  "custom/volume_control": {
+    "format": "<span color='#f7768e'></span> {0}%",
+    "exec": "python3 ~/.config/hypr/scripts/volume_control.py status",
+    "on-click": "python3 ~/.config/hypr/scripts/volume_control.py mute",
+    "on-scroll-up": "python3 ~/.config/hypr/scripts/volume_control.py increase 2",
+    "on-scroll-down": "python3 ~/.config/hypr/scripts/volume_control.py decrease 2"
+  },
+
+  "wlr/taskbar": {
+    "icon-size": 18,
+    "on-click": "activate",
+    "on-click-right": "minimize",
+    "format": "{icon}"
+  },
+
+  "pulseaudio": {
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "format": "<span color='#f7768e'>  </span> {volume}%",
+    "format-muted": "<span color='#f7768e'> </span>",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["奔", "墳"]
+    },
+    "on-click-right": "pavucontrol"
+  },
+
+  "network": {
+    "interval": 2,
+    "format-wifi": "<span foreground='#928374'></span> {essid}",
+    "format-ethernet": "<span foreground='#88C070'></span> {ifname}",
+    "format-linked": "<span foreground='#73BcD8'></span> {ifname}",
+    "format-disconnected": "<span foreground='#D13438'></span>",
+    "tooltip-format": "{ifname}: {ipaddr}/{cidr}\n {bandwidthDownBits}\n {bandwidthUpBits}",
+    "on-click-right": "python3 ~/.config/waybar/scripts/show_public_ip.py"
+  },
+  "battery": {
+    "format": "{capacity}% {icon}",
+    "format-icons": {
+        "charging": [
+                "󰢜",
+                "󰂆",
+                "󰂇",
+                "󰂈",
+                "󰢝",
+                "󰂉",
+                "󰢞",
+                "󰂊",
+                "󰂋",
+                "󰂅"
+            ],
+            "default": [
+                "󰁺",
+                "󰁻",
+                "󰁼",
+                "󰁽",
+                "󰁾",
+                "󰁿",
+                "󰂀",
+                "󰂁",
+                "󰂂",
+                "󰁹"
+            ]
+        },
+        "format-full": "Charged ",
+        "interval": 5,
+        "states": {
+            "warning": 20,
+            "critical": 10
+        },
+      },
+  "custom/diskusage": {
+    "exec": "python3 ~/.config/waybar/scripts/diskusage.py",
+    "interval": 600
+  }
+}
