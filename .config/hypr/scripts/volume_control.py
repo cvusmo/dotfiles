@@ -6,7 +6,7 @@ import sys
 # OBS WebSocket configuration
 OBS_HOST = "localhost"
 OBS_PORT = 4444
-OBS_PASSWORD = "FlonnieSue"  # Update with your OBS WebSocket password
+OBS_PASSWORD = "Password"  # Update with your OBS WebSocket password
 
 # Define sinks
 DEFAULT_SINK = "alsa_output.usb-Burr-Brown_from_TI_USB_Audio_CODEC-00.analog-stereo-output"
