@@ -3,7 +3,12 @@ local map = vim.keymap.set
 
 -- Better up/down
 map({ "n", "x" }, "j", "v:count == 2 ? 'gj' : 'j'", { expr = true, silent = true, desc = "Move down (visual line)" })
-map({ "n", "x" }, "<Down>", "v:count == 2 ? 'gj' : 'j'", { expr = true, silent = true, desc = "Move down (visual line)" })
+map(
+  { "n", "x" },
+  "<Down>",
+  "v:count == 2 ? 'gj' : 'j'",
+  { expr = true, silent = true, desc = "Move down (visual line)" }
+)
 map({ "n", "x" }, "k", "v:count == 2 ? 'gk' : 'k'", { expr = true, silent = true, desc = "Move up (visual line)" })
 map({ "n", "x" }, "<Up>", "v:count == 2 ? 'gk' : 'k'", { expr = true, silent = true, desc = "Move up (visual line)" })
 
@@ -60,22 +65,36 @@ map("n", "<C-q>", ":q<CR>", { desc = "Quit" })
 map("n", "<leader>w", ":w<CR>", { desc = "Save file" }) -- Changed from <C-w>
 
 -- Gitsigns
-map("n", "]h", function() require("gitsigns").next_hunk() end, { desc = "Next hunk" })
-map("n", "[h", function() require("gitsigns").prev_hunk() end, { desc = "Previous hunk" })
+map("n", "]h", function()
+  require("gitsigns").next_hunk()
+end, { desc = "Next hunk" })
+map("n", "[h", function()
+  require("gitsigns").prev_hunk()
+end, { desc = "Previous hunk" })
 map({ "n", "v" }, "<leader>ghs", ":Gitsigns stage_hunk<CR>", { desc = "Stage hunk" })
 map({ "n", "v" }, "<leader>ghr", ":Gitsigns reset_hunk<CR>", { desc = "Reset hunk" })
-map("n", "<leader>ghS", function() require("gitsigns").stage_buffer() end, { desc = "Stage buffer" })
-map("n", "<leader>ghu", function() require("gitsigns").undo_stage_hunk() end, { desc = "Undo stage hunk" })
-map("n", "<leader>ghR", function() require("gitsigns").reset_buffer() end, { desc = "Reset buffer" })
-map("n", "<leader>ghp", function() require("gitsigns").preview_hunk_inline() end, { desc = "Preview hunk inline" })
-map("n", "<leader>ghb", function() require("gitsigns").blame_line({ full = true }) end, { desc = "Blame line" })
-map("n", "<leader>ghd", function() require("gitsigns").diffthis() end, { desc = "Diff this" })
-map("n", "<leader>ghD", function() require("gitsigns").diffthis("~") end, { desc = "Diff this ~" })
+map("n", "<leader>ghS", function()
+  require("gitsigns").stage_buffer()
+end, { desc = "Stage buffer" })
+map("n", "<leader>ghu", function()
+  require("gitsigns").undo_stage_hunk()
+end, { desc = "Undo stage hunk" })
+map("n", "<leader>ghR", function()
+  require("gitsigns").reset_buffer()
+end, { desc = "Reset buffer" })
+map("n", "<leader>ghp", function()
+  require("gitsigns").preview_hunk_inline()
+end, { desc = "Preview hunk inline" })
+map("n", "<leader>ghb", function()
+  require("gitsigns").blame_line({ full = true })
+end, { desc = "Blame line" })
+map("n", "<leader>ghd", function()
+  require("gitsigns").diffthis()
+end, { desc = "Diff this" })
+map("n", "<leader>ghD", function()
+  require("gitsigns").diffthis("~")
+end, { desc = "Diff this ~" })
 map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", { desc = "Select hunk" })
-
--- DeepSeek
-map("v", "<leader>de", function() require("deepseek").ask_selection() end, { desc = "DeepSeek: Explain selected code" })
-map("n", "<leader>da", ":DeepSeekAsk ", { desc = "DeepSeek: Ask a question" })
 
 -- LSP
 map("n", "K", vim.lsp.buf.hover, { desc = "Show hover information" })
@@ -85,3 +104,14 @@ map("n", "<leader>e", vim.diagnostic.open_float, { desc = "Open diagnostic float
 map("n", "[d", vim.diagnostic.goto_prev, { desc = "Previous diagnostic" })
 map("n", "]d", vim.diagnostic.goto_next, { desc = "Next diagnostic" })
 map("n", "<leader>m", vim.diagnostic.setloclist, { desc = "Set diagnostic location list" })
+
+-- Rust-analyzer specific
+map("n", "C-S-s", vim.lsp.buf.hover, { desc = "Rust: Show type/docs" })
+map("n", "C-S-e", vim.diagnostic.open_float, { desc = "Rust: Show error details" })
+map("n", "C-S-f", vim.lsp.buf.code_action, { desc = "Rust: Fix/refactor code" })
+map("n", "C-S-d", vim.lsp.buf.definition, { desc = "Rust: Go to definition" })
+map("n", "C-S-r", vim.lsp.buf.references, { desc = "Rust: Find references" })
+map("n", "C-S-o", function()
+  vim.lsp.buf.execute_command({ command = "rust-analyzer.openDocs" })
+end, { desc = "Rust: Open external docs" })
+map("n", "C-S-h", vim.lsp.buf.signature_help, { desc = "Rust: Show signature help" })

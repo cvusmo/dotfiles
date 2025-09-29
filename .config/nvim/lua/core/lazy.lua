@@ -13,5 +13,6 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- vim.opt.foldmethod = "manual"
 vim.opt.foldmethod = "syntax"
 require("lazy").setup("plugins")
