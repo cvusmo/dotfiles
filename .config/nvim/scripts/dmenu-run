@@ -1,2 +1,2 @@
 #!/bin/sh
-dmenu -nb '#1C1B1A' -nf '#F4E3C1' -sb '#F4A259' -sf '#1C1B1A'_run
+dmenu -nb '#1C1B1A' -nf '#F4E3C1' -sb '#9280E8' -sf '#1C1B1A'_run

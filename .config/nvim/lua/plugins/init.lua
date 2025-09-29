@@ -1,10 +1,11 @@
+-- ~/.config/nvim/lua/plugins/init.lua
 return {
   require("plugins.animation"),
   require("plugins.auto-session"),
   require("plugins.blackbeard"),
   require("plugins.bufferline"),
+  require("plugins.cmp"),
   require("plugins.colorizer"),
-  require("plugins.dap"),
   require("plugins.dashboard"),
   require("plugins.dressing"),
   require("plugins.formatter"),
@@ -19,6 +20,7 @@ return {
   require("plugins.scrollbar"),
   --require("plugins.spotify"),
   require("plugins.telescope"),
+  require("plugins.todo-comments"),
   require("plugins.treesitter"),
   require("plugins.which-key"),
 }
