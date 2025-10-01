@@ -6,7 +6,7 @@ import time
 import threading
 
 LOCK_FILE = "/tmp/right_click_network.lock"
-MAX_RUNTIME = 3  # Maximum time 
+MAX_RUNTIME = 2  # Maximum time
 
 
 def get_public_ip():
@@ -26,7 +26,7 @@ def monitor_mouse_release():
     """Continuously monitor mouse state and release lock on right-click release."""
     while os.path.exists(LOCK_FILE):
         try:
-            # Check if right-click 
+            # Check if right-click
             output = subprocess.run(
                 ["xdotool", "getmouselocation", "--shell"],
                 stdout=subprocess.PIPE,
@@ -43,10 +43,10 @@ def monitor_mouse_release():
 
 
 def main():
-    # Create a lock 
+    # Create a lock
     open(LOCK_FILE, "w").close()
 
-    # Start monitoring mouse release 
+    # Start monitoring mouse release
     threading.Thread(target=monitor_mouse_release, daemon=True).start()
 
     start_time = time.time()

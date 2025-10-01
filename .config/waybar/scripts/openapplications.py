@@ -5,15 +5,18 @@ import json
 # Icon mapping for applications
 ICON_MAPPING = {
     "firefox": "",
-    "waterfox": "",
     "neovim": "",
-    "flameshot": "",
+    "flameshot": "󰹑",
     "spotify": "",
-    "vesktop": "",
+    "vesktop": "",
+    "steam": "󰓓",
+    "wezterm": "",
 }
+
 
 def get_icon_for_class(app_class):
     return ICON_MAPPING.get(app_class, "")  # Default icon
+
 
 def get_open_windows():
     try:
@@ -23,10 +26,7 @@ def get_open_windows():
 
         # Get list of open windows
         result = subprocess.run(
-            ["hyprctl", "clients", "-j"],
-            stdout=subprocess.PIPE,
-            text=True,
-            check=True
+            ["hyprctl", "clients", "-j"], stdout=subprocess.PIPE, text=True, check=True
         )
         windows = json.loads(result.stdout)
 
@@ -37,13 +37,14 @@ def get_open_windows():
             title = window.get("title", "unknown")
             icon = get_icon_for_class(app_class)
             output.append({"class": app_class, "name": title, "icon": icon})
-        
+
         print(json.dumps(output))
 
     except FileNotFoundError as e:
         print(f"Error: {e}. Ensure `hyprctl` and `jq` are installed.")
     except Exception as e:
         print(f"An error occurred: {e}")
+
 
 if __name__ == "__main__":
     get_open_windows()

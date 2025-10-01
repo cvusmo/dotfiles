@@ -17,8 +17,8 @@ weather_icons = {
     "default": "",
 }
 
-# go to weather.com and search for your city. Example: Munich, Germany = https://weather.com/weather/today/l/ae8d09111a0fa1bd7301d7b3d888f4487b67c6e8187c06163654800262b37757
-location_id = "ae8d09111a0fa1bd7301d7b3d888f4487b67c6e8187c06163654800262b37757"
+# go to weather.com and enter city/state/country for location, paste the information
+location_id = "6acb34a6274390e11a1e7e3badbbbf3c60ced28b0e79d97af240f0e05244419e"
 
 url = "https://weather.com/en-IN/weather/today/l/" + location_id
 headers = {

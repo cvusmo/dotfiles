@@ -1,10 +1,11 @@
-/* General Waybar Styling */
+    /* General Waybar Styling */
 * {
   border: none;
   font-family: 'Hurmit Nerd Font';
   font-size: 18px;
-  min-height: 30px;
+  min-height: 24px;
   color: #F4E3C1;
+  background: transparent;
 }
 
 #waybar {
@@ -15,112 +16,88 @@
 
 /* Left Section */
 #custom-arch, #workspaces {
-  border-radius: 10px;
-  margin-top: 5px;
-  margin-left: 5px;
-  padding: 5px 10px;
-  opacity: 0.93;
-  border: 2px solid #73A857; /* Static border for left modules (green in dark, brighter green in light) */
-  background: #1C1B1A;
-}
-
-/* Section-level hover effect for left modules */
-#custom-arch:hover, #workspaces:hover {
-  background: #73A857; /* Green background on hover for the left section */
-}
-
-/* Style for individual workspace buttons */
-#workspaces button {
-  padding: 0 10px;
-  margin: 0 5px;
   color: #F4E3C1;
-  background: transparent; /* Transparent background to inherit from parent */
-  border: none;
-  border-radius: 5px;
-  min-width: 30px;
-}
-
-/* No hover border for individual workspace buttons, inherit parent background */
-#workspaces button:hover {
-  background: transparent; /* Ensure transparency on hover */
-}
-
-#workspaces button.active {
-  background: #1C1B1A;
-  color: #F4E3C1;
-  border: none;
-}
-
-/* Center Section */
-#custom-playerctl, #custom-spotify, #custom-weather, #clock, #taskbar {
-  border-radius: 10px;
-  margin: 5px;
-  padding: 5px 10px;
-  color: #F4E3C1;
-  opacity: 0.93;
-  border: 2px solid #D13438; /* Static border for center modules (red in dark, brighter red in light) */
-  background: #1C1B1A;
-}
-
-/* Section-level hover effect for center modules */
-#custom-playerctl:hover, #custom-spotify:hover, #custom-weather:hover, #clock:hover, #taskbar:hover {
-  background: #D13438; /* Red background on hover for the center section */
-}
-
-/* Weather Popup Styling */
-#custom-weather tooltip {
-  background-color: #1C1B1A;
-  color: #F4E3C1;
-  border: 2px solid #D13438; /* Red border matching center section */
-  border-radius: 8px;
-  padding: 10px;
-  font-family: 'Hurmit Nerd Font';
-  font-size: 14px;
-}
-
-/* Calendar Popup Styling */
-#clock tooltip {
-  background-color: #1C1B1A;
-  color: #F4E3C1;
-  border: 2px solid #D13438; /* Red border matching center section */
-  border-radius: 8px;
-  padding: 10px;
-  font-family: 'Hurmit Nerd Font';
-  font-size: 14px;
-}
-
-/* Ensure calendar text is readable */
-#clock tooltip big, #clock tooltip small, #clock tooltip tt {
-  color: #F4E3C1;
-}
-
-/* Taskbar (wlr/taskbar) has individual buttons */
-#taskbar button {
-  padding: 0 5px;
-  margin: 0 5px;
-  color: #F4E3C1;
-  background: transparent; /* Transparent background to inherit from parent */
-  border: none;
-  border-radius: 5px;
-}
-
-/* No hover border for individual taskbar buttons, inherit parent background */
-#taskbar button:hover {
-  background: transparent; /* Ensure transparency on hover */
-}
-
-/* Right Section */
-#pulseaudio, #network, #custom-cpu-usage, #custom-gpu-usage, #custom-disk-usage, #custom-volume_control {
   border-radius: 10px;
   margin-top: 5px;
   margin-right: 5px;
   padding: 5px 10px;
-  opacity: 0.93;
-  border: 2px solid #AA9E87; /* Static border for right modules (white in dark, brighter white in light) */
+  background: transparent;
+}
+
+#custom-arch:hover {
+  color: #F6E8CD;
+  border: 1px solid #F4E3C1;
+  background: #9280E8;
+}
+
+/* Workspace Buttons */
+#workspaces button {
+  color: #F4E3C1;
+  border-radius: 10px;
+  margin-top: 5px;
+  margin-right: 5px;
+  padding: 5px 10px;
+  background: transparent;
+}
+
+#workspaces button:hover {
+  color: #F6E8CD;
+  border: 1px solid #F4E3C1;
+  background: #9280E8;
+}
+
+#workspaces button.active {
+  color: #F6E8CD;
+  border: 1px solid #F4E3C1;
+  background: #9280E8;
+}
+
+/* Center Section */
+#custom-weather, #custom-hyprclock {
+  color: #F4E3C1;
+  border-radius: 10px;
+  margin-top: 5px;
+  margin-right: 5px;
+  padding: 5px 10px;
+  background: transparent;
+}
+
+#custom-weather:hover, #custom-hyprclock:hover {
+  color: #F6E8CD;
+  border: 2px solid #F4E3C1;
+  background: #9280E8;
+}
+
+/* Weather Popup Styling */
+#custom-weather .tooltip {
+  color: #F4E3C1;
+  border-radius: 10px;
+  margin-top: 5px;
+  margin-right: 5px;
+  padding: 5px 10px;
+  border: 2px solid #F4E3C1;
   background: #1C1B1A;
 }
 
-/* Section-level hover effect for right modules */
-#pulseaudio:hover, #network:hover, #custom-cpu-usage:hover, #custom-gpu-usage:hover, #custom-disk-usage:hover, #custom-volume_control:hover {
-  background: #AA9E87; /* White background on hover for the right section */
+/* Right Section */
+#custom-spotify, #pulseaudio, #network, #custom-cpu-usage, #custom-gpu-usage, #custom-disk-usage {
+  color: #F4E3C1;
+  border-radius: 10px;
+  margin-top: 5px;
+  margin-right: 5px;
+  padding: 5px 10px;
+  background: transparent;
+}
+
+#custom-spotify:hover, #pulseaudio:hover, #network:hover, #custom-cpu-usage:hover, #custom-gpu-usage:hover, #custom-disk-usage:hover {
+  color: #F6E8CD;
+  border: 2px solid #F4E3C1;
+  background: #9280E8;
+}
+
+/* Pulseaudio Active State */
+#pulseaudio:active {
+  color: #F6E8CD;
+  border: 2px solid #F4E3C1;
+  background: #9280E8;
 }

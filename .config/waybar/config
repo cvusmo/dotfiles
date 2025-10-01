@@ -2,12 +2,12 @@
   "layer": "top",
   "position": "top",
   "height": 54,
-  "modules-center": ["custom/playerctl", "custom/spotify", "custom/weather", "clock", "wlr/taskbar"],
-  "modules-right": ["pulseaudio", "network", "custom/cpu-usage", "custom/gpu-usage", "custom/disk-usage", "custom/volume_control"],
   "modules-left": ["custom/arch", "hyprland/workspaces"],
+  "modules-center": ["custom/weather", "custom/hyprclock", "custom/stocks"],
+  "modules-right": ["custom/spotify", "pulseaudio", "network", "custom/cpu-usage", "custom/gpu-usage", "custom/disk-usage"],
   
   "custom/arch": {
-    "format": "",
+    "format": "  ",
     "on-click": "python3 ~/.config/waybar/scripts/launch_wofi.py"
   },
 
@@ -17,79 +17,59 @@
     "disable-scroll": true,
     "show-back-and-forth": true,
     "persistent-workspaces": {
-      "main": true
+      "1": true
     },
-    "ignore-workspaces": [16, 17, 18, 19, 20],
     "show-special": false,
+    "sort-by-number": true,
     "format-icons": {
-      "main": "",
-      "0": "󰟢",
-      "1": "",
+      "1": "󰟢",
       "2": "󰈹",
-      "3": "i",
-      "4": "󰈹",
-      "5": "",
-      "6": "",
-      "7": "󰂫",
-      "8": "",
-      "9": "󰔟"
-    }
-  },
-
-  "custom/playerctl": {
-    "format": "  {0}  ",
-    "exec": "~/.local/python/venv/bin/python3 ~/.config/waybar/scripts/mediaplayer.py",
-    "on-click": "~/.local/python/venv/bin/python3 ~/.config/waybar/scripts/mediaplayer.py toggle",
-    "on-click-right": "playerctl next",
-    "on-click-middle": "playerctl previous",
-    "interval": 1,
-    "format-icons": {
-      "Paused": "",
-      "Playing": ""
+      "3": "",
+      "4": "",
+      "5": "",
+      "6": "󰂫",
+      "7": "",
+      "8": "󰓓",
+      "9": "󰺵",
+      "10": ""
     }
   },
 
   "custom/spotify": {
-    "format": "  {0}  ",
-    "exec": "~/.local/python/venv/bin/python3 ~/.config/waybar/scripts/spotify.py",
-    "on-click": "playerctl play-pause",
-    "on-click-right": "playerctl next",
-    "on-click-middle": "playerctl previous",
-    "interval": 1
+    "format": "  {text}  ",
+    "exec": "python3 ~/.config/waybar/scripts/spotify.py",
+    "on-click": "python3 ~/.config/waybar/scripts/spotify.py toggle",    
+    "on-click-right": "playerctl -p spotify next",
+    "on-click-middle": "playerctl -p spotify previous",
+    "interval": 1,
+    "return-type": "json"
   },
 
   "custom/weather": {
     "format": "{text}",
-    "exec": "~/.local/python/venv/bin/python3 ~/.config/waybar/scripts/weather.py",
+    "exec": "python3 ~/.config/waybar/scripts/weather.py",
+    "interval": 900,
+    "return-type": "json"
+  },
+
+  "custom/stocks": {
+    "format": "{}",
+    "exec": "python3 ~/.config/waybar/scripts/dailytrader.py",
     "interval": 300,
     "return-type": "json"
   },
 
-  "clock": {
-    "format": "  {:%H:%M}  ",
-    "format-alt": "  {:%H:%M %a %d}  ", // Changed from 12-hour to 24-hour time (e.g., 14:54 Tue 15)
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "tooltip": true // Explicitly enable tooltip to ensure calendar pops up on hover
-  },
-
-  "custom/volume_control": {
-    "format": "   {0}%%  ",
-    "exec": "python3 ~/.config/hypr/scripts/volume_control.py status",
-    "on-click": "python3 ~/.config/hypr/scripts/volume_control.py mute",
-    "on-scroll-up": "python3 ~/.config/hypr/scripts/volume_control.py increase 2",
-    "on-scroll-down": "python3 ~/.config/hypr/scripts/volume_control.py decrease 2"
-  },
-
-  "wlr/taskbar": {
-    "icon-size": 18,
-    "on-click": "activate",
-    "on-click-right": "minimize",
-    "format": "  {icon}  "
+  "custom/hyprclock": {
+    "format": "{0}",
+    "tooltip": false,
+    "exec": "hyprclock --waybar",
+    "return-type": "json",
+    "interval": 1
   },
 
   "pulseaudio": {
     "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-    "format": "   {volume}%%  ",
+    "format": "   {volume}%  ",
     "format-muted": "    ",
     "format-icons": {
       "headphone": "",
@@ -98,17 +78,17 @@
       "phone": "",
       "portable": "",
       "car": "",
-      "default": ["奔", "墳"]
+      "default": ["󱆶", "󰤽"]
     },
     "on-click-right": "pavucontrol"
   },
 
   "network": {
     "interval": 2,
-    "format-wifi": "",
-    "format-ethernet": "",
+    "format-wifi": " 󰖩 ",
+    "format-ethernet": " 󰈀 ",
     "format-linked": "{ifname} {essid}",
-    "format-disconnected": "",
+    "format-disconnected": "   ",
     "tooltip-format": "{ifname}: {ipaddr}/{cidr}\n {bandwidthDownBits}\n {bandwidthUpBits}",
     "on-click-right": "python3 ~/.config/waybar/scripts/show_public_ip.py",
     "class": {
@@ -119,13 +99,13 @@
   },
 
   "custom/cpu-usage": {
-    "format": "{text}",
+    "format": "󰻠 {text}",
     "exec": "python3 ~/.config/waybar/scripts/cpu_usage.py",
     "interval": 2
   },
 
   "custom/gpu-usage": {
-    "format": "{text}",
+    "format": " {text}",
     "exec": "python3 ~/.config/waybar/scripts/gpu_usage.py",
     "interval": 2
   },
@@ -133,6 +113,6 @@
   "custom/disk-usage": {
     "exec": "python3 ~/.config/waybar/scripts/diskusage.py",
     "interval": 600,
-    "format": "  {text}  "
+    "format": " {text}"
   }
 }
