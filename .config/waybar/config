@@ -1,7 +1,7 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 54,
+  "height": 58,
   "modules-left": ["custom/arch", "hyprland/workspaces"],
   "modules-center": ["custom/weather", "custom/hyprclock", "custom/stocks"],
   "modules-right": ["custom/spotify", "pulseaudio", "network", "custom/cpu-usage", "custom/gpu-usage", "custom/disk-usage"],

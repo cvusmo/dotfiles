@@ -1,4 +1,4 @@
-    /* General Waybar Styling */
+/* General Waybar Styling */
 * {
   border: none;
   font-family: 'Hurmit Nerd Font';
@@ -54,7 +54,7 @@
 
 /* Center Section */
 #custom-stocks, #custom-weather, #custom-hyprclock {
-  color: #F4E3C1;
+  color: #9280E8;
   border-radius: 10px;
   margin-top: 5px;
   margin-right: 5px;
@@ -69,25 +69,25 @@
 }
 
 #custom-stocks:hover {
-  color: #F4E3C1;
+  color: #9280E8;
   border: 2px solid #F4E3C1;
 }
 
 /* Tooltip Styling */
 tooltip {
-  background: #1C1B1A;
-  border: 2px solid #F4E3C1;
+  background: #9280E8;
+  border: 2px solid #1C1B1A;
   border-radius: 10px;
-  color: #F4E3C1;
+  color: #9280E8;
   padding: 5px 10px;
 }
 
 tooltip.stocks,
 tooltip.weather {
-  background: #1C1B1A;
-  border: 2px solid #F4E3C1;
+  background: #F4E3C1;
+  border: 2px solid #1C1B1A;
   border-radius: 10px;
-  color: #F4E3C1;
+  color: #9280E8;
   padding: 5px 10px;
 }
 
@@ -110,6 +110,7 @@ tooltip.weather {
 /* Pulseaudio Active State */
 #pulseaudio:active {
   color: #F6E8CD;
-  border: 2px solid #F4E3C1;
+  border: 2px solid #9280E8;
   background: #9280E8;
 }
+    

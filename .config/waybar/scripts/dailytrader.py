@@ -5,6 +5,7 @@ import json
 import os
 import re
 import sys
+from datetime import datetime
 
 # Load API KEY
 secrets_file = os.path.expanduser("~/.secrets")
@@ -24,61 +25,63 @@ except Exception as e:
     print(f"Error loading API key: {e}", file=sys.stderr)
     API_KEY = None
 
-# Stocks track
-symbols = ["LCID", "GNPX"]
+# Load stock list
+stocks_file = os.path.expanduser("~/.stocks")
+symbols = []
+try:
+    with open(stocks_file, "r") as f:
+        for line in f:
+            symbol = line.strip().upper()
+            if symbol and not symbol.startswith("#"):
+                symbols.append(symbol)
+except Exception as e:
+    print(f"Error loading stock list: {e}", file=sys.stderr)
+    symbols = ["LCID", "GNPX"]
 
 
 # Fetch from Finnhub
-def fetch_stock_data(symbols_list):
+def fetch_stock_data(symbol):
     if not API_KEY:
         print("No API key available", file=sys.stderr)
-        return {}
-    symbols_str = ",".join(symbols_list)
-    url = f"https://finnhub.io/api/v1/quote?symbol={symbols_str}&token={API_KEY}"
+        return None, None, None
+    url = f"https://finnhub.io/api/v1/quote?symbol={symbol}&token={API_KEY}"
     try:
         response = requests.get(url, params={"token": API_KEY})
-        response.raise_for_status()  # Raise error
+        response.raise_for_status()
         data = response.json()
-        if not isinstance(data, dict):
-            print(f"API error: Invalid response format", file=sys.stderr)
-            return {}
-        stock_dict = {}
-        for symbol in symbols_list:
-            if symbol in data:
-                quote = data[symbol]
-                current_price = quote.get("c")  # Current price
-                previous_close = quote.get("pc")  # Previous close
-                change = quote.get("d", 0)  # Day change
-                percent_change = quote.get("dp", 0)  # Day % change
-                if current_price is not None:
-                    stock_dict[symbol] = (current_price, change, percent_change)
-                else:
-                    print(f"No valid data for {symbol}", file=sys.stderr)
-            else:
-                print(f"No data for {symbol}", file=sys.stderr)
-        return stock_dict
+        if "error" in data:
+            print(f"API error for {symbol}: {data.get('error')}", file=sys.stderr)
+            return None, None, None
+        current_price = data.get("c")
+        change = data.get("d", 0)
+        percent_change = data.get("dp", 0)
+        if current_price is None or current_price == 0:
+            print(f"No valid data for {symbol}", file=sys.stderr)
+            return None, None, None
+        return current_price, change, percent_change
     except requests.exceptions.HTTPError as e:
         print(
-            f"HTTP error: {e.response.status_code} - {e.response.text}", file=sys.stderr
+            f"HTTP error for {symbol}: {e.response.status_code} - {e.response.text}",
+            file=sys.stderr,
         )
-        return {}
+        return None, None, None
     except Exception as e:
-        print(f"Error fetching data: {e}", file=sys.stderr)
-        return {}
+        print(f"Error fetching data for {symbol}: {e}", file=sys.stderr)
+        return None, None, None
 
 
-# Icons for gain/loss
-gain_icon = "󰔵"  # Green
-loss_icon = "󰔳"  # Red
-
-# Fetch data for all stocks in one call
-stock_info = fetch_stock_data(symbols)
-
-# Process data
+# Data
+gain_icon = "󰔵"
+loss_icon = "󰔳"
 stock_data = {}
+tooltip_lines = []
+
+last_checked = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+tooltip_lines.append(f"<b>Last checked: {last_checked}</b>\n")
+
 for symbol in symbols:
-    if symbol in stock_info:
-        price, change, pct = stock_info[symbol]
+    price, change, pct = fetch_stock_data(symbol)
+    if price is not None:
         formatted_pct = f"{pct:+.2f}%"
         if pct >= 0:
             color = "green"
@@ -86,22 +89,29 @@ for symbol in symbols:
         else:
             color = "red"
             icon = loss_icon
+
+        # Main bar text
         colored_part = f"<span foreground='{color}'>{icon} {formatted_pct}</span>"
         text = f"{symbol}: {colored_part}"
-        tooltip = (
-            f"{symbol} Price: ${price:.2f}\nChange: ${change:+.2f} ({formatted_pct})"
+
+        # Tooltip entry
+        tooltip_symbol = (
+            f"<b>{symbol}</b>\n"
+            f"Price: <span foreground='{color}'>${price:.2f}</span>\n"
+            f"Change: <span foreground='{color}'>{icon} {change:+.2f} ({formatted_pct})</span>"
         )
-        stock_data[symbol] = {"text": text, "tooltip": tooltip}
+
+        stock_data[symbol] = {"text": text, "tooltip": tooltip_symbol}
+        tooltip_lines.append(tooltip_symbol)
     else:
         stock_data[symbol] = {
             "text": f"{symbol}: N/A",
-            "tooltip": f"{symbol}: Data unavailable",
+            "tooltip": f"<b>{symbol}</b>\n<span foreground='gray'>Data unavailable</span>",
         }
+        tooltip_lines.append(stock_data[symbol]["tooltip"])
 
 combined_text = " | ".join([data["text"] for data in stock_data.values()])
-combined_tooltip = "\n".join(
-    [f"<b>{symbol}</b>\n{data['tooltip']}" for symbol, data in stock_data.items()]
-)
+combined_tooltip = "\n\n".join(tooltip_lines)
 
 out_data = {
     "text": combined_text,
