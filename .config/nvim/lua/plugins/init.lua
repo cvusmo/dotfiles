@@ -10,6 +10,7 @@ return {
   require("plugins.dressing"),
   require("plugins.formatter"),
   require("plugins.gitsigns"),
+  require("plugins.grok"),
   require("plugins.hlslens"),
   require("plugins.lualine"),
   require("plugins.lsp-config"),

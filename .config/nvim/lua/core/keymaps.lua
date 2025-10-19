@@ -24,6 +24,12 @@ map({ "n", "x" }, "<C-u>", "<C-u>", { desc = "Scroll half page up" })
 map("n", "]f", "zj", { desc = "Jump to next fold" })
 map("n", "[f", "zk", { desc = "Jump to previous fold" })
 
+-- Alt + Arrows = expand selection for quick copy/paste (works in insert & normal)
+map({ "n", "i" }, "<A-Left>", "<Esc>v<Left>", { noremap = true, silent = true, desc = "Select left" })
+map({ "n", "i" }, "<A-Right>", "<Esc>v<Right>", { noremap = true, silent = true, desc = "Select right" })
+map({ "n", "i" }, "<A-Up>", "<Esc>v<Up>", { noremap = true, silent = true, desc = "Select up" })
+map({ "n", "i" }, "<A-Down>", "<Esc>v<Down>", { noremap = true, silent = true, desc = "Select down" })
+
 -- Fold management
 map("n", "<leader>fc", "zf", { desc = "Create fold over motion" })
 map("v", "<leader>fc", "zf", { desc = "Create fold over selection" })
@@ -115,3 +121,10 @@ map("n", "C-S-o", function()
   vim.lsp.buf.execute_command({ command = "rust-analyzer.openDocs" })
 end, { desc = "Rust: Open external docs" })
 map("n", "C-S-h", vim.lsp.buf.signature_help, { desc = "Rust: Show signature help" })
+
+-- Formatting Markdown
+map("i", "<C-b>", "**``**<Left><Left><Left><Left>", {
+  noremap = true,
+  silent = true,
+  desc = "Insert Markdown inline code formatting and place cursor inside",
+})
