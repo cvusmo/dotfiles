@@ -1,3 +1,4 @@
+-- ~/.config/nvim/lua/plugins/formatter.lua
 return {
   "mhartington/formatter.nvim",
   config = function()

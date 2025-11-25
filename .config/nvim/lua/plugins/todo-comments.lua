@@ -12,13 +12,14 @@ return {
           FIXME = {
             icon = " ", -- Icon for FIX
             color = "error", -- Use error color
-            alt = { "FIX", "BUG", "FIXIT", "ISSUE" }, -- Alternative keywords
+            alt = { "FIX", "BUG", "FIXIT", "ISSUE", "Debug" }, -- Alternative keywords
           },
-          TODO = { icon = " ", color = "info" },
+          TODO = { icon = " ", color = "info", alt = { "Verify" } },
           HACK = { icon = " ", color = "warning" },
           WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
-          PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
-          NOTE = { icon = "󰎞 ", color = "hint", alt = { "INFO" } },
+          PERF = { icon = "󰁨 ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
+          NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
+          QUES = { icon = " ", color = "warning" },
         },
         merge_keywords = true, -- Merge with default keywords
         highlight = {
@@ -34,11 +35,11 @@ return {
           error = { "LspDiagnosticsDefaultError", "ErrorMsg", "#DC2626" },
           warning = { "LspDiagnosticsDefaultWarning", "WarningMsg", "#FBBF24" },
           info = { "LspDiagnosticsDefaultInformation", "#2563EB" },
-          hint = { "LspDiagnosticsDefaultHint", "#DC2626" },
+          hint = { "LspDiagnosticsDefaultHint", "#87B182" },
           default = { "Identifier", "#7C3AED" },
         },
         search = {
-          command = "rg", -- Use ripgrep
+          command = "rg",
           args = {
             "--color=never",
             "--no-heading",
@@ -46,7 +47,7 @@ return {
             "--line-number",
             "--column",
           },
-          pattern = [[\b(KEYWORDS):]], -- Match keyword followed by colon
+          pattern = [[\b(KEYWORDS):]],
         },
       })
     end,

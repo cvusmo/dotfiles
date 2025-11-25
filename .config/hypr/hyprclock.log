@@ -1,0 +1,16 @@
+[INFO] Logger successfully created: /home/echo/.config/hypr/hyprclock.log, logger:91
+[ERROR] Failed to load configuration: Config validation failed: ["Theme validation failed: Scale factor must be greater than 0 and no more than 1.0."], logger:107
+[INFO] Creating application..., logger:91
+[INFO] Running the application..., logger:91
+[INFO] Application activated..., logger:91
+[INFO] Building the main UI..., logger:91
+[INFO] Building UI..., logger:91
+[INFO] Creating application window..., logger:91
+[INFO] Window initialized with size 400x200, logger:91
+[INFO] Background color: #1C1B1A, logger:91
+[INFO] Font color: #F4E3C1, logger:91
+[INFO] Font size: 72, logger:91
+[INFO] Scale factor: 1, logger:91
+[INFO] Clock module initialized, logger:91
+[INFO] Calendar module initialized, logger:91
+[INFO] Window built successfully., logger:91

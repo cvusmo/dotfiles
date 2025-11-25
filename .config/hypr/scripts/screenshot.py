@@ -3,6 +3,7 @@
 import subprocess
 from datetime import datetime
 
+
 def main():
     # Get Date-Time Group (DTG)
     print("Getting DTG")
@@ -17,12 +18,14 @@ def main():
     try:
         subprocess.run(["grim", filename], check=True)
         print(f"Saved as {filename}")
-        
+
         # Send notification
-        subprocess.run(["notify-send", "Screenshot Taken", f"Saved as {filename}"], check=True)
+        subprocess.run(
+            ["notify-send", "Screenshot Taken", f"Saved as {filename}"], check=True
+        )
     except subprocess.CalledProcessError as e:
         print(f"Error taking screenshot: {e}")
 
+
 if __name__ == "__main__":
     main()
-

@@ -12,6 +12,7 @@ return {
   require("plugins.gitsigns"),
   require("plugins.grok"),
   require("plugins.hlslens"),
+  require("plugins.lazygit"),
   require("plugins.lualine"),
   require("plugins.lsp-config"),
   require("plugins.mini"),
@@ -23,5 +24,6 @@ return {
   require("plugins.telescope"),
   require("plugins.todo-comments"),
   require("plugins.treesitter"),
+  require("plugins.ufo"),
   require("plugins.which-key"),
 }

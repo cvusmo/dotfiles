@@ -1,28 +1,18 @@
+-- ~/.config/nvim/lua/plugins/grok.lua
+
 return {
   {
-    "https://git.cvusmo.dev/nicholasjordan/grok-nvim.git",
+    "acris-software/grok-nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
+    branch = "dev",
     config = function()
       require("grok").setup({
-        api_key = vim.env.GROK_KEY, -- Or load from ~/.secrets (see setup docs)
-        model = "grok-4-fast-reasoning", -- Valid current model; alternatives: grok-4-fast-non-reasoning, grok-3
+        model = "grok-3-mini",
         base_url = "https://api.x.ai/v1",
         temperature = 0.7,
-        max_tokens = 1024,
+        max_tokens = 256,
+        debug = true, -- Enable debug mode for logging
       })
     end,
-    -- Optional: Add keymaps (LazyVim style)
-    keys = {
-      {
-        "<leader>gg",
-        function()
-          require("grok").chat("Your prompt here")
-        end,
-        desc = "Grok Chat",
-      },
-      { "<leader>gg", ":Grok ", mode = "v", desc = "Grok Visual Selection" }, -- Customize to handle visual mode
-    },
-    -- Optional: Add commands
-    cmd = "Grok",
   },
 }

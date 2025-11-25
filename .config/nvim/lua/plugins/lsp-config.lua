@@ -15,7 +15,12 @@ return {
       "hrsh7th/cmp-nvim-lsp",
     },
     config = function()
-      local capabilities = require("cmp_nvim_lsp").default_capabilities()
+      local base_capabilities = require("cmp_nvim_lsp").default_capabilities()
+      -- Add explicit folding capabilities for nvim-ufo compatibility
+      base_capabilities.textDocument.foldingRange = {
+        dynamicRegistration = false,
+        lineFoldingOnly = true,
+      }
 
       local on_attach = function(client, bufnr)
         local opts = { noremap = true, silent = true, buffer = bufnr }
@@ -32,9 +37,9 @@ return {
 
       local servers = { "lua_ls", "clangd", "rust_analyzer" }
       for _, server_name in ipairs(servers) do
-        vim.lsp.config(server_name, {  -- New API: vim.lsp.config instead of require('lspconfig')[server_name].setup
+        vim.lsp.config(server_name, {
           on_attach = on_attach,
-          capabilities = capabilities,
+          capabilities = base_capabilities, -- Use the enhanced capabilities
         })
       end
     end,
